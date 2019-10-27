@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function () {
   return (
-    <div className="loader_block">
+    <div className="loader">
       Data is loading...
     </div>
   );

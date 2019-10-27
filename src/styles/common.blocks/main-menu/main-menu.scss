@@ -1,0 +1,8 @@
+.main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@import "__item/main-menu__item";
+@import "__link/main-menu__link";

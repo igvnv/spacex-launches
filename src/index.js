@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import './styles/main.scss';
 
@@ -20,9 +21,11 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
 }
 
 ReactDOM.render((
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

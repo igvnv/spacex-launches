@@ -1,0 +1,8 @@
+.loader {
+  animation: loader-animation_blinking .8s infinite alternate;
+}
+
+@keyframes loader-animation_blinking {
+  from { opacity: .5 }
+  to { opacity: 1 }
+}

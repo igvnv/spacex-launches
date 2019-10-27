@@ -1,8 +1,19 @@
-.loader_block {
-  animation: loader_block_blinking .8s infinite alternate;
+@import "typografy";
+
+@import "common.blocks/header-logo/header-logo";
+@import "common.blocks/loader/loader";
+@import "common.blocks/loader-error/loader-error";
+@import "common.blocks/main-menu/main-menu";
+@import "common.blocks/navigation/navigation";
+
+@media screen and (max-width: 600px) {
+  @import "mobile.blocks/header-logo/header-logo";
+  @import "mobile.blocks/main-menu/main-menu";
+  @import "mobile.blocks/navigation/navigation";
 }
 
-@keyframes loader_block_blinking {
-  from { opacity: .5 }
-  to { opacity: 1 }
+@media screen and (min-width: 800px) {
+  @import "desctop.blocks/header-logo/header-logo";
+  @import "desctop.blocks/header-main/header-main";
+  @import "desctop.blocks/navigation/navigation";
 }
