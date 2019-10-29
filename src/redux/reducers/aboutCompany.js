@@ -12,6 +12,7 @@ function aboutCompany(state = initialState, action) {
   switch (action.type) {
     case SET_ABOUT_COMPANY_FETCH_STATE:
       return Object.assign({}, state, {state: action.state});
+
     case RECEIVE_ABOUT_COMPANY_DATA:
       return Object.assign({}, state, {data: action.data});
 

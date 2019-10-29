@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../components/Loader/Loader';
 import LoadingError from '../components/LoadingError/LoadingError';
-import { LoadingStates } from '../redux/actions';
+import { LoadingStates } from '../redux/actions/';
 
 /**
  * HOC for `WrappedComponent` with loader function and loading status.

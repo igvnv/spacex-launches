@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import withLoader from './withLoader';
 import Loader from '../components/Loader/Loader';
 import LoadingError from '../components/LoadingError/LoadingError';
-import { LoadingStates } from '../redux/actions';
+import { LoadingStates } from '../redux/actions/';
 
 Enzyme.configure({adapter: new Adapter()});
 

@@ -1,10 +1,9 @@
-import reducer from './reducers/aboutCompany';
+import reducer from './aboutCompany';
 import {
   SET_ABOUT_COMPANY_FETCH_STATE,
   RECEIVE_ABOUT_COMPANY_DATA,
   LoadingStates
-} from './actions';
-
+} from '../actions';
 
 describe('aboutCompany reducers', () => {
   it('should return the initial state', () => {

@@ -1,10 +1,5 @@
 import 'cross-fetch/polyfill';
-
-export const LoadingStates = {
-  LOADING: 'LOADING',
-  ERROR: 'ERROR',
-  DONE: 'DONE'
-};
+import { LoadingStates } from './index';
 
 export const SET_ABOUT_COMPANY_FETCH_STATE = 'SET_ABOUT_COMPANY_FETCH_STATE';
 export function setAboutCompanyFetchState(loadingState) {

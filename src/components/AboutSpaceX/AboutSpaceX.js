@@ -2,7 +2,7 @@ import React from 'react';
 
 import { numberFormatter, priceFormatter } from '../../helpers/formatters';
 import withLoader from '../../hoc/withLoader';
-import { fetchAboutCompanyDataIfNeeded } from '../../redux/actions';
+import { fetchAboutCompanyDataIfNeeded } from '../../redux/actions/';
 
 export function ABoutSpaceX({data}) {
   if (!Object.keys(data).length) return null;
