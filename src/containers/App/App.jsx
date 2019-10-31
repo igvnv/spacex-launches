@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import Loader from '../Loader/Loader';
-import MainMenu from '../MainMenu';
+import Loader from '../../components/Loader/Loader';
+import MainMenu from '../../components/MainMenu/MainMenu';
 
 const AboutProject = lazy(() => import('../AboutProject/AboutProject'));
 const AboutSpaceX = lazy(() => import('../AboutSpaceX/AboutSpaceX'));
-
+const Launches = lazy(() => import('../Launches/Launches.jsx'));
 
 export default function () {
   return (
@@ -15,18 +15,23 @@ export default function () {
         <div className="header-logo">
           <h1>SpaceX launches</h1>
         </div>
-        <MainMenu/>
+        <MainMenu />
       </div>
 
       <Switch>
         <Route path="/about/company">
-          <Suspense fallback={<Loader/>}>
-            <AboutSpaceX/>
+          <Suspense fallback={<Loader />}>
+            <AboutSpaceX />
+          </Suspense>
+        </Route>
+        <Route path="/" exact>
+          <Suspense fallback={<Loader />}>
+            <Launches />
           </Suspense>
         </Route>
         <Route path="/about/project">
-          <Suspense fallback={<Loader/>}>
-            <AboutProject/>
+          <Suspense fallback={<Loader />}>
+            <AboutProject />
           </Suspense>
         </Route>
       </Switch>

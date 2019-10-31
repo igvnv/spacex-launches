@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../components/Loader/Loader';
 import LoadingError from '../components/LoadingError/LoadingError';
-import { LoadingStates } from '../redux/actions/';
+import { LoadingStates } from '../redux/actions';
 
 /**
  * HOC for `WrappedComponent` with loader function and loading status.
@@ -25,22 +25,28 @@ import { LoadingStates } from '../redux/actions/';
 function withLoader(WrappedComponent, mapStateToProps, mapDispatchToProps) {
   class WithLoader extends React.Component {
     componentDidMount() {
-      this.props.fetchMethod();
+      const { fetchMethod } = this.props;
+      fetchMethod();
     }
 
     render() {
-      switch (this.props.loadingState) {
+      const { loadingState } = this.props;
+
+      switch (loadingState) {
         case null:
         case LoadingStates.LOADING:
-          return <Loader/>;
+          return <Loader />;
         case LoadingStates.ERROR:
-          return <LoadingError/>;
+          return <LoadingError />;
         default:
-          return <WrappedComponent {...this.props}/>;
+          return <WrappedComponent {...this.props} />;
       }
     }
   }
 
+  WithLoader.defaultProps = {
+    loadingState: null,
+  };
   WithLoader.propTypes = {
     fetchMethod: PropTypes.func.isRequired,
     loadingState: PropTypes.string,

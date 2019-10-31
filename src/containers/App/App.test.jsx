@@ -3,9 +3,9 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from './App';
-import MainMenu from "../MainMenu";
+import MainMenu from '../../components/MainMenu/MainMenu';
 
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);

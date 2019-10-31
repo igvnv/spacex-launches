@@ -1,11 +1,15 @@
-import React from "react";
+import React from 'react';
 
 function AboutProject() {
   return (
     <div>
       <h2>About project</h2>
 
-      <p>The app is based on the <a href="https://docs.spacexdata.com/?version=latest">public API</a>.</p>
+      <p>
+        The app is based on the
+        <a href="https://docs.spacexdata.com/?version=latest">public API</a>
+        .
+      </p>
       <p><a href="https://github.com/igvnv/spacex-launches">Source code.</a></p>
 
       <h3>Goals</h3>

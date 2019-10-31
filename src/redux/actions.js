@@ -1,14 +1,15 @@
+/* eslint import/no-cycle: 0 */
 export const LoadingStates = {
   LOADING: 'LOADING',
   ERROR: 'ERROR',
-  DONE: 'DONE'
+  DONE: 'DONE',
 };
 
 export const LaunchesVisibilityFilter = {
   ALL: 'ALL',
   PAST: 'PAST',
-  FUTURE: 'FUTURE'
+  FUTURE: 'FUTURE',
 };
 
-export * from './aboutСompany';
-export * from './launches';
+export * from './actions/aboutСompany';
+export * from './actions/launches';

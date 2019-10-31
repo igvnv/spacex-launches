@@ -1,29 +1,30 @@
+/* eslint import/no-cycle: 0 */
 import 'cross-fetch/polyfill';
-import { LoadingStates } from './index';
+import { LoadingStates } from '../actions';
 
 export const SET_ABOUT_COMPANY_FETCH_STATE = 'SET_ABOUT_COMPANY_FETCH_STATE';
 export function setAboutCompanyFetchState(loadingState) {
   return {
     type: SET_ABOUT_COMPANY_FETCH_STATE,
-    state: loadingState
-  }
+    state: loadingState,
+  };
 }
 
 export const RECEIVE_ABOUT_COMPANY_DATA = 'RECEIVE_ABOUT_COMPANY_DATA';
 export function receiveAboutCompanyData(data) {
   return {
     type: RECEIVE_ABOUT_COMPANY_DATA,
-    data
-  }
+    data,
+  };
 }
 
 export function fetchAboutCompanyData() {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(setAboutCompanyFetchState(LoadingStates.LOADING));
 
     return fetch('https://api.spacexdata.com/v3/info')
       .then(
-        response => {
+        (response) => {
           if (response.status !== 200) {
             console.error(response);
             dispatch(setAboutCompanyFetchState(LoadingStates.ERROR));
@@ -31,18 +32,18 @@ export function fetchAboutCompanyData() {
           }
           return response.json();
         },
-        error => {
+        (error) => {
           console.error(error);
           dispatch(setAboutCompanyFetchState(LoadingStates.ERROR));
-        }
+        },
       )
-      .then(json => {
+      .then((json) => {
         if (json) {
           dispatch(setAboutCompanyFetchState(LoadingStates.DONE));
           dispatch(receiveAboutCompanyData(json));
         }
       });
-  }
+  };
 }
 
 export function fetchAboutCompanyDataIfNeeded() {
@@ -50,5 +51,6 @@ export function fetchAboutCompanyDataIfNeeded() {
     if (!getState().aboutCompany.state) {
       return dispatch(fetchAboutCompanyData());
     }
-  }
+    return null;
+  };
 }
