@@ -9,7 +9,7 @@ describe('aboutCompany reducers', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       state: null,
-      data: {},
+      data: null,
     });
   });
 

@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   state: null,
-  data: {},
+  data: null,
 };
 
 function aboutCompany(state = initialState, action) {

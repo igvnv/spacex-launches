@@ -7,7 +7,7 @@ import { fetchAboutCompanyDataIfNeeded } from '../../redux/actions';
 
 /* eslint camelcase: 0 */
 export function AboutSpaceX({ data }) {
-  if (!Object.keys(data).length) return null;
+  if (!data) return null;
 
   const {
     name, founder, founded, employees, vehicles, launch_sites, test_sites, ceo, cto, coo,
@@ -67,6 +67,10 @@ export function AboutSpaceX({ data }) {
     </div>
   );
 }
+AboutSpaceX.defaultProps = {
+  data: null,
+};
+
 AboutSpaceX.propTypes = {
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -87,7 +91,7 @@ AboutSpaceX.propTypes = {
       state: PropTypes.string.isRequired,
     }).isRequired,
     summary: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({
