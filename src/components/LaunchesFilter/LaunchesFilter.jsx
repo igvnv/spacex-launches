@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { LaunchesTimeline } from '../../redux/actions';
-import TimelineFilterButton from './TimelineFilterButton/TimelineFilterButton';
-import FilterByYear from './FilterByYear/FilterByYear';
-import FilterByRocket from './FilterByRocket/FilterByRocket';
-import FilterBySuccess from './FilterBySuccess/FilterBySuccess';
+import TimelineFilterButton from './TimelineFilterButton';
+import FilterByYear from './FilterByYear';
+import FilterByRocket from './FilterByRocket';
+import FilterBySuccess from './FilterBySuccess';
 
 export default function () {
   const [displayAdditionFilters, toggleAdditionalFilters] = useState(true);

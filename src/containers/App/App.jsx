@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Loader from '../../components/Loader/Loader';
-import MainMenu from '../../components/MainMenu/MainMenu';
+import Loader from '../../components/Loader';
+import MainMenu from '../../components/MainMenu';
 
-const AboutProject = lazy(() => import('../AboutProject/AboutProject'));
-const AboutSpaceX = lazy(() => import('../AboutSpaceX/AboutSpaceX'));
-const Launches = lazy(() => import('../Launches/Launches.jsx'));
+const AboutProject = lazy(() => import('../AboutProject'));
+const AboutSpaceX = lazy(() => import('../AboutSpaceX'));
+const Launches = lazy(() => import('../Launches'));
 
 export default function () {
   return (

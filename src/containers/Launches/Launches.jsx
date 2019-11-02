@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import withLoader from '../../hoc/withLoader';
 import { fetchLaunchesIfNeeded } from '../../redux/actions';
 import { filterLaunches } from '../../redux/reducers/launches';
-import LaunchData from '../../components/LaunchData/LaunchData';
-import LaunchesFilter from '../../components/LaunchesFilter/LaunchesFilter';
+import LaunchData from '../../components/LaunchData';
+import LaunchesFilter from '../../components/LaunchesFilter';
 import NoLaunchesFound from './NoLaunchesFound';
 
 export function Launches({ launches }) {
