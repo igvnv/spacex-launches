@@ -31,13 +31,43 @@ describe('Launches Actions test', () => {
       .toEqual(expectedAction);
   });
 
-  test('setLaunchesVisibilityFilter action', () => {
+  test('setLaunchesTimeline action', () => {
     const expectedAction = {
-      type: actions.SET_LAUNCHES_VISIBILITY_FILTER,
-      visibilityFilter: actions.LaunchesVisibilityFilter.FUTURE,
+      type: actions.SET_LAUNCHES_TIMELINE,
+      timeline: actions.LaunchesTimeline.FUTURE,
     };
 
-    expect(actions.setLaunchesVisibilityFilter(actions.LaunchesVisibilityFilter.FUTURE))
+    expect(actions.setLaunchesTimeline(actions.LaunchesTimeline.FUTURE))
+      .toEqual(expectedAction);
+  });
+
+  test('setLaunchesFilterByYear action', () => {
+    const expectedAction = {
+      type: actions.SET_LAUNCHES_FILTER_BY_YEAR,
+      year: 2020,
+    };
+
+    expect(actions.setLaunchesFilterByYear(2020))
+      .toEqual(expectedAction);
+  });
+
+  test('setLaunchesFilterByRocketId action', () => {
+    const expectedAction = {
+      type: actions.SET_LAUNCHES_FILTER_BY_ROCKET_ID,
+      rocketId: 'falcon1',
+    };
+
+    expect(actions.setLaunchesFilterByRocketId('falcon1'))
+      .toEqual(expectedAction);
+  });
+
+  test('setLaunchesFilterBySuccess action', () => {
+    const expectedAction = {
+      type: actions.SET_LAUNCHES_FILTER_BY_SUCCESS,
+      success: true,
+    };
+
+    expect(actions.setLaunchesFilterBySuccess(true))
       .toEqual(expectedAction);
   });
 

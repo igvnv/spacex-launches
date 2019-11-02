@@ -5,11 +5,5 @@ export const LoadingStates = {
   DONE: 'DONE',
 };
 
-export const LaunchesVisibilityFilter = {
-  ALL: 'ALL',
-  PAST: 'PAST',
-  FUTURE: 'FUTURE',
-};
-
 export * from './actions/aboutСompany';
 export * from './actions/launches';

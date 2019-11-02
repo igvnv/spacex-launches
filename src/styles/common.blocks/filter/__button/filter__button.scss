@@ -1,0 +1,9 @@
+.filter__button {
+  border-radius: .8em;
+  cursor: pointer;
+  font-size: .8em;
+  height: 1.6em;
+  margin: 0 2px;
+}
+
+@import "_active/filter__button_active";

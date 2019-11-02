@@ -1,21 +1,54 @@
-import React from 'react';
-import { LaunchesVisibilityFilter } from '../../redux/actions';
-import VisibilityFilterButton from './VisibilityFilterButton';
+import React, { useState } from 'react';
+
+import { LaunchesTimeline } from '../../redux/actions';
+import TimelineFilterButton from './TimelineFilterButton/TimelineFilterButton';
+import FilterByYear from './FilterByYear/FilterByYear';
+import FilterByRocket from './FilterByRocket/FilterByRocket';
+import FilterBySuccess from './FilterBySuccess/FilterBySuccess';
 
 export default function () {
+  const [displayAdditionFilters, toggleAdditionalFilters] = useState(true);
+
   return (
-    <div>
+    <div className="launches-filter">
       <div className="button-group">
-        <VisibilityFilterButton filter={LaunchesVisibilityFilter.PAST}>
+        <TimelineFilterButton timeline={LaunchesTimeline.PAST}>
           Past launches
-        </VisibilityFilterButton>
-        <VisibilityFilterButton filter={LaunchesVisibilityFilter.ALL}>
+        </TimelineFilterButton>
+        <TimelineFilterButton timeline={LaunchesTimeline.ALL}>
           All launches
-        </VisibilityFilterButton>
-        <VisibilityFilterButton filter={LaunchesVisibilityFilter.FUTURE}>
+        </TimelineFilterButton>
+        <TimelineFilterButton timeline={LaunchesTimeline.FUTURE}>
           Future launches
-        </VisibilityFilterButton>
+        </TimelineFilterButton>
       </div>
+
+      {!displayAdditionFilters && (
+        <button
+          type="button"
+          onClick={() => toggleAdditionalFilters(!displayAdditionFilters)}
+          className="launches-filter__show-additional-filters"
+        >
+          More filters!
+        </button>
+      )}
+      {displayAdditionFilters && (
+        <fieldset className="launches-filter__additional-filters additional-filters">
+          <legend>Additional filters</legend>
+
+          <FilterByYear />
+          <FilterByRocket />
+          <FilterBySuccess />
+
+          <button
+            type="button"
+            className="additional-filters__button-hide"
+            onClick={() => toggleAdditionalFilters(!displayAdditionFilters)}
+          >
+            Less filters
+          </button>
+        </fieldset>
+      )}
     </div>
   );
 }
