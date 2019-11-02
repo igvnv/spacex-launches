@@ -7,6 +7,7 @@ function AboutProject() {
 
       <p>
         The app is based on the
+        {' '}
         <a href="https://docs.spacexdata.com/?version=latest">public API</a>
         .
       </p>
