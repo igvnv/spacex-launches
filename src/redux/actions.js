@@ -7,3 +7,4 @@ export const LoadingStates = {
 
 export * from './actions/aboutСompany';
 export * from './actions/launches';
+export * from './actions/rockets';

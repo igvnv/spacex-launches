@@ -1,0 +1,12 @@
+.tooltip {
+  border: 1px dashed #cdcdcd;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+
+  &:hover {
+    .tooltip-popup {
+      display: block;
+    }
+  }
+}

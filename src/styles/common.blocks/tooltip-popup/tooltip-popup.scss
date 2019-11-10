@@ -1,0 +1,28 @@
+.tooltip-popup {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, .2);
+  padding: 15px;
+  top: 50%;
+  left: 100%;
+  margin-left: 10px;
+  transform: translateY(-50%);
+
+  &::after, &::before {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-right-color: #fff;
+    left: -20px;
+    top: 50%;
+    margin-top: -10px;
+  }
+
+  &::before {
+    border-right-color: gray;
+    margin-left: -1px;
+  }
+}

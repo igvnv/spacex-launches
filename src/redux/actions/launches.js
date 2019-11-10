@@ -76,8 +76,8 @@ export function fetchLaunches() {
       )
       .then((json) => {
         if (json) {
-          dispatch(setLaunchesFetchState(LoadingStates.DONE));
           dispatch(receiveLaunchesData(json));
+          dispatch(setLaunchesFetchState(LoadingStates.DONE));
         }
       });
   };

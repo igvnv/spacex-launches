@@ -39,8 +39,8 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.DONE },
       { type: actions.RECEIVE_ABOUT_COMPANY_DATA, data: { name: 'name', founder: 'founder', founded: 2002 } },
+      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.DONE },
     ];
 
     const store = mockStore({ aboutCompany: { data: {}, state: null } });
@@ -72,8 +72,8 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.DONE },
       { type: actions.RECEIVE_ABOUT_COMPANY_DATA, data: { name: 'name', founder: 'founder', founded: 2002 } },
+      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.DONE },
     ];
 
     const store = mockStore({ aboutCompany: { data: {}, state: null } });

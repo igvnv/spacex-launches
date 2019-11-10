@@ -7,6 +7,8 @@
 @import "common.blocks/loader-error/loader-error";
 @import "common.blocks/main-menu/main-menu";
 @import "common.blocks/navigation/navigation";
+@import "common.blocks/tooltip/tooltip";
+@import "common.blocks/tooltip-popup/tooltip-popup";
 
 @media screen and (max-width: 600px) {
   @import "mobile.blocks/header-logo/header-logo";

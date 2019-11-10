@@ -81,8 +81,8 @@ describe('Launches Actions test', () => {
 
     const expectedActions = [
       { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
       { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
+      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
     ];
 
     const store = mockStore({ launches: { data: {}, state: null } });
@@ -116,8 +116,8 @@ describe('Launches Actions test', () => {
 
     const expectedActions = [
       { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
       { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
+      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
     ];
 
     const store = mockStore({ launches: { data: {}, state: null } });

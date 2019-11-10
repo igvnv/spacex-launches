@@ -17,7 +17,19 @@ function LaunchData({
         {launch_success !== null && <dd>{launch_success ? 'Yes' : 'No'}</dd>}
 
         <dt>Rocket</dt>
-        <dd>{rocket.rocket_name}</dd>
+        <dd>
+          <span className="tooltip">
+            {rocket.rocket_name}
+            <span className="tooltip-popup">
+              <p>
+                There will be short info about
+                {' '}
+                {rocket.rocket_name}
+              </p>
+              <p>TODO: Create a HOC for tooltipses</p>
+            </span>
+          </span>
+        </dd>
 
         <dt>Launch from</dt>
         <dd>{launch_site.site_name}</dd>

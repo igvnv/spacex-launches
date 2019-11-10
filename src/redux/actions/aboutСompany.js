@@ -39,8 +39,8 @@ export function fetchAboutCompanyData() {
       )
       .then((json) => {
         if (json) {
-          dispatch(setAboutCompanyFetchState(LoadingStates.DONE));
           dispatch(receiveAboutCompanyData(json));
+          dispatch(setAboutCompanyFetchState(LoadingStates.DONE));
         }
       });
   };

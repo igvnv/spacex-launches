@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 const CatalogNavigation = ({ categories }) => (
   <ul className="main-menu">
     {categories.map((category) => (
-      <li className="main-menu__item" key={category.id}>
+      <li className="main-menu__item" key={category.path}>
         <NavLink
-          to={category.id}
+          to={`/catalog/${category.path}`}
           className="main-menu__link"
           activeClassName="main-menu__link_active"
         >
