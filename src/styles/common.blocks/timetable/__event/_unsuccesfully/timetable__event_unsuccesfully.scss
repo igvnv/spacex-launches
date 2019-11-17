@@ -1,0 +1,28 @@
+.timetable__event_unsuccesfully {
+  box-shadow: 0 0 5px rgba(255, 0, 0, .5);
+  position: relative;
+  transition: box-shadow .2s;
+
+  &::before, &::after {
+    background: #cc0000;
+    content: '';
+    height: 2px;
+    left: -3px;
+    position: absolute;
+    top: 9px;
+    transform: rotate(45deg);
+    width: 26px;
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px #ff0000;
+
+    &::before, &::after {
+      display: none;
+    }
+  }
+}

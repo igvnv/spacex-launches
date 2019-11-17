@@ -1,0 +1,33 @@
+@import '../../config';
+
+.launch-data-short {
+  animation: launch-data-short-appearance .2s;
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  display: none;
+  margin-top: -15px;
+  max-width: calc(100% - #{$content-gap * 2});
+  position: absolute;
+  width: 450px;
+  z-index: 5;
+}
+
+@keyframes launch-data-short-appearance {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@import './_visible/launch-data-short_visible';
+
+@import './__arrow/launch-data-short__arrow';
+@import './__body/launch-data-short__body';
+@import './__close/launch-data-short__close';
+@import './__failure-details/launch-data-short__failure-details';
+@import './__show-full/launch-data-short__show-full';
+@import './__title/launch-data-short__title';

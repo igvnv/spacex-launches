@@ -1,0 +1,11 @@
+.timetable__month {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3px;
+  padding-top: 30px;
+  position: relative;
+}
+
+@import './_current/timetable__month_current';

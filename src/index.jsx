@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
 }
 
 ReactDOM.render((
-  <Router>
+  <Router basename="/spacex-launches">
     <Provider store={store}>
       <App />
     </Provider>

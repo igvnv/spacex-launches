@@ -1,0 +1,17 @@
+.timetable__event {
+  background: #fff;
+  border: 2px solid gray;
+  border-radius: 12px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  margin: 1px 0;
+  text-align: center;
+  width: 20px;
+}
+
+@import './_unsuccesfully/timetable__event_unsuccesfully';
+@import './_upcoming/timetable__event_upcoming';

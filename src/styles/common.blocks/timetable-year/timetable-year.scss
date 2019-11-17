@@ -1,0 +1,12 @@
+@import '../../config';
+
+.timetable-year {
+  display: grid;
+  flex-shrink: 0;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  width: $timetable-month-width * 12;
+}
+
+@import './__label/timetable-year__label.scss';
+@import './_odd/timetable-year_odd.scss';

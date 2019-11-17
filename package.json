@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "author": "Roman Petrov <rpetrov.ru@gmail.com>",
+  "homepage": "https://rpetrov.ru/spacex-launches/",
   "repository": {
     "type": "git",
     "url": "https://github.com/igvnv/spacex-launches.git"
@@ -10,6 +11,7 @@
   "dependencies": {
     "babel-eslint": "^10.0.3",
     "cross-fetch": "^3.0.4",
+    "keycode-js": "^2.0.3",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",

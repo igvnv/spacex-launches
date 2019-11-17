@@ -1,0 +1,30 @@
+.launch-data-short__close {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 16px;
+  line-height: 16px;
+  overflow: hidden;
+  position: absolute;
+  right: 5px;
+  text-align: center;
+  text-indent: -10em;
+  top: 5px;
+  width: 16px;
+
+  &::before, &::after {
+    background: gray;
+    content: '';
+    height: 2px;
+    left: 2px;
+    position: absolute;
+    top: 7px;
+    transform: rotate(45deg);
+    width: 12px;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}

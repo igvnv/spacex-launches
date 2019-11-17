@@ -1,0 +1,7 @@
+.launch-data-short__body {
+  $inner-offset: 10px;
+
+  height: calc(100% - #{$inner-offset * 2});
+  margin: $inner-offset;
+  overflow: scroll;
+}

@@ -1,0 +1,30 @@
+.launch-data-short__show-full {
+  background: silver;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  height: 20px;
+  left: -10px;
+  margin-top: -10px;
+  position: absolute;
+  top: 50%;
+  width: 20px;
+
+  &::before, &::after {
+    background: #000;
+    content: '';
+    height: 8px;
+    left: 9px;
+    position: absolute;
+    top: 8px;
+    transform: rotate(45deg);
+    width: 3px;
+  }
+
+  &::after {
+    top: 4px;
+    transform: rotate(-45deg);
+  }
+}
+
+@import './_left/launch-data-short__show-full_left.scss';

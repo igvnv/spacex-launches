@@ -1,0 +1,14 @@
+@import '../../../config';
+
+.timetable__month-name {
+  bottom: -20px;
+  height: 20px;
+  left: 50%;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  width: $timetable-month-width;
+}
+
+@import './_current/timetable__month-name_current';

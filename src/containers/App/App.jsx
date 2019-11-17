@@ -11,7 +11,7 @@ const Launches = lazy(() => import('../Launches'));
 
 export default function () {
   return (
-    <div>
+    <div className="app-wrapper">
       <div className="header-main">
         <div className="header-logo">
           <h1>SpaceX launches</h1>

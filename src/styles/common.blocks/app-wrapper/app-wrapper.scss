@@ -1,0 +1,8 @@
+@import '../../config';
+
+.app-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  padding: $content-gap;
+  position: relative;
+}

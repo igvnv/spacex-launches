@@ -1,0 +1,15 @@
+@import '../../config';
+
+.timetable {
+  align-items: stretch;
+  display: flex;
+  margin: 0 -$content-gap;
+  overflow-x: auto;
+  overflow-y: initial;
+  padding: 20px $content-gap 40px;
+  position: relative;
+}
+
+@import './__event/timetable__event';
+@import './__month/timetable__month';
+@import './__month-name/timetable__month-name';

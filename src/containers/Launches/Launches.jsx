@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import withLoader from '../../hoc/withLoader';
 import { fetchLaunchesIfNeeded } from '../../redux/actions';
 import { filterLaunches } from '../../redux/reducers/launches';
-import LaunchData from '../../components/LaunchData';
 import LaunchesFilter from '../../components/LaunchesFilter';
-import NoLaunchesFound from './NoLaunchesFound';
+import NoLaunchesFound from '../../components/NoLaunchesFound/NoLaunchesFound';
+import LaunchesTimetable from '../../components/LaunchesTimetable';
 
 export function Launches({ launches }) {
   return (
@@ -14,9 +14,7 @@ export function Launches({ launches }) {
       <LaunchesFilter />
 
       {launches.length === 0 && <NoLaunchesFound />}
-      {launches.map((launch) => (
-        <LaunchData key={`${launch.launch_date_unix}-${launch.flight_number}`} {...launch} />
-      ))}
+      {launches.length > 0 && <LaunchesTimetable launches={launches} />}
     </div>
   );
 }
