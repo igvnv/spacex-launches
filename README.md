@@ -2,17 +2,20 @@
 
 The app is based on the [public API](https://docs.spacexdata.com/?version=latest).
 
-Demo: *not available yet*
+Demo: [https://rpetrov.ru/spacex-launches/](https://rpetrov.ru/spacex-launches/)
 
 ## Goals
+
 - Learning React
 - Learning Redux
 
 ## Secondary goals
+
 - Creating a fancy responsible interface
 - Having fun!
 
 ## Roadmap
+
 - Launches history
 - About company (short info + history). History is an event list from API.
 - Catalog
