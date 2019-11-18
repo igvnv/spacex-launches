@@ -1,0 +1,7 @@
+.modal__body {
+  $gap: 20px;
+
+  height: calc(100% - #{$gap * 2});
+  margin: $gap;
+  overflow: auto;
+}

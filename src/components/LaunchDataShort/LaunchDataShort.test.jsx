@@ -5,6 +5,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import LaunchDataShort from './LaunchDataShort';
 import { successfulLaunch, unsuccessfulLaunch } from '../../../__tests__/helpers/launches';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(),
+}));
+
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('LaunchDataShort', () => {

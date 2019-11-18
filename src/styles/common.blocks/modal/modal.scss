@@ -1,0 +1,15 @@
+.modal {
+  $gap: 10px;
+
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  height: calc(100vh - #{$gap * 2});
+  left: $gap;
+  position: fixed;
+  top: $gap;
+  width: calc(100vw - #{$gap * 2});
+  z-index: 21;
+}
+
+@import './__body/modal__body.scss';
+@import './__close-button/modal__close-button';

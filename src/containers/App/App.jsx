@@ -1,15 +1,20 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 import Loader from '../../components/Loader';
 import MainMenu from '../../components/MainMenu';
+import Modal from '../../components/Modal';
 
 const AboutProject = lazy(() => import('../AboutProject'));
 const AboutSpaceX = lazy(() => import('../AboutSpaceX'));
 const Catalog = lazy(() => import('../Catalog'));
 const Launches = lazy(() => import('../Launches'));
+const RocketInfo = lazy(() => import('../RocketInfo'));
 
 export default function () {
+  const location = useLocation();
+  const background = location && location.state && location.state.background;
+
   return (
     <div className="app-wrapper">
       <div className="header-main">
@@ -19,7 +24,7 @@ export default function () {
         <MainMenu />
       </div>
 
-      <Switch>
+      <Switch location={background || location}>
         <Route path="/about/company">
           <Suspense fallback={<Loader />}>
             <AboutSpaceX />
@@ -42,6 +47,16 @@ export default function () {
         </Route>
         { /* TODO: Add 404 */ }
       </Switch>
+
+      {background && (
+        <Route path="/catalog/rockets/:rocketId">
+          <Modal>
+            <Suspense fallback={<Loader />}>
+              <RocketInfo />
+            </Suspense>
+          </Modal>
+        </Route>
+      )}
     </div>
   );
 }

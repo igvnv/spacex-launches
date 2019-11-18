@@ -1,0 +1,29 @@
+.modal__close-button {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 32px;
+  overflow: hidden;
+  position: absolute;
+  right: 5px;
+  text-align: center;
+  text-indent: -10em;
+  top: 5px;
+  width: 32px;
+
+  &::before, &::after {
+    background: gray;
+    content: '';
+    height: 2px;
+    left: 3px;
+    position: absolute;
+    top: 14px;
+    transform: rotate(45deg);
+    width: 24px;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}

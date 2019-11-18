@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link, useLocation } from 'react-router-dom';
 
 import { fullDateFormatter } from '../../helpers/formatters';
 
 const LaunchDataShort = ({ launch }) => {
+  const location = useLocation();
+
   if (!launch) return null;
 
   return (
@@ -19,7 +22,14 @@ const LaunchDataShort = ({ launch }) => {
       <p>
         Rocket:
         {' '}
-        {launch.rocket.rocket_name}
+        <Link
+          to={{
+            pathname: `/catalog/rockets/${launch.rocket.rocket_id}`,
+            state: { background: location },
+          }}
+        >
+          {launch.rocket.rocket_name}
+        </Link>
       </p>
       <p>
         {fullDateFormatter.format(new Date(launch.launch_date_utc))}
