@@ -5,6 +5,7 @@ export const LoadingStates = {
   DONE: 'DONE',
 };
 
-export * from './actions/aboutСompany';
+export * from './actions/aboutCompany';
+export * from './actions/dragons';
 export * from './actions/launches';
 export * from './actions/rockets';

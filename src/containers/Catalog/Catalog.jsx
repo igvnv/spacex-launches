@@ -9,6 +9,8 @@ import {
 import CatalogNavigation from '../../components/CatalogNavigation';
 import Rockets from '../../components/Rockets';
 import RocketInfo from '../RocketInfo';
+import Dragons from '../../components/Dragons';
+import DragonInfo from '../DragonInfo';
 
 const UnderConstruction = () => <h3>Category is under construction</h3>;
 
@@ -26,8 +28,8 @@ const Catalog = () => {
       path: 'dragons',
       pathItem: 'dragons/:dragonId',
       name: 'Dragons',
-      componentList: UnderConstruction,
-      componentItem: UnderConstruction,
+      componentList: Dragons,
+      componentItem: DragonInfo,
     },
     {
       path: 'ships',
@@ -57,9 +59,6 @@ const Catalog = () => {
       <CatalogNavigation categories={categories} />
 
       <Switch>
-        <Route exact path={`${path}/rockets`} component={Rockets} />
-        <Route path={`${path}/rockets/:rocketId`} component={RocketInfo} />
-
         {categories.map((category) => (
           <Route
             exact
