@@ -15,8 +15,8 @@ import Ships from '../../components/Ships';
 import ShipInfo from '../ShipInfo';
 import LaunchPads from '../../components/LaunchPads';
 import LaunchPadInfo from '../LaunchPadInfo';
-
-const UnderConstruction = () => <h3>Category is under construction</h3>;
+import LandingPads from '../../components/LandingPads';
+import LandingPadInfo from '../LandingPadInfo';
 
 const Catalog = () => {
   const { path } = useRouteMatch();
@@ -53,8 +53,8 @@ const Catalog = () => {
       path: 'landing_pads',
       pathItem: 'landing_pads/:landingPadId',
       name: 'Landing pads',
-      componentList: UnderConstruction,
-      componentItem: UnderConstruction,
+      componentList: LandingPads,
+      componentItem: LandingPadInfo,
     },
   ];
 
