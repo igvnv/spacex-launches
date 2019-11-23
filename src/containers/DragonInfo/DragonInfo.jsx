@@ -12,7 +12,7 @@ export const DragonInfoContainer = () => {
 
 const mapStateToProps = (state) => ({
   loadingState: state.dragons.state,
-  rockets: state.dragons.data,
+  dragons: state.dragons.data,
 });
 
 export default withLoader(

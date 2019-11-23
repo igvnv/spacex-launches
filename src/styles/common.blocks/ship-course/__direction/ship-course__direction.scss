@@ -1,0 +1,19 @@
+.ship-course__direction {
+  background: #000;
+  height: 1.6em;
+  left: 50%;
+  margin: -.8em 0 0 -1px;
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  z-index: 2;
+
+  &::before {
+    border: 6px solid transparent;
+    border-bottom-color: #000;
+    content: '';
+    left: -5px;
+    position: absolute;
+    top: -10px;
+  }
+}

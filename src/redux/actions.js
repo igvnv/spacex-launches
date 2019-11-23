@@ -9,3 +9,4 @@ export * from './actions/aboutCompany';
 export * from './actions/dragons';
 export * from './actions/launches';
 export * from './actions/rockets';
+export * from './actions/ships';

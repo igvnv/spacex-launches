@@ -1,0 +1,16 @@
+.ship-course {
+  border: 1px solid gray;
+  border-radius: .5em;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1em;
+  margin: 0 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 1em;
+  z-index: 1;
+}
+
+@import './__direction/ship-course__direction';
+@import './__speed/ship-course__speed';

@@ -11,6 +11,8 @@ import Rockets from '../../components/Rockets';
 import RocketInfo from '../RocketInfo';
 import Dragons from '../../components/Dragons';
 import DragonInfo from '../DragonInfo';
+import Ships from '../../components/Ships';
+import ShipInfo from '../ShipInfo';
 
 const UnderConstruction = () => <h3>Category is under construction</h3>;
 
@@ -34,9 +36,9 @@ const Catalog = () => {
     {
       path: 'ships',
       pathItem: 'ships/:shipId',
-      name: 'Sea ships',
-      componentList: UnderConstruction,
-      componentItem: UnderConstruction,
+      name: 'Ships',
+      componentList: Ships,
+      componentItem: ShipInfo,
     },
     {
       path: 'launch_pads',
