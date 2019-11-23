@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import TimetableYear from './TimetableYear';
-import launchesList, { unsuccessfulLaunch, upcomingLaunch } from '../../../__tests__/helpers/launches';
+import launchesList, { unsuccessfulLaunch, upcomingLaunch } from '../../../__tests__/data/launches';
 
 Enzyme.configure({ adapter: new Adapter() });
 

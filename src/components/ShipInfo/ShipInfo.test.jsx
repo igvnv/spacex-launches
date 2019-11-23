@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { ShipInfo } from './ShipInfo';
-import shipsData from '../../../__tests__/helpers/ships';
+import shipsData from '../../../__tests__/data/ships';
 
 Enzyme.configure({ adapter: new Adapter() });
 

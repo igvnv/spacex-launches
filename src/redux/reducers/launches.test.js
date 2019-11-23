@@ -9,6 +9,7 @@ import {
   SET_LAUNCHES_FILTER_BY_YEAR,
   SET_LAUNCHES_TIMELINE,
 } from '../actions';
+import launchesList from '../../../__tests__/data/launches';
 
 describe('launches reducers', () => {
   it('should return the initial state', () => {
@@ -73,8 +74,6 @@ describe('launches reducers', () => {
   });
 
   it('should handle RECEIVE_LAUNCHES_DATA', () => {
-    const launchesList = [{ flight_number: 1 }, { flight_number: 2 }];
-
     expect(reducer(
       { launches: null },
       {

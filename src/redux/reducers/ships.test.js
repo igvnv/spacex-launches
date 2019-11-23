@@ -4,7 +4,7 @@ import {
   RECEIVE_SHIPS_DATA,
   LoadingStates,
 } from '../actions';
-import shipsList from '../../../__tests__/helpers/ships';
+import shipsList from '../../../__tests__/data/ships';
 
 describe('ships reducers', () => {
   it('should return the initial state', () => {

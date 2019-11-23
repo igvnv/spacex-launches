@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as actions from '../actions';
+import rocketsList from '../../../__tests__/data/rockets';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -32,8 +33,6 @@ describe('Rockets Actions test', () => {
   });
 
   test('fetchRockets action', async () => {
-    const rocketsList = [{ rocket_id: 'falcon1' }, { rocket_id: 'falcon9' }];
-
     fetchMock.getOnce('https://api.spacexdata.com/v3/rockets', {
       body: rocketsList,
       headers: { 'content-type': 'application/json' },
@@ -66,8 +65,6 @@ describe('Rockets Actions test', () => {
   });
 
   test('fetchRockets action fetches data when it wasn\'t fetched', async () => {
-    const rocketsList = [{ rocket_id: 'falcon1' }, { rocket_id: 'falcon9' }];
-
     fetchMock.getOnce('https://api.spacexdata.com/v3/rockets', {
       body: rocketsList,
       headers: { 'content-type': 'application/json' },

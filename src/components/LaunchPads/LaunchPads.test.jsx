@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { LaunchPads } from './LaunchPads';
 import LaunchPadInfoShort from '../LaunchPadInfoShort';
-import launchPadsData from '../../../__tests__/helpers/launchpads';
+import launchPadsData from '../../../__tests__/data/launchpads';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -7,7 +7,7 @@ import NoLaunchesFound from '../NoLaunchesFound';
 import TimetablePopup from '../TimetablePopup';
 import TimetableYear from './TimetableYear';
 
-import launchesList from '../../../__tests__/helpers/launches';
+import launchesList from '../../../__tests__/data/launches';
 
 Enzyme.configure({ adapter: new Adapter() });
 

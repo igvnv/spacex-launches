@@ -4,7 +4,7 @@ import {
   RECEIVE_LAUNCH_PADS_DATA,
   LoadingStates,
 } from '../actions';
-import launchPadsList from '../../../__tests__/helpers/launchpads';
+import launchPadsList from '../../../__tests__/data/launchpads';
 
 describe('launch pads reducers', () => {
   it('should return the initial state', () => {

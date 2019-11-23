@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as actions from '../actions';
+import launchesList from '../../../__tests__/data/launches';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -72,8 +73,6 @@ describe('Launches Actions test', () => {
   });
 
   test('fetchLaunches action', async () => {
-    const launchesList = [{ flight_number: 1 }, { flight_number: 2 }];
-
     fetchMock.getOnce('https://api.spacexdata.com/v3/launches', {
       body: launchesList,
       headers: { 'content-type': 'application/json' },
@@ -107,8 +106,6 @@ describe('Launches Actions test', () => {
   });
 
   test('fetchLaunches action fetches data when it wasn\'t fetched', async () => {
-    const launchesList = [{ flight_number: 1 }, { flight_number: 2 }];
-
     fetchMock.getOnce('https://api.spacexdata.com/v3/launches', {
       body: launchesList,
       headers: { 'content-type': 'application/json' },

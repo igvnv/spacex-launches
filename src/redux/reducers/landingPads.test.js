@@ -4,7 +4,7 @@ import {
   RECEIVE_LANDING_PADS_DATA,
   LoadingStates,
 } from '../actions';
-import landingPadsList from '../../../__tests__/helpers/landingpads';
+import landingPadsList from '../../../__tests__/data/landingpads';
 
 describe('landing pads reducers', () => {
   it('should return the initial state', () => {

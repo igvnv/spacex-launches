@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as actions from '../actions';
-import shipsList from '../../../__tests__/helpers/ships';
+import shipsList from '../../../__tests__/data/ships';
 
 const mockStore = configureMockStore([thunk]);
 

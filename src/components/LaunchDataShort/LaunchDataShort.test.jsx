@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import LaunchDataShort from './LaunchDataShort';
-import { successfulLaunch, unsuccessfulLaunch } from '../../../__tests__/helpers/launches';
+import { successfulLaunch, unsuccessfulLaunch } from '../../../__tests__/data/launches';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

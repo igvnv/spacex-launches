@@ -4,6 +4,7 @@ import {
   RECEIVE_ROCKETS_DATA,
   LoadingStates,
 } from '../actions';
+import rocketsList from '../../../__tests__/data/rockets';
 
 describe('rockets reducers', () => {
   it('should return the initial state', () => {
@@ -24,8 +25,6 @@ describe('rockets reducers', () => {
   });
 
   it('should handle RECEIVE_ROCKETS_DATA', () => {
-    const rocketsList = [{ rocket_id: 'falcon1' }, { rocket_id: 'falcon9' }];
-
     expect(reducer(
       { data: null },
       {
@@ -36,18 +35,10 @@ describe('rockets reducers', () => {
   });
 
   it('filters rocket by id', () => {
-    const rocket1 = { rocket_id: 'falcon_1', rocket_name: 'Falcon 1' };
-    const rocket2 = { rocket_id: 'falcon_9', rocket_name: 'Falcon 9' };
-    const rockets = [rocket1, rocket2];
-
-    expect(rocketById(rockets, 'falcon_9')).toEqual(rocket2);
+    expect(rocketById(rocketsList, rocketsList[1].rocket_id)).toEqual(rocketsList[1]);
   });
 
   it('throws as error when filter by unknown id', () => {
-    const rocket1 = { rocket_id: 'falcon_1', rocket_name: 'Falcon 1' };
-    const rocket2 = { rocket_id: 'falcon_9', rocket_name: 'Falcon 9' };
-    const rockets = [rocket1, rocket2];
-
-    expect(() => rocketById(rockets, 'falcon_heavy')).toThrow();
+    expect(() => rocketById(rocketsList, 'unknown id')).toThrow();
   });
 });

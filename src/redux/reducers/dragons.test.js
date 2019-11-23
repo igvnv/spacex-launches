@@ -4,6 +4,7 @@ import {
   RECEIVE_DRAGONS_DATA,
   LoadingStates,
 } from '../actions';
+import dragonsList from '../../../__tests__/data/dragons';
 
 describe('dragons reducers', () => {
   it('should return the initial state', () => {
@@ -24,8 +25,6 @@ describe('dragons reducers', () => {
   });
 
   it('should handle RECEIVE_DRAGONS_DATA', () => {
-    const dragonsList = [{ id: 'dragon1' }, { id: 'dragon2' }];
-
     expect(reducer(
       { data: null },
       {
@@ -36,18 +35,10 @@ describe('dragons reducers', () => {
   });
 
   it('filters dragon by id', () => {
-    const dragon1 = { id: 'dragon1' };
-    const dragon2 = { id: 'dragon2' };
-    const dragonsList = [dragon1, dragon2];
-
-    expect(dragonById(dragonsList, 'dragon2')).toEqual(dragon2);
+    expect(dragonById(dragonsList, dragonsList[1].id)).toEqual(dragonsList[1]);
   });
 
   it('throws as error when filter by unknown id', () => {
-    const dragon1 = { id: 'dragon1' };
-    const dragon2 = { id: 'dragon2' };
-    const dragonsList = [dragon1, dragon2];
-
-    expect(() => dragonById(dragonsList, 'dragon2000')).toThrow();
+    expect(() => dragonById(dragonsList, 'unknown id')).toThrow();
   });
 });

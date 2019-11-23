@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as actions from '../actions';
-import landingPadsList from '../../../__tests__/helpers/landingpads';
+import landingPadsList from '../../../__tests__/data/landingpads';
 
 const mockStore = configureMockStore([thunk]);
 

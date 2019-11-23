@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { Ships } from './Ships';
 import ShipInfoShort from '../ShipInfoShort';
-import shipsData from '../../../__tests__/helpers/ships';
+import shipsData from '../../../__tests__/data/ships';
 
 Enzyme.configure({ adapter: new Adapter() });
 
