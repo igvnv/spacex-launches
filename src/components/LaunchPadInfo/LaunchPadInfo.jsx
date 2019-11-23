@@ -34,7 +34,7 @@ export const LaunchPadInfo = ({ launchPad, launchPadId }) => {
         <dd>{launchPad.successful_launches}</dd>
       </dl>
 
-      <p>{launchPad.description}</p>
+      <p>{launchPad.details}</p>
       <p>
         Read more on
         {' '}

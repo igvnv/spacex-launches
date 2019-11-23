@@ -32,7 +32,7 @@ describe('Launch Pads Actions test', () => {
       .toEqual(expectedAction);
   });
 
-  test('fetchLaunchPadss action', async () => {
+  test('fetchLaunchPads action', async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/launchpads', {
       body: launchPadsList,
       headers: { 'content-type': 'application/json' },
@@ -58,7 +58,7 @@ describe('Launch Pads Actions test', () => {
       { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.ERROR },
     ];
 
-    const store = mockStore({ launchpads: { data: [], state: null } });
+    const store = mockStore({ launchPads: { data: [], state: null } });
 
     await store.dispatch(actions.fetchLaunchPads());
     expect(store.getActions()).toEqual(expectedActions);
