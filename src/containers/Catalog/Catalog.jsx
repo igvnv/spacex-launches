@@ -13,6 +13,8 @@ import Dragons from '../../components/Dragons';
 import DragonInfo from '../DragonInfo';
 import Ships from '../../components/Ships';
 import ShipInfo from '../ShipInfo';
+import LaunchPads from '../../components/LaunchPads';
+import LaunchPadInfo from '../LaunchPadInfo';
 
 const UnderConstruction = () => <h3>Category is under construction</h3>;
 
@@ -44,8 +46,8 @@ const Catalog = () => {
       path: 'launch_pads',
       pathItem: 'launch_pads/:launchPadId',
       name: 'Launch pads',
-      componentList: UnderConstruction,
-      componentItem: UnderConstruction,
+      componentList: LaunchPads,
+      componentItem: LaunchPadInfo,
     },
     {
       path: 'landing_pads',

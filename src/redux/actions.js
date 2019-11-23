@@ -8,5 +8,6 @@ export const LoadingStates = {
 export * from './actions/aboutCompany';
 export * from './actions/dragons';
 export * from './actions/launches';
+export * from './actions/launchPads';
 export * from './actions/rockets';
 export * from './actions/ships';
