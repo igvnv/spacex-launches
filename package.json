@@ -9,6 +9,7 @@
     "url": "https://github.com/igvnv/spacex-launches.git"
   },
   "dependencies": {
+    "@react-google-maps/api": "^1.7.12",
     "babel-eslint": "^10.0.3",
     "cross-fetch": "^3.0.4",
     "keycode-js": "^2.0.3",
