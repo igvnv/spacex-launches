@@ -1,5 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+} from 'react-router-dom';
 
 import Loader from '../../components/Loader';
 import MainMenu from '../../components/MainMenu';
@@ -13,6 +18,8 @@ const RocketInfo = lazy(() => import('../RocketInfo'));
 
 export default function () {
   const location = useLocation();
+  const history = useHistory();
+
   const background = location && location.state && location.state.background;
 
   return (
@@ -50,7 +57,7 @@ export default function () {
 
       {background && (
         <Route path="/catalog/rockets/:rocketId">
-          <Modal>
+          <Modal onClose={() => history.goBack()}>
             <Suspense fallback={<Loader />}>
               <RocketInfo />
             </Suspense>

@@ -4,26 +4,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import Modal from './Modal';
 
-const mockGoBack = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  useHistory: () => ({
-    goBack: mockGoBack,
-  }),
-}));
-
 Enzyme.configure({ adapter: new Adapter() });
 
 const ChildrenComponent = () => <p>Children</p>;
 
 describe('Modal', () => {
-  beforeEach(() => {
-    mockGoBack.mockClear();
-  });
-
   it('contains children component', () => {
+    const onClose = jest.fn();
     const wrapper = shallow((
-      <Modal>
+      <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
     ));
@@ -31,27 +20,30 @@ describe('Modal', () => {
   });
 
   it('has close button', () => {
+    const onClose = jest.fn();
     const wrapper = shallow((
-      <Modal>
+      <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
     ));
     expect(wrapper.find('.modal__close-button').length).toBe(1);
   });
 
-  it('calls history.goBack on close button click', () => {
+  it('calls onClose on close button click', () => {
+    const onClose = jest.fn();
     const wrapper = shallow((
-      <Modal>
+      <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
     ));
     wrapper.find('.modal__close-button').first().simulate('click', { stopPropagation: jest.fn() });
-    expect(mockGoBack.mock.calls.length).toBe(1);
+    expect(onClose.mock.calls.length).toBe(1);
   });
 
   it('displays modal background', () => {
+    const onClose = jest.fn();
     const wrapper = shallow((
-      <Modal>
+      <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
     ));
