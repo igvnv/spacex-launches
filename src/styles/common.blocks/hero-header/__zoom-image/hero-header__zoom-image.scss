@@ -1,0 +1,32 @@
+.hero-header__zoom-image {
+  background: rgba(255, 255, 255, .8);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  bottom: 10px;
+  cursor: pointer;
+  height: 2em;
+  padding: 0 10px;
+  position: absolute;
+  right: 10px;
+  transition: box-shadow .2s;
+
+  &:hover {
+    box-shadow: 0 0 0 2px #fff;
+
+    &::before {
+      transform: scale(1.2);
+    }
+  }
+
+  &::before {
+    content: '';
+    background: url(./zoom-icon.svg) center;
+    background-size: contain;
+    display: inline-block;
+    height: 14px;
+    margin-bottom: -3px;
+    margin-right: 6px;
+    transition: transform .2s;
+    width: 14px;
+  }
+}

@@ -11,5 +11,6 @@
   z-index: 21;
 }
 
-@import './__body/modal__body.scss';
+@import './__body/modal__body';
 @import './__close-button/modal__close-button';
+@import './__image-viewer/modal__image-viewer';

@@ -5,17 +5,14 @@ import withLoader from '../../hoc/withLoader';
 import { fetchShipsIfNeeded } from '../../redux/actions/ships';
 import { shipById } from '../../redux/reducers/ships';
 import ShipCourse from '../ShipCourse';
+import HeroHeader from '../HeroHeader';
 
 export const ShipInfo = ({ ship, shipId }) => {
   if (!shipId) throw new Error('Ship ID is not defined');
 
   return (
     <div>
-      <h2>{ship.ship_name}</h2>
-
-      {ship.image && (
-        <img src={ship.image} alt={ship.ship_name} className="ship-info__image" />
-      )}
+      <HeroHeader type="water" title={ship.ship_name} photo={ship.image} />
 
       <dl>
         <dt>Active:</dt>

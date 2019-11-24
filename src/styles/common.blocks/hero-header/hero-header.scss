@@ -1,0 +1,17 @@
+.hero-header {
+  align-items: center;
+  background: #ebebeb center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 240px;
+  margin-bottom: 20px;
+  padding: 30px;
+  position: relative;
+  text-align: center;
+}
+
+@import './__title/hero-header__title';
+@import './__zoom-image/hero-header__zoom-image';
+@import './_type/hero-header_type-water';
+@import './_with-background/hero-header_with-background';
