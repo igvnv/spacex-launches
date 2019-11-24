@@ -4,21 +4,25 @@ import PropTypes from 'prop-types';
 import withLoader from '../../hoc/withLoader';
 import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
 import { launchPadById } from '../../redux/reducers/launchPads';
+import MapLink from '../MapLink';
 
 export const LaunchPadInfo = ({ launchPad, launchPadId }) => {
   if (!launchPadId) throw new Error('Launch pad ID is not defined');
 
+  const position = launchPad.location
+    ? { lat: launchPad.location.latitude, lng: launchPad.location.longitude }
+    : null;
+
   return (
     <div>
       <h2>{launchPad.site_name_long}</h2>
+
       <dl>
         <dt>Location</dt>
         <dd>
           {`${launchPad.location.region}, ${launchPad.location.name}`}
           {', '}
-          <a href={`http://www.google.com/maps/place/${launchPad.location.latitude},${launchPad.location.longitude}`}>
-            show on map
-          </a>
+          <MapLink position={position}>show on map</MapLink>
         </dd>
 
         <dt>Status:</dt>

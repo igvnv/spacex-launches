@@ -6,9 +6,14 @@ import { fetchShipsIfNeeded } from '../../redux/actions/ships';
 import { shipById } from '../../redux/reducers/ships';
 import ShipCourse from '../ShipCourse';
 import HeroHeader from '../HeroHeader';
+import MapLink from '../MapLink';
 
 export const ShipInfo = ({ ship, shipId }) => {
   if (!shipId) throw new Error('Ship ID is not defined');
+
+  const position = ship.position
+    ? { lat: ship.position.latitude, lng: ship.position.longitude }
+    : null;
 
   return (
     <div>
@@ -28,13 +33,11 @@ export const ShipInfo = ({ ship, shipId }) => {
           <ShipCourse ship={ship} />
         </dd>
 
-        {ship.position && (
+        {position && (
           <>
             <dt>Position:</dt>
             <dd>
-              <a href={`http://www.google.com/maps/place/${ship.position.latitude},${ship.position.longitude}`}>
-                Show on map
-              </a>
+              <MapLink position={position}>Show on map</MapLink>
             </dd>
           </>
         )}

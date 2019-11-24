@@ -4,21 +4,25 @@ import PropTypes from 'prop-types';
 import withLoader from '../../hoc/withLoader';
 import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
 import { landingPadById } from '../../redux/reducers/landingPads';
+import MapLink from '../MapLink';
 
 export const LandingPadInfo = ({ landingPad, landingPadId }) => {
   if (!landingPadId) throw new Error('Landing pad ID is not defined');
 
+  const position = landingPad.location
+    ? { lat: landingPad.location.latitude, lng: landingPad.location.longitude }
+    : null;
+
   return (
     <div>
       <h2>{landingPad.full_name}</h2>
+
       <dl>
         <dt>Location</dt>
         <dd>
           {`${landingPad.location.region}, ${landingPad.location.name}`}
           {', '}
-          <a href={`http://www.google.com/maps/place/${landingPad.location.latitude},${landingPad.location.longitude}`}>
-            show on map
-          </a>
+          <MapLink position={position}>show on map</MapLink>
         </dd>
 
         <dt>Status:</dt>

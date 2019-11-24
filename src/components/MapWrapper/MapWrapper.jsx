@@ -24,7 +24,7 @@ const MapWrapper = (props) => {
       <GoogleMap
         {...props}
         onLoad={onLoad}
-        mapContainerClassName={className}
+        mapContainerClassName={`map-container ${className}`}
       >
         {children}
       </GoogleMap>
@@ -32,7 +32,7 @@ const MapWrapper = (props) => {
   );
 };
 MapWrapper.defaultProps = {
-  className: 'map-container',
+  className: '',
   children: null,
   loadingElement: <Loader />,
   zoom: 8,
