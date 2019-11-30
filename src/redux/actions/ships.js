@@ -40,7 +40,8 @@ export const fetchShips = () => (dispatch) => {
 };
 
 export const fetchShipsIfNeeded = () => (dispatch, getState) => {
-  if (!getState().ships.state) {
+  const { state } = getState().ships;
+  if (state === null || state === LoadingStates.ERROR) {
     return dispatch(fetchShips());
   }
   return null;

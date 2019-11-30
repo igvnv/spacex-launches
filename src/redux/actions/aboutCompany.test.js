@@ -88,4 +88,22 @@ describe('AboutCompany actions', () => {
     await store.dispatch(actions.fetchAboutCompanyDataIfNeeded());
     expect(store.getActions().length).toEqual(0);
   });
+
+  test('fetchAboutCompanyDataIfNeeded action fetches data after error', async () => {
+    fetchMock.getOnce('https://api.spacexdata.com/v3/info', {
+      body: { name: 'name', founder: 'founder', founded: 2002 },
+      headers: { 'content-type': 'application/json' },
+    });
+
+    const expectedActions = [
+      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      { type: actions.RECEIVE_ABOUT_COMPANY_DATA, data: { name: 'name', founder: 'founder', founded: 2002 } },
+      { type: actions.SET_ABOUT_COMPANY_FETCH_STATE, state: actions.LoadingStates.DONE },
+    ];
+
+    const store = mockStore({ aboutCompany: { data: {}, state: actions.LoadingStates.ERROR } });
+
+    await store.dispatch(actions.fetchAboutCompanyDataIfNeeded());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

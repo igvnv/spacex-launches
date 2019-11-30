@@ -48,7 +48,8 @@ export function fetchAboutCompanyData() {
 
 export function fetchAboutCompanyDataIfNeeded() {
   return (dispatch, getState) => {
-    if (!getState().aboutCompany.state) {
+    const { state } = getState().aboutCompany;
+    if (state === null || state === LoadingStates.ERROR) {
       return dispatch(fetchAboutCompanyData());
     }
     return null;

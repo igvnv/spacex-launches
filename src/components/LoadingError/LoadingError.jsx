@@ -1,10 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// TODO: Add refresh button
-export default function () {
-  return (
-    <div className="loader-error">
+const LoadingError = ({ tryAgain }) => (
+  <div className="loader-error">
+    <p className="paragraph">
       Something went wrong... Please try again later.
-    </div>
-  );
-}
+    </p>
+
+    <button className="loader-error__refresh-button" type="button" onClick={() => tryAgain()}>
+      Try again
+    </button>
+  </div>
+);
+LoadingError.propTypes = {
+  tryAgain: PropTypes.func.isRequired,
+};
+
+export default LoadingError;

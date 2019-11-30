@@ -90,4 +90,22 @@ describe('Landing Pads Actions test', () => {
     await store.dispatch(actions.fetchLandingPadsIfNeeded());
     expect(store.getActions().length).toEqual(0);
   });
+
+  test('fetchLandingPads action fetches data after error', async () => {
+    fetchMock.getOnce('https://api.spacexdata.com/v3/landpads', {
+      body: landingPadsList,
+      headers: { 'content-type': 'application/json' },
+    });
+
+    const expectedActions = [
+      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      { type: actions.RECEIVE_LANDING_PADS_DATA, data: landingPadsList },
+      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+    ];
+
+    const store = mockStore({ landingPads: { data: [], state: actions.LoadingStates.ERROR } });
+
+    await store.dispatch(actions.fetchLandingPadsIfNeeded());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

@@ -40,7 +40,8 @@ export const fetchLaunchPads = () => (dispatch) => {
 };
 
 export const fetchLaunchPadsIfNeeded = () => (dispatch, getState) => {
-  if (!getState().launchPads.state) {
+  const { state } = getState().launchPads;
+  if (state === null || state === LoadingStates.ERROR) {
     return dispatch(fetchLaunchPads());
   }
   return null;

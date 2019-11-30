@@ -88,4 +88,22 @@ describe('Dragons Actions test', () => {
     await store.dispatch(actions.fetchDragonsIfNeeded());
     expect(store.getActions().length).toEqual(0);
   });
+
+  test('fetchDragons action fetches data after error', async () => {
+    fetchMock.getOnce('https://api.spacexdata.com/v3/dragons', {
+      body: dragonsList,
+      headers: { 'content-type': 'application/json' },
+    });
+
+    const expectedActions = [
+      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      { type: actions.RECEIVE_DRAGONS_DATA, data: dragonsList },
+      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.DONE },
+    ];
+
+    const store = mockStore({ dragons: { data: {}, state: actions.LoadingStates.ERROR } });
+
+    await store.dispatch(actions.fetchDragonsIfNeeded());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

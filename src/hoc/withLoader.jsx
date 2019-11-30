@@ -30,14 +30,14 @@ function withLoader(WrappedComponent, mapStateToProps, mapDispatchToProps) {
     }
 
     render() {
-      const { loadingState } = this.props;
+      const { fetchMethod, loadingState } = this.props;
 
       switch (loadingState) {
         case null:
         case LoadingStates.LOADING:
           return <Loader />;
         case LoadingStates.ERROR:
-          return <LoadingError />;
+          return <LoadingError tryAgain={() => fetchMethod()} />;
         default:
           return <WrappedComponent {...this.props} />;
       }

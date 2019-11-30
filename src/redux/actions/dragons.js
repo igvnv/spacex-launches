@@ -40,7 +40,8 @@ export const fetchDragons = () => (dispatch) => {
 };
 
 export const fetchDragonsIfNeeded = () => (dispatch, getState) => {
-  if (!getState().dragons.state) {
+  const { state } = getState().dragons;
+  if (state === null || state === LoadingStates.ERROR) {
     return dispatch(fetchDragons());
   }
   return null;

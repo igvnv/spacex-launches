@@ -40,7 +40,8 @@ export const fetchLandingPads = () => (dispatch) => {
 };
 
 export const fetchLandingPadsIfNeeded = () => (dispatch, getState) => {
-  if (!getState().landingPads.state) {
+  const { state } = getState().landingPads;
+  if (state === null || state === LoadingStates.ERROR) {
     return dispatch(fetchLandingPads());
   }
   return null;

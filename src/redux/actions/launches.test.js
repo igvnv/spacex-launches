@@ -129,4 +129,22 @@ describe('Launches Actions test', () => {
     await store.dispatch(actions.fetchLaunchesIfNeeded());
     expect(store.getActions().length).toEqual(0);
   });
+
+  test('fetchLaunches action fetches data after error', async () => {
+    fetchMock.getOnce('https://api.spacexdata.com/v3/launches', {
+      body: launchesList,
+      headers: { 'content-type': 'application/json' },
+    });
+
+    const expectedActions = [
+      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
+      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
+    ];
+
+    const store = mockStore({ launches: { data: {}, state: actions.LoadingStates.ERROR } });
+
+    await store.dispatch(actions.fetchLaunchesIfNeeded());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

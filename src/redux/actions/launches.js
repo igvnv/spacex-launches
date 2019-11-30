@@ -85,7 +85,8 @@ export function fetchLaunches() {
 
 export function fetchLaunchesIfNeeded() {
   return (dispatch, getState) => {
-    if (!getState().launches.state) {
+    const { state } = getState().launches;
+    if (state === null || state === LoadingStates.ERROR) {
       return dispatch(fetchLaunches());
     }
     return null;

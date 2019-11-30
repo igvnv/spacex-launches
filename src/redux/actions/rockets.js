@@ -40,7 +40,8 @@ export const fetchRockets = () => (dispatch) => {
 };
 
 export const fetchRocketsIfNeeded = () => (dispatch, getState) => {
-  if (!getState().rockets.state) {
+  const { state } = getState().rockets;
+  if (state === null || state === LoadingStates.ERROR) {
     return dispatch(fetchRockets());
   }
   return null;
