@@ -8,5 +8,5 @@
   width: $timetable-month-width * 12;
 }
 
-@import './__label/timetable-year__label.scss';
-@import './_odd/timetable-year_odd.scss';
+@import './__label/timetable-year__label';
+@import './_odd/timetable-year_odd';
