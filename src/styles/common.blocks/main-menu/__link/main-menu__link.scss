@@ -1,7 +1,19 @@
+@import '../../../config';
+
 .main-menu__link {
-  color: #00f;
+  color: $color-dark-gray;
   display: block;
-  padding: 15px 10px;
+  font-size: 14px;
+  letter-spacing: .25px;
+  margin-left: 15px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .2s;
+
+  &:hover {
+    color: $color-black;
+  }
 }
 
-@import "_active/main-menu__link_active";
+@import '_active/main-menu__link_active';

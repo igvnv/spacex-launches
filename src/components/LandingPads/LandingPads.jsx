@@ -14,7 +14,7 @@ export const LandingPads = ({ landingPads }) => {
       && landingPad.location.longitude != null)
     .map((landingPad) => ({
       id: landingPad.id,
-      title: landingPad.location.name,
+      title: landingPad.full_name,
       position: {
         lat: landingPad.location.latitude,
         lng: landingPad.location.longitude,
@@ -30,11 +30,13 @@ export const LandingPads = ({ landingPads }) => {
     <div>
       <MapPoints points={points} />
 
-      {landingPads.map((landingPad) => (
-        <div key={landingPad.id}>
-          <LandingPadInfoShort landingPadId={landingPad.id} />
-        </div>
-      ))}
+      <div className="catalog-list">
+        {landingPads.map((landingPad) => (
+          <div className="catalog-list__item" key={landingPad.id}>
+            <LandingPadInfoShort landingPadId={landingPad.id} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,18 @@
+@import '../../../config';
+
+.loader-error__refresh-button {
+  border: 1px solid $color-gray;
+  border-radius: 4px;
+  color: $color-black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color .2s;
+
+  &:hover {
+    border-color: $color-black;
+  }
+}

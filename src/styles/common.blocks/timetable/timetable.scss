@@ -3,11 +3,17 @@
 .timetable {
   align-items: stretch;
   display: flex;
-  margin: 0 -$content-gap;
   overflow-x: auto;
   overflow-y: initial;
   padding: 20px $content-gap 40px;
   position: relative;
+}
+
+.timetable-wrapper {
+  margin-left: -$content-gap;
+  margin-right: -$content-gap;
+  overflow: auto;
+  width: 100vw;
 }
 
 @import './__event/timetable__event';

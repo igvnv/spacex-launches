@@ -30,11 +30,13 @@ export const LaunchPads = ({ launchPads }) => {
     <div>
       <MapPoints points={points} />
 
-      {launchPads.map((launchPad) => (
-        <div key={launchPad.id}>
-          <LaunchPadInfoShort launchPadId={launchPad.id} />
-        </div>
-      ))}
+      <div className="catalog-list">
+        {launchPads.map((launchPad) => (
+          <div className="catalog-list__item" key={launchPad.id}>
+            <LaunchPadInfoShort launchPadId={launchPad.id} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

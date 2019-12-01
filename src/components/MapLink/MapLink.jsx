@@ -18,6 +18,7 @@ const MapLink = ({ position, zoom, children }) => {
       )}
 
       <a
+        className="link"
         onClick={(e) => { e.preventDefault(); setShowPosition(true); }}
         href={`http://www.google.com/maps/place/${position.lat},${position.lng}`}
       >

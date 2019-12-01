@@ -11,18 +11,21 @@ const LaunchDataShort = ({ launch }) => {
 
   return (
     <div className="launch-data-short__body">
-      <h3 className="launch-data-short__title">{launch.mission_name}</h3>
+      <h3 className="title launch-data-short__title">{launch.mission_name}</h3>
+
       {launch.launch_success !== false ? '' : (
-        <p className="launch-data-short__failure-details">
+        <p className="paragraph launch-data-short__paragraph launch-data-short__failure-details">
           <strong>Failure details:</strong>
           {' '}
           {launch.launch_failure_details.reason}
         </p>
       )}
-      <p>
+
+      <p className="paragraph launch-data-short__paragraph">
         Rocket:
         {' '}
         <Link
+          className="link"
           to={{
             pathname: `/catalog/rockets/${launch.rocket.rocket_id}`,
             state: { background: location },
@@ -31,10 +34,12 @@ const LaunchDataShort = ({ launch }) => {
           {launch.rocket.rocket_name}
         </Link>
       </p>
-      <p>
+
+      <p className="paragraph launch-data-short__paragraph">
         {fullDateFormatter.format(new Date(launch.launch_date_utc))}
       </p>
-      <p>
+
+      <p className="paragraph launch-data-short__paragraph">
         {launch.details}
       </p>
     </div>

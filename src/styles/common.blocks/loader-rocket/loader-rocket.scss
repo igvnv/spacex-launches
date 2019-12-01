@@ -1,0 +1,23 @@
+.loader-rocket {
+  display: inline-block;
+  height: 55px;
+  margin-bottom: -40px;
+  transform: translate(-50%, -50%) rotate(60deg);
+  width: 15px;
+
+  &::after {
+    content: '';
+    background: #c00;
+    border-radius: 50% 50% 0 0;
+    bottom: 0;
+    height: 10px;
+    left: -8px;
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+  }
+}
+
+@import './__body/loader-rocket__body';
+@import './__fire/loader-rocket__fire';
+@import './__illuminator/loader-rocket__illuminator';

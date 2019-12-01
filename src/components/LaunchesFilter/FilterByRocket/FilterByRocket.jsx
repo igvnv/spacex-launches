@@ -18,27 +18,32 @@ export const FilterByRocket = ({
     }, {});
 
   return (
-    <p>
-      Rocket:
-      {Object.keys(availableRockets).map((rocketId) => (
-        <button
-          key={rocketId}
-          onClick={() => setFilter(rocketId)}
-          className={filterValue === rocketId ? 'filter__button filter__button_active' : 'filter__button'}
-          type="button"
-        >
-          {availableRockets[rocketId]}
-        </button>
-      ))}
-      {filterValue && (
-        <button
-          type="button"
-          className="filter__button-clean"
-          onClick={() => setFilter(null)}
-          aria-label="Clean filter"
-        />
-      )}
-    </p>
+    <>
+      <span className="launches-filter__title">Rocket:</span>
+
+      <div className="launches-filter__variants">
+        {Object.keys(availableRockets).map((rocketId) => (
+          <button
+            key={rocketId}
+            onClick={() => setFilter(rocketId)}
+            className={filterValue === rocketId ? 'filter-button filter-button_active' : 'filter-button'}
+            type="button"
+          >
+            {availableRockets[rocketId]}
+          </button>
+        ))}
+        {filterValue && (
+          <button
+            type="button"
+            className="filter-button_clean"
+            onClick={() => setFilter(null)}
+            aria-label="Clean filter"
+          >
+            Clean filter
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

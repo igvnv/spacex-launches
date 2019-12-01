@@ -12,27 +12,29 @@ export const DragonInfoShort = ({ dragon, dragonId }) => {
 
   return (
     <div>
-      <h2>{dragon.name}</h2>
-      <dl>
-        <dt>Active:</dt>
-        <dd>{dragon.active ? 'Yes' : 'No'}</dd>
+      <h2 className="title title_level_2 catalog-list__title">{dragon.name}</h2>
 
-        <dt>Crew capacity</dt>
-        <dd>{dragon.crew_capacity}</dd>
+      <dl className="description-list">
+        <dt className="description-list__title">Active:</dt>
+        <dd className="description-list__description">{dragon.active ? 'Yes' : 'No'}</dd>
 
-        <dt>Height with trunk:</dt>
-        <dd>{`${dragon.height_w_trunk.meters} m.`}</dd>
+        <dt className="description-list__title">Crew capacity</dt>
+        <dd className="description-list__description">{dragon.crew_capacity}</dd>
 
-        <dt>Diameter:</dt>
-        <dd>{`${dragon.diameter.meters} m.`}</dd>
+        <dt className="description-list__title">Height with trunk:</dt>
+        <dd className="description-list__description">{`${dragon.height_w_trunk.meters} m.`}</dd>
 
-        <dt>First flight:</dt>
-        <dd>{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
+        <dt className="description-list__title">Diameter:</dt>
+        <dd className="description-list__description">{`${dragon.diameter.meters} m.`}</dd>
+
+        <dt className="description-list__title">First flight:</dt>
+        <dd className="description-list__description">{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
       </dl>
 
       <p>
-        <Link to={`/catalog/dragons/${dragonId}`}>
-          Read more!
+        <Link to={`/catalog/dragons/${dragonId}`} className="accent-link">
+          Read more
+          <span className="accent-link__arrow" />
         </Link>
       </p>
     </div>

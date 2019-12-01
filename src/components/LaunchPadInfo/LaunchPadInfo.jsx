@@ -15,34 +15,37 @@ export const LaunchPadInfo = ({ launchPad, launchPadId }) => {
 
   return (
     <div>
-      <h2>{launchPad.site_name_long}</h2>
+      <h1 className="title title_level_1">{launchPad.site_name_long}</h1>
 
-      <dl>
-        <dt>Location</dt>
-        <dd>
+      <p className="paragraph">{launchPad.details}</p>
+
+      <h2 className="title title_level_2">General information</h2>
+
+      <dl className="description-list">
+        <dt className="description-list__title">Location</dt>
+        <dd className="description-list__description">
           {`${launchPad.location.region}, ${launchPad.location.name}`}
           {', '}
           <MapLink position={position}>show on map</MapLink>
         </dd>
 
-        <dt>Status:</dt>
-        <dd>{launchPad.status}</dd>
+        <dt className="description-list__title">Status:</dt>
+        <dd className="description-list__description">{launchPad.status}</dd>
 
-        <dt>Vehicles launched</dt>
-        <dd>{launchPad.vehicles_launched.join(', ')}</dd>
+        <dt className="description-list__title">Vehicles launched</dt>
+        <dd className="description-list__description">{launchPad.vehicles_launched.join(', ')}</dd>
 
-        <dt>Attempted launches</dt>
-        <dd>{launchPad.attempted_launches}</dd>
+        <dt className="description-list__title">Attempted launches</dt>
+        <dd className="description-list__description">{launchPad.attempted_launches}</dd>
 
-        <dt>Successful launches</dt>
-        <dd>{launchPad.successful_launches}</dd>
+        <dt className="description-list__title">Successful launches</dt>
+        <dd className="description-list__description">{launchPad.successful_launches}</dd>
       </dl>
 
-      <p>{launchPad.details}</p>
-      <p>
+      <p className="paragraph">
         Read more on
         {' '}
-        <a href={launchPad.wikipedia}>Wikipedia</a>
+        <a className="link" href={launchPad.wikipedia}>Wikipedia</a>
       </p>
     </div>
   );

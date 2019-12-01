@@ -1,8 +1,6 @@
 .loader {
-  animation: loader-animation_blinking .8s infinite alternate;
+  margin: 32px auto;
+  text-align: center;
 }
 
-@keyframes loader-animation_blinking {
-  from { opacity: .5 }
-  to { opacity: 1 }
-}
+@import './__label/loader__label';

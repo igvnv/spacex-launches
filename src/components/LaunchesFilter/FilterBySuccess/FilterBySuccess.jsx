@@ -8,35 +8,40 @@ export const FilterBySuccess = ({
   filterValue,
   setFilter,
 }) => (
-  <p>
-    Success:
-    <button
-      onClick={() => setFilter(true)}
-      className={filterValue === true ? 'filter__button filter__button_active' : 'filter__button'}
-      aria-label="yes"
-      type="button"
-    >
-      Yes
-    </button>
+  <>
+    <span className="launches-filter__title">Success:</span>
 
-    <button
-      onClick={() => setFilter(false)}
-      className={filterValue === false ? 'filter__button filter__button_active' : 'filter__button'}
-      aria-label="no"
-      type="button"
-    >
-      No
-    </button>
-
-    {filterValue !== null && (
+    <div className="launches-filter__variants">
       <button
+        onClick={() => setFilter(true)}
+        className={filterValue === true ? 'filter-button filter-button_active' : 'filter-button'}
+        aria-label="yes"
         type="button"
-        className="filter__button-clean"
-        onClick={() => setFilter(null)}
-        aria-label="Clean filter"
-      />
-    )}
-  </p>
+      >
+        Yes
+      </button>
+
+      <button
+        onClick={() => setFilter(false)}
+        className={filterValue === false ? 'filter-button filter-button_active' : 'filter-button'}
+        aria-label="no"
+        type="button"
+      >
+        No
+      </button>
+
+      {filterValue !== null && (
+        <button
+          type="button"
+          className="filter-button_clean"
+          onClick={() => setFilter(null)}
+          aria-label="Clean filter"
+        >
+          Clean filter
+        </button>
+      )}
+    </div>
+  </>
 );
 
 FilterBySuccess.defaultProps = {

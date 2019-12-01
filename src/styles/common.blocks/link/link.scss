@@ -1,0 +1,10 @@
+@import '../../config';
+
+.link {
+  color: $link-color;
+  text-decoration: underline;
+
+  &:hover {
+    color: darken($link-color, 15%);
+  }
+}

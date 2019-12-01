@@ -1,35 +1,47 @@
 @import-normalize;
 @import "typografy";
 
+@import "common.blocks/accent-link/accent-link";
 @import "common.blocks/app-wrapper/app-wrapper";
-@import "common.blocks/button-group/button-group";
-@import "common.blocks/filter/filter";
+@import "common.blocks/catalog-list/catalog-list";
+@import "common.blocks/description-list/description-list";
+@import "common.blocks/delimiter/delimiter";
+@import "common.blocks/filter-button/filter-button";
+@import "common.blocks/footer/footer";
 @import "common.blocks/header-logo/header-logo";
+@import "common.blocks/header-main/header-main";
 @import "common.blocks/hero-header/hero-header";
+@import "common.blocks/launches-filter/launches-filter";
 @import "common.blocks/launch-data-short/launch-data-short";
+@import "common.blocks/link/link";
+@import "common.blocks/list/list";
 @import "common.blocks/loader/loader";
 @import "common.blocks/loader-error/loader-error";
+@import "common.blocks/loader-rocket/loader-rocket";
 @import "common.blocks/main-menu/main-menu";
 @import "common.blocks/map-container/map-container";
 @import "common.blocks/map-info-window/map-info-window";
 @import "common.blocks/modal/modal";
 @import "common.blocks/modal-background/modal-background";
-@import "common.blocks/navigation/navigation";
+@import "common.blocks/paragraph/paragraph";
+@import "common.blocks/secondary-menu/secondary-menu";
 @import "common.blocks/ship-course/ship-course";
 @import "common.blocks/ship-info/ship-info";
 @import "common.blocks/timetable/timetable";
 @import "common.blocks/timetable-year/timetable-year";
+@import "common.blocks/title/title";
 @import "common.blocks/tooltip/tooltip";
 @import "common.blocks/tooltip-popup/tooltip-popup";
 
 @media screen and (max-width: 600px) {
+  @import "mobile.blocks/description-list/description-list";
   @import "mobile.blocks/header-logo/header-logo";
+  @import "mobile.blocks/hero-header/hero-header";
   @import "mobile.blocks/main-menu/main-menu";
-  @import "mobile.blocks/navigation/navigation";
+  @import "mobile.blocks/map-container/map-container";
+  @import "mobile.blocks/title/title";
 }
 
 @media screen and (min-width: 800px) {
   @import "desctop.blocks/header-logo/header-logo";
-  @import "desctop.blocks/header-main/header-main";
-  @import "desctop.blocks/navigation/navigation";
 }

@@ -1,0 +1,25 @@
+@import '../../../config';
+
+.filter-button_clean {
+  background: $color-dark-gray;
+  border-radius: .8em;
+  color: white;
+  cursor: pointer;
+  font-size: .8em;
+  height: 1.6em;
+  margin: 0 2px;
+  overflow: hidden;
+  position: relative;
+  text-indent: -99em;
+  width: 1.6em;
+
+  &:after {
+    content: '×';
+    left: 50%;
+    margin-top: -1px;
+    position: absolute;
+    text-indent: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

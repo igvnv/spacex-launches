@@ -1,4 +1,9 @@
+@import '../../config';
+
 .loader-error {
   background: rgba(255, 75, 0, .2);
   padding: 15px;
+  text-align: center;
 }
+
+@import './__refresh-button/loader-error__refresh-button';

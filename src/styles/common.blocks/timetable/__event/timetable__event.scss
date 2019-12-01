@@ -1,8 +1,10 @@
+@import '../../../config';
+
 .timetable__event {
   background: #fff;
-  border: 2px solid gray;
+  border: 2px solid $color-dark-gray;
   border-radius: 12px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 5px $shadow-color;
   cursor: pointer;
   display: block;
   font-size: 12px;
@@ -11,7 +13,18 @@
   margin: 1px 0;
   text-align: center;
   width: 20px;
+  transition: box-shadow .2s;
+
+  &:hover {
+    box-shadow: 0 0 5px $shadow-color, 0 0 0 2px $color-dark-gray;
+  }
+
+  &:focus {
+    border-color: $color-blue;
+    box-shadow: 0 0 5px $shadow-color, 0 0 0 2px $color-blue;
+    outline: none;
+  }
 }
 
-@import './_unsuccesfully/timetable__event_unsuccesfully';
+@import './_unsuccessfully/timetable__event_unsuccessfully';
 @import './_upcoming/timetable__event_upcoming';

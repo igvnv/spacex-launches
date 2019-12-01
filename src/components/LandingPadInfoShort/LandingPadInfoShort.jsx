@@ -8,21 +8,23 @@ import { landingPadById } from '../../redux/reducers/landingPads';
 
 export const LandingPadInfoShort = ({ landingPad, landingPadId }) => (
   <div>
-    <h2>{landingPad.full_name}</h2>
-    <dl>
-      <dt>Status:</dt>
-      <dd>{landingPad.status}</dd>
+    <h2 className="title title_level_2 catalog-list__title">{landingPad.full_name}</h2>
 
-      <dt>Attempted landings</dt>
-      <dd>{landingPad.attempted_landings}</dd>
+    <dl className="description-list">
+      <dt className="description-list__title">Status:</dt>
+      <dd className="description-list__description">{landingPad.status}</dd>
 
-      <dt>Successful landings</dt>
-      <dd>{landingPad.successful_landings}</dd>
+      <dt className="description-list__title">Attempted landings</dt>
+      <dd className="description-list__description">{landingPad.attempted_landings}</dd>
+
+      <dt className="description-list__title">Successful landings</dt>
+      <dd className="description-list__description">{landingPad.successful_landings}</dd>
     </dl>
 
     <p>
-      <Link to={`/catalog/landing_pads/${landingPadId}`}>
-        Read more!
+      <Link to={`/catalog/landing_pads/${landingPadId}`} className="accent-link">
+        Read more
+        <span className="accent-link__arrow" />
       </Link>
     </p>
   </div>

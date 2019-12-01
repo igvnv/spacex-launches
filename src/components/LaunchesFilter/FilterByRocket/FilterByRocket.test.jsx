@@ -38,36 +38,36 @@ describe('FilterByRocket', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<FilterByRocket launches={launches} setFilter={setFilter} />);
 
-    expect(wrapper.find('.filter__button_active').length).toEqual(0);
+    expect(wrapper.find('.filter-button_active').length).toEqual(0);
   });
 
   it('has no clean button when nothing is selected', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<FilterByRocket launches={launches} setFilter={setFilter} />);
 
-    expect(wrapper.find('.filter__button-clean').length).toEqual(0);
+    expect(wrapper.find('.filter-button_clean').length).toEqual(0);
   });
 
   it('has an active button when something is selected', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<FilterByRocket filterValue="second_rocket" launches={launches} setFilter={setFilter} />);
 
-    expect(wrapper.find('.filter__button_active').length).toEqual(1);
-    expect(wrapper.find('.filter__button_active').first().text()).toEqual('Second Rocket');
+    expect(wrapper.find('.filter-button_active').length).toEqual(1);
+    expect(wrapper.find('.filter-button_active').first().text()).toEqual('Second Rocket');
   });
 
   it('has a clean button when something is selected', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<FilterByRocket filterValue="second_rocket" launches={launches} setFilter={setFilter} />);
 
-    expect(wrapper.find('.filter__button-clean').length).toEqual(1);
+    expect(wrapper.find('.filter-button_clean').length).toEqual(1);
   });
 
   it('calls setFilter method with NULL value on click on clean button', async () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<FilterByRocket filterValue="second_rocket" launches={launches} setFilter={setFilter} />);
 
-    await wrapper.find('.filter__button-clean').first().simulate('click');
+    await wrapper.find('.filter-button_clean').first().simulate('click');
 
     expect(setFilter.mock.calls.length).toEqual(1);
     expect(setFilter.mock.calls[0]).toEqual([null]);

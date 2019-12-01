@@ -6,9 +6,9 @@ import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
 import RocketInfoShort from '../RocketInfoShort';
 
 export const Rockets = ({ rockets }) => (
-  <div>
+  <div className="catalog-list">
     {rockets.map((rocket) => (
-      <div key={rocket.rocket_id}>
+      <div className="catalog-list__item" key={rocket.rocket_id}>
         <RocketInfoShort rocketId={rocket.rocket_id} />
       </div>
     ))}

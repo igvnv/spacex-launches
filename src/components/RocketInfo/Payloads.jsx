@@ -16,8 +16,11 @@ const Payloads = ({ data }) => {
 
   return (
     <>
-      {options.map((optionId) => (
-        <PayloadOption key={optionId} name={optionId} data={optionData(optionId, data)} />
+      {options.map((optionId, index) => (
+        <div key={optionId}>
+          {index > 0 && <hr className="delimiter" />}
+          <PayloadOption name={optionId} data={optionData(optionId, data)} />
+        </div>
       ))}
     </>
   );
@@ -28,21 +31,21 @@ Payloads.propTypes = {
 
 export const PayloadOption = ({ name, data }) => (
   <div>
-    <dl>
-      <dt>Name</dt>
-      <dd>{name}</dd>
+    <dl className="description-list">
+      <dt className="description-list__title">Name</dt>
+      <dd className="description-list__description">{name}</dd>
 
       {data && data.height.meters > 0 && (
         <>
-          <dt>Height</dt>
-          <dd>{`${data.height.meters} meters`}</dd>
+          <dt className="description-list__title">Height</dt>
+          <dd className="description-list__description">{`${data.height.meters} meters`}</dd>
         </>
       )}
 
       {data && data.diameter.meters && (
         <>
-          <dt>Diameter</dt>
-          <dd>{`${data.diameter.meters} meters`}</dd>
+          <dt className="description-list__title">Diameter</dt>
+          <dd className="description-list__description">{`${data.diameter.meters} meters`}</dd>
         </>
       )}
     </dl>

@@ -1,0 +1,25 @@
+.loader-rocket__fire {
+  animation: loader-rocket__fire .2s linear infinite alternate;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(red, orange);
+  bottom: -20px;
+  height: 20px;
+  left: 50%;
+  margin-left: -6px;
+  position: absolute;
+  width: 12px;
+  z-index: 1;
+}
+
+@keyframes loader-rocket__fire {
+  from {
+    border-radius: 20% 20% 40% 40%;
+    margin-bottom: -3px;
+    opacity: 1;
+  }
+  to {
+    border-radius: 30% 30% 50% 50%;
+    margin-bottom: -2px;
+    opacity: 1;
+  }
+}

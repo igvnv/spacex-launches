@@ -23,27 +23,32 @@ export const FilterByYear = ({
   }
 
   return (
-    <p>
-      Year:
-      {availableLaunchesYears.map((year) => (
-        <button
-          key={year}
-          onClick={() => setFilter(year)}
-          className={filterValue === year ? 'filter__button filter__button_active' : 'filter__button'}
-          type="button"
-        >
-          {year}
-        </button>
-      ))}
-      {filterValue && (
-        <button
-          type="button"
-          className="filter__button-clean"
-          onClick={() => setFilter(null)}
-          aria-label="Clean filter"
-        />
-      )}
-    </p>
+    <>
+      <span className="launches-filter__title">Year:</span>
+
+      <div className="launches-filter__variants">
+        {availableLaunchesYears.map((year) => (
+          <button
+            key={year}
+            onClick={() => setFilter(year)}
+            className={filterValue === year ? 'filter-button filter-button_active' : 'filter-button'}
+            type="button"
+          >
+            {year}
+          </button>
+        ))}
+        {filterValue && (
+          <button
+            type="button"
+            className="filter-button_clean"
+            onClick={() => setFilter(null)}
+            aria-label="Clean filter"
+          >
+            Clean filter
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

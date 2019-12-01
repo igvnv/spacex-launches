@@ -12,24 +12,26 @@ export const RocketInfoShort = ({ rocket, rocketId }) => {
 
   return (
     <div>
-      <h2>{rocket.rocket_name}</h2>
-      <dl>
-        <dt>Active:</dt>
-        <dd>{rocket.active ? 'Yes' : 'No'}</dd>
+      <h2 className="title title_level_2 catalog-list__title">{rocket.rocket_name}</h2>
 
-        <dt>Height:</dt>
-        <dd>{`${rocket.height.meters} m.`}</dd>
+      <dl className="description-list">
+        <dt className="description-list__title">Active:</dt>
+        <dd className="description-list__description">{rocket.active ? 'Yes' : 'No'}</dd>
 
-        <dt>Diameter:</dt>
-        <dd>{`${rocket.diameter.meters} m.`}</dd>
+        <dt className="description-list__title">Height:</dt>
+        <dd className="description-list__description">{`${rocket.height.meters} m.`}</dd>
 
-        <dt>Mass:</dt>
-        <dd>{`${mass} tonnes`}</dd>
+        <dt className="description-list__title">Diameter:</dt>
+        <dd className="description-list__description">{`${rocket.diameter.meters} m.`}</dd>
+
+        <dt className="description-list__title">Mass:</dt>
+        <dd className="description-list__description">{`${mass} tonnes`}</dd>
       </dl>
 
       <p>
-        <Link to={`/catalog/rockets/${rocketId}`}>
-          Read more!
+        <Link to={`/catalog/rockets/${rocketId}`} className="accent-link">
+          Read more
+          <span className="accent-link__arrow" />
         </Link>
       </p>
     </div>

@@ -2,7 +2,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: right;
 }
 
-@import "__item/main-menu__item";
-@import "__link/main-menu__link";
+.burger-button {
+  display: none;
+}
+
+@import '__item/main-menu__item';
+@import '__link/main-menu__link';

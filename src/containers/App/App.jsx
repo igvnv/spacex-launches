@@ -6,8 +6,9 @@ import {
   useLocation,
 } from 'react-router-dom';
 
+import AppHeader from '../../components/AppHeader';
+import AppFooter from '../../components/AppFooter';
 import Loader from '../../components/Loader';
-import MainMenu from '../../components/MainMenu';
 import Modal from '../../components/Modal';
 
 const AboutProject = lazy(() => import('../AboutProject'));
@@ -24,36 +25,33 @@ export default function () {
 
   return (
     <div className="app-wrapper">
-      <div className="header-main">
-        <div className="header-logo">
-          <h1>SpaceX launches</h1>
-        </div>
-        <MainMenu />
-      </div>
+      <AppHeader />
 
-      <Switch location={background || location}>
-        <Route path="/about/company">
-          <Suspense fallback={<Loader />}>
-            <AboutSpaceX />
-          </Suspense>
-        </Route>
-        <Route path="/" exact>
-          <Suspense fallback={<Loader />}>
-            <Launches />
-          </Suspense>
-        </Route>
-        <Route path="/about/project">
-          <Suspense fallback={<Loader />}>
-            <AboutProject />
-          </Suspense>
-        </Route>
-        <Route path="/catalog">
-          <Suspense fallback={<Loader />}>
-            <Catalog />
-          </Suspense>
-        </Route>
-        { /* TODO: Add 404 */ }
-      </Switch>
+      <div className="app-body">
+        <Switch location={background || location}>
+          <Route path="/about/company">
+            <Suspense fallback={<Loader />}>
+              <AboutSpaceX />
+            </Suspense>
+          </Route>
+          <Route path="/" exact>
+            <Suspense fallback={<Loader />}>
+              <Launches />
+            </Suspense>
+          </Route>
+          <Route path="/about/project">
+            <Suspense fallback={<Loader />}>
+              <AboutProject />
+            </Suspense>
+          </Route>
+          <Route path="/catalog">
+            <Suspense fallback={<Loader />}>
+              <Catalog />
+            </Suspense>
+          </Route>
+          { /* TODO: Add 404 */ }
+        </Switch>
+      </div>
 
       {background && (
         <Route path="/catalog/rockets/:rocketId">
@@ -64,6 +62,8 @@ export default function () {
           </Modal>
         </Route>
       )}
+
+      <AppFooter />
     </div>
   );
 }

@@ -1,0 +1,10 @@
+@import '../../config';
+
+.delimiter {
+  background: $color-dark-gray;
+  border: none;
+  display: block;
+  height: 1px;
+  margin: 12px 0;
+  width: 100%;
+}

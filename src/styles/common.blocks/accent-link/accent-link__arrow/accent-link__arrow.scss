@@ -1,0 +1,10 @@
+.accent-link__arrow {
+  border-right: 2px solid $color-black;
+  border-top: 2px solid $color-black;
+  display: inline-block;
+  height: 6px;
+  margin-left: 5px;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .2s;
+  width: 6px;
+}

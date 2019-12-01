@@ -12,31 +12,33 @@ export const ShipInfoShort = ({ ship, shipId }) => {
 
   return (
     <div>
-      <h2>{ship.ship_name}</h2>
-      <dl>
-        <dt>Active:</dt>
-        <dd>{ship.active ? 'Yes' : 'No'}</dd>
+      <h2 className="title title_level_2 catalog-list__title">{ship.ship_name}</h2>
 
-        <dt>Status:</dt>
-        <dd>
-          {ship.status}
+      <dl className="description-list">
+        <dt className="description-list__title">Active:</dt>
+        <dd className="description-list__description">{ship.active ? 'Yes' : 'No'}</dd>
+
+        <dt className="description-list__title">Status:</dt>
+        <dd className="description-list__description">
+          {ship.status || 'N/d'}
           {' '}
           <ShipCourse ship={ship} />
         </dd>
 
-        <dt>Type</dt>
-        <dd>{ship.ship_type}</dd>
+        <dt className="description-list__title">Type</dt>
+        <dd className="description-list__description">{ship.ship_type}</dd>
 
-        <dt>Roles</dt>
-        <dd>{ship.roles.join(', ')}</dd>
+        <dt className="description-list__title">Roles</dt>
+        <dd className="description-list__description">{ship.roles.join(', ')}</dd>
 
-        <dt>Year built</dt>
-        <dd>{ship.year_built || 'N/d'}</dd>
+        <dt className="description-list__title">Year built</dt>
+        <dd className="description-list__description">{ship.year_built || 'N/d'}</dd>
       </dl>
 
       <p>
-        <Link to={`/catalog/ships/${shipId}`}>
-          Read more!
+        <Link to={`/catalog/ships/${shipId}`} className="accent-link">
+          Read more
+          <span className="accent-link__arrow" />
         </Link>
       </p>
     </div>

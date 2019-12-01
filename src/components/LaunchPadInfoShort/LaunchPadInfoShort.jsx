@@ -8,24 +8,26 @@ import { launchPadById } from '../../redux/reducers/launchPads';
 
 export const LaunchPadInfoShort = ({ launchPad, launchPadId }) => (
   <div>
-    <h2>{launchPad.site_name_long}</h2>
-    <dl>
-      <dt>Status:</dt>
-      <dd>{launchPad.status}</dd>
+    <h2 className="title title_level_2 catalog-list__title">{launchPad.site_name_long}</h2>
 
-      <dt>Vehicles launched</dt>
-      <dd>{launchPad.vehicles_launched.join(', ')}</dd>
+    <dl className="description-list">
+      <dt className="description-list__title">Status:</dt>
+      <dd className="description-list__description">{launchPad.status}</dd>
 
-      <dt>Attempted launches</dt>
-      <dd>{launchPad.attempted_launches}</dd>
+      <dt className="description-list__title">Vehicles launched</dt>
+      <dd className="description-list__description">{launchPad.vehicles_launched.join(', ')}</dd>
 
-      <dt>Successful launches</dt>
-      <dd>{launchPad.successful_launches}</dd>
+      <dt className="description-list__title">Attempted launches</dt>
+      <dd className="description-list__description">{launchPad.attempted_launches}</dd>
+
+      <dt className="description-list__title">Successful launches</dt>
+      <dd className="description-list__description">{launchPad.successful_launches}</dd>
     </dl>
 
     <p>
-      <Link to={`/catalog/launch_pads/${launchPadId}`}>
-        Read more!
+      <Link to={`/catalog/launch_pads/${launchPadId}`} className="accent-link">
+        Read more
+        <span className="accent-link__arrow" />
       </Link>
     </p>
   </div>

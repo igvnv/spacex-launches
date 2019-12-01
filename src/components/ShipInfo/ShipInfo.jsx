@@ -19,15 +19,17 @@ export const ShipInfo = ({ ship, shipId }) => {
     <div>
       <HeroHeader type="water" title={ship.ship_name} photo={ship.image} />
 
-      <dl>
-        <dt>Active:</dt>
-        <dd>{ship.active ? 'Yes' : 'No'}</dd>
+      <h2 className="title title_level_2">General information</h2>
 
-        <dt>Home port</dt>
-        <dd>{ship.home_port}</dd>
+      <dl className="description-list">
+        <dt className="description-list__title">Active:</dt>
+        <dd className="description-list__description">{ship.active ? 'Yes' : 'No'}</dd>
 
-        <dt>Status:</dt>
-        <dd>
+        <dt className="description-list__title">Home port</dt>
+        <dd className="description-list__description">{ship.home_port}</dd>
+
+        <dt className="description-list__title">Status:</dt>
+        <dd className="description-list__description">
           {ship.status}
           {' '}
           <ShipCourse ship={ship} />
@@ -35,24 +37,24 @@ export const ShipInfo = ({ ship, shipId }) => {
 
         {position && (
           <>
-            <dt>Position:</dt>
-            <dd>
+            <dt className="description-list__title">Position:</dt>
+            <dd className="description-list__description">
               <MapLink position={position}>Show on map</MapLink>
             </dd>
           </>
         )}
 
-        <dt>Type</dt>
-        <dd>{ship.ship_type}</dd>
+        <dt className="description-list__title">Type</dt>
+        <dd className="description-list__description">{ship.ship_type}</dd>
 
-        <dt>Roles</dt>
-        <dd>{ship.roles.join(', ')}</dd>
+        <dt className="description-list__title">Roles</dt>
+        <dd className="description-list__description">{ship.roles.join(', ')}</dd>
 
-        <dt>Year built</dt>
-        <dd>{ship.year_built || 'N/d'}</dd>
+        <dt className="description-list__title">Year built</dt>
+        <dd className="description-list__description">{ship.year_built || 'N/d'}</dd>
 
-        <dt>Missions</dt>
-        <dd>
+        <dt className="description-list__title">Missions</dt>
+        <dd className="description-list__description">
           <ul>
             {ship.missions.map((mission) => (
               <li key={mission.name}>
@@ -63,8 +65,8 @@ export const ShipInfo = ({ ship, shipId }) => {
         </dd>
       </dl>
 
-      <p>
-        <a href={ship.url}>More info</a>
+      <p className="paragraph">
+        <a className="link" href={ship.url}>More info</a>
       </p>
     </div>
   );

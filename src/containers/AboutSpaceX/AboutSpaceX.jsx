@@ -16,54 +16,58 @@ export function AboutSpaceX({ data }) {
 
   return (
     <div>
-      <dl>
-        <dt>Company name: </dt>
-        <dd>{ name }</dd>
+      <h1 className="title title_level_1">About SpaceX</h1>
 
-        <dt>Founder:</dt>
-        <dd>{ founder }</dd>
+      <p className="paragraph">{ summary }</p>
 
-        <dt>Founded:</dt>
-        <dd>{ founded }</dd>
+      <h2 className="title title_level_2">General information</h2>
 
-        <dt>Employees:</dt>
-        <dd>{ numberFormatter.format(employees) }</dd>
+      <dl className="description-list">
+        <dt className="description-list__title">Company name: </dt>
+        <dd className="description-list__description">{ name }</dd>
 
-        <dt>Vehicles:</dt>
-        <dd>{ numberFormatter.format(vehicles) }</dd>
+        <dt className="description-list__title">Founder:</dt>
+        <dd className="description-list__description">{ founder }</dd>
 
-        <dt>Launch sites:</dt>
-        <dd>{ numberFormatter.format(launch_sites) }</dd>
+        <dt className="description-list__title">Founded:</dt>
+        <dd className="description-list__description">{ founded }</dd>
 
-        <dt>Test sites:</dt>
-        <dd>{ numberFormatter.format(test_sites) }</dd>
+        <dt className="description-list__title">Employees:</dt>
+        <dd className="description-list__description">{ numberFormatter.format(employees) }</dd>
 
-        <dt>CEO</dt>
-        <dd>{ ceo }</dd>
+        <dt className="description-list__title">Vehicles:</dt>
+        <dd className="description-list__description">{ numberFormatter.format(vehicles) }</dd>
 
-        <dt>CTO</dt>
-        <dd>{ cto }</dd>
+        <dt className="description-list__title">Launch sites:</dt>
+        <dd className="description-list__description">{ numberFormatter.format(launch_sites) }</dd>
 
-        <dt>COO</dt>
-        <dd>{ coo }</dd>
+        <dt className="description-list__title">Test sites:</dt>
+        <dd className="description-list__description">{ numberFormatter.format(test_sites) }</dd>
 
-        <dt>COO propulsion</dt>
-        <dd>{ cto_propulsion }</dd>
+        <dt className="description-list__title">CEO:</dt>
+        <dd className="description-list__description">{ ceo }</dd>
 
-        <dt>Valuation:</dt>
-        <dd>{ priceFormatter.format(valuation) }</dd>
+        <dt className="description-list__title">CTO:</dt>
+        <dd className="description-list__description">{ cto }</dd>
 
-        <dt>Headquarters</dt>
-        <dd>
+        <dt className="description-list__title">COO:</dt>
+        <dd className="description-list__description">{ coo }</dd>
+
+        <dt className="description-list__title">COO propulsion:</dt>
+        <dd className="description-list__description">{ cto_propulsion }</dd>
+
+        <dt className="description-list__title">Valuation:</dt>
+        <dd className="description-list__description">{ priceFormatter.format(valuation) }</dd>
+
+        <dt className="description-list__title">Headquarters:</dt>
+        <dd className="description-list__description">
           { headquarters.address }
           <br />
           { headquarters.city }
-          ,
+          {', '}
           { headquarters.state }
         </dd>
       </dl>
-
-      <p>{ summary }</p>
     </div>
   );
 }

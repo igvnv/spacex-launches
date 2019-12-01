@@ -55,12 +55,12 @@ describe('TimetableYear', () => {
     expect(wrapper.find('.timetable__event').length).toBe(1);
   });
 
-  it('adds .timetable__event_unsuccesfully for unseccessfully launches', () => {
+  it('adds .timetable__event_unsuccessfully for unseccessfully launches', () => {
     const { wrapper } = createWrapper({
       year: +unsuccessfulLaunch.launch_year,
       launches: [unsuccessfulLaunch],
     });
-    expect(wrapper.find('.timetable__event_unsuccesfully').length).toBe(1);
+    expect(wrapper.find('.timetable__event_unsuccessfully').length).toBe(1);
   });
 
   it('adds .timetable__event_upcoming for unseccessfully launches', () => {
@@ -71,11 +71,11 @@ describe('TimetableYear', () => {
     expect(wrapper.find('.timetable__event_upcoming').length).toBe(1);
   });
 
-  it('fires displayLaunch when launch button is clicked', () => {
+  it('fires displayLaunch when launch button is focused', () => {
     const target = {};
     const mockedEvent = { target };
     const { wrapper, displayLaunch } = createWrapper({ year: 2006, launches: launchesList });
-    wrapper.find('.timetable__event').first().simulate('click', mockedEvent);
+    wrapper.find('.timetable__event').first().simulate('focus', mockedEvent);
     expect(displayLaunch.mock.calls.length).toBe(1);
     expect(displayLaunch.mock.calls[0]).toEqual([launchesList[0], target]);
   });

@@ -1,0 +1,38 @@
+.timetable__event_unsuccessfully {
+  box-shadow: 0 0 5px rgba(255, 0, 0, .5);
+  position: relative;
+  transition: box-shadow .2s;
+
+  &::before, &::after {
+    background: #c00;
+    content: '';
+    height: 2px;
+    left: -3px;
+    position: absolute;
+    top: 9px;
+    transform: rotate(45deg);
+    width: 26px;
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    border-color: #c00;
+    box-shadow: 0 0 5px rgba(255, 0, 0, .5), 0 0 0 2px #c00;
+
+    &::before, &::after {
+      display: none;
+    }
+  }
+
+  &:focus {
+    border-color: #c00;
+    box-shadow: 0 0 5px rgba(255, 0, 0, .5), 0 0 0 2px #c00, 0 0 0 3px $color-blue;
+
+    &::before, &::after {
+      display: none;
+    }
+  }
+}

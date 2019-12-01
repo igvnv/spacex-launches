@@ -15,31 +15,34 @@ export const LandingPadInfo = ({ landingPad, landingPadId }) => {
 
   return (
     <div>
-      <h2>{landingPad.full_name}</h2>
+      <h1 className="title title_level_1">{landingPad.full_name}</h1>
 
-      <dl>
-        <dt>Location</dt>
-        <dd>
+      <p className="paragraph">{landingPad.details}</p>
+
+      <h2 className="title title_level_2">General information</h2>
+
+      <dl className="description-list">
+        <dt className="description-list__title">Location</dt>
+        <dd className="description-list__description">
           {`${landingPad.location.region}, ${landingPad.location.name}`}
           {', '}
           <MapLink position={position}>show on map</MapLink>
         </dd>
 
-        <dt>Status:</dt>
-        <dd>{landingPad.status}</dd>
+        <dt className="description-list__title">Status:</dt>
+        <dd className="description-list__description">{landingPad.status}</dd>
 
-        <dt>Attempted landings</dt>
-        <dd>{landingPad.attempted_landings}</dd>
+        <dt className="description-list__title">Attempted landings</dt>
+        <dd className="description-list__description">{landingPad.attempted_landings}</dd>
 
-        <dt>Successful landings</dt>
-        <dd>{landingPad.successful_landings}</dd>
+        <dt className="description-list__title">Successful landings</dt>
+        <dd className="description-list__description">{landingPad.successful_landings}</dd>
       </dl>
 
-      <p>{landingPad.details}</p>
-      <p>
+      <p className="paragraph">
         Read more on
         {' '}
-        <a href={landingPad.wikipedia}>Wikipedia</a>
+        <a className="link" href={landingPad.wikipedia}>Wikipedia</a>
       </p>
     </div>
   );

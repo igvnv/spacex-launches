@@ -1,1 +1,91 @@
+@import '../../config';
+
+.main-menu {
+  position: absolute;
+  top: 67px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 5px 5px $shadow-color;
+  padding: 20px 0;
+  display: none;
+  z-index: 10;
+}
+
+.main-menu_open {
+  display: block;
+  margin-top: 0;
+  animation: main-menu_open .2s;
+}
+
+@keyframes main-menu_open {
+  from {
+    margin-top: 20px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+.burger-button {
+  cursor: pointer;
+  display: block;
+  width: 46px;
+  height: 30px;
+  border: none;
+  background: transparent;
+
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: 0;
+    background: $color-dark-gray;
+    position: absolute;
+    transition: all .2s;
+  }
+
+  &::after {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.burger-button__helper {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  left: 0;
+  margin-top: -2px;
+  background: $color-dark-gray;
+}
+
+.burger-button_open {
+  .burger-button__helper {
+    opacity: 0;
+  }
+
+  &::before, &::after {
+    margin-top: 13px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    margin-bottom: 13px;
+    transform: rotate(-45deg);
+  }
+}
+
+.main-menu__link {
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+}
+
 @import "__item/main-menu__item";

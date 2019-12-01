@@ -1,0 +1,12 @@
+@import '../../config';
+
+.secondary-menu {
+  border-bottom: 1px solid $color-dark-gray;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+@import './__item/secondary-menu__item';
+@import './__link/secondary-menu__link';

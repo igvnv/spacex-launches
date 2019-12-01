@@ -20,7 +20,7 @@ describe('TimelineFilterButton', () => {
       </TimelineFilterButton>,
     );
 
-    expect(wrapper.find('button').first().text()).toEqual('Button value');
+    expect(wrapper.find('.secondary-menu__link').first().text()).toEqual('Button value');
   });
 
   it('has no active class when timeline is displayed', () => {
@@ -35,7 +35,7 @@ describe('TimelineFilterButton', () => {
       </TimelineFilterButton>,
     );
 
-    expect(wrapper.find('button').first().hasClass('button-group__button_active')).toEqual(false);
+    expect(wrapper.find('.secondary-menu__link').first().hasClass('secondary-menu__link_active')).toEqual(false);
   });
 
   it('has active class when timeline is displayed', () => {
@@ -50,10 +50,10 @@ describe('TimelineFilterButton', () => {
       </TimelineFilterButton>,
     );
 
-    expect(wrapper.find('button').first().hasClass('button-group__button_active')).toEqual(true);
+    expect(wrapper.find('.secondary-menu__link').first().hasClass('secondary-menu__link_active')).toEqual(true);
   });
 
-  it('calls setFilter on click', async () => {
+  it('calls setFilter on click', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(
       <TimelineFilterButton
@@ -65,7 +65,7 @@ describe('TimelineFilterButton', () => {
       </TimelineFilterButton>,
     );
 
-    await wrapper.find('button').first().simulate('click');
+    wrapper.find('.secondary-menu__link').first().simulate('click');
 
     expect(setFilter.mock.calls.length).toEqual(1);
     expect(setFilter.mock.calls[0]).toEqual([LaunchesTimeline.FUTURE]);

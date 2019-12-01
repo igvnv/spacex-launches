@@ -1,0 +1,18 @@
+@import '../../config';
+
+.filter-button {
+  background: #fff;
+  border-radius: .8em;
+  cursor: pointer;
+  font-size: .8em;
+  height: 1.6em;
+  margin: 0 2px 2px;
+
+  &:focus {
+    box-shadow: 0 2px 3px $shadow-color, 0 0 4px 1px $color-blue;
+    outline: none;
+  }
+}
+
+@import './_active/filter-button_active';
+@import './_clean/filter-button_clean';

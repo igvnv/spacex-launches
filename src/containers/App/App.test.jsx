@@ -3,7 +3,8 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from './App';
-import MainMenu from '../../components/MainMenu/MainMenu';
+import AppHeader from '../../components/AppHeader';
+import AppFooter from '../../components/AppFooter';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -13,13 +14,17 @@ jest.mock('react-router-dom', () => ({
 
 Enzyme.configure({ adapter: new Adapter() });
 
-
 it('renders without crashing', () => {
   const wrapper = shallow((<App />));
   wrapper.unmount();
 });
 
-it('renders <MainMenu/> component', () => {
+it('renders <AppHeader/> component', () => {
   const wrapper = shallow((<App />));
-  expect(wrapper.find(MainMenu).length).toBe(1);
+  expect(wrapper.find(AppHeader).length).toBe(1);
+});
+
+it('renders <AppFooter/> component', () => {
+  const wrapper = shallow((<App />));
+  expect(wrapper.find(AppFooter).length).toBe(1);
 });

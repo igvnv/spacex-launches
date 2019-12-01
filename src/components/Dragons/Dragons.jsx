@@ -6,9 +6,9 @@ import { fetchDragonsIfNeeded } from '../../redux/actions/dragons';
 import DragonInfoShort from '../DragonInfoShort';
 
 export const Dragons = ({ dragons }) => (
-  <div>
+  <div className="catalog-list">
     {dragons.map((dragon) => (
-      <div key={dragon.id}>
+      <div className="catalog-list__item" key={dragon.id}>
         <DragonInfoShort dragonId={dragon.id} />
       </div>
     ))}

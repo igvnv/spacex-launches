@@ -1,0 +1,14 @@
+@import '../../config';
+
+.description-list {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 15px 10px;
+  margin: 0;
+  padding: 0;
+}
+
+@import './_narrow/description-list_narrow.scss';
+
+@import './__description/description-list__description';
+@import './__title/description-list__title';

@@ -4,6 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import LaunchesFilter from './LaunchesFilter';
 import TimelineFilterButton from './TimelineFilterButton/TimelineFilterButton';
+import FilterByYear from './FilterByYear';
+import FilterByRocket from './FilterByRocket';
+import FilterBySuccess from './FilterBySuccess';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,30 +19,18 @@ describe('TimelineFilterButton', () => {
     expect(wrapper.find(TimelineFilterButton).at(2).text()).toEqual('Future launches');
   });
 
-  it('contains additional filters', () => {
+  it('displays <FilterByYear />', () => {
     const wrapper = shallow(<LaunchesFilter />);
-    expect(wrapper.find('.additional-filters').exists()).toBeTruthy();
+    expect(wrapper.find(FilterByYear).length).toEqual(1);
   });
 
-  it('has hide button for additional filters', () => {
+  it('displays <FilterByRocket />', () => {
     const wrapper = shallow(<LaunchesFilter />);
-    expect(wrapper.find('.additional-filters__button-hide').exists()).toBeTruthy();
+    expect(wrapper.find(FilterByRocket).length).toEqual(1);
   });
 
-  it('hides additional filters on hide button click', async () => {
+  it('displays <FilterBySuccess />', () => {
     const wrapper = shallow(<LaunchesFilter />);
-    await wrapper.find('.additional-filters__button-hide').simulate('click');
-    expect(wrapper.find('.additional-filters').exists()).toBeFalsy();
-  });
-
-  it('has no button for show additional filters by default', () => {
-    const wrapper = shallow(<LaunchesFilter />);
-    expect(wrapper.find('.launches-filter__show-additional-filters').exists()).toBeFalsy();
-  });
-
-  it('has button for show additional filters when filters are hid', async () => {
-    const wrapper = shallow(<LaunchesFilter />);
-    await wrapper.find('.additional-filters__button-hide').simulate('click');
-    expect(wrapper.find('.launches-filter__show-additional-filters').exists()).toBeTruthy();
+    expect(wrapper.find(FilterBySuccess).length).toEqual(1);
   });
 });

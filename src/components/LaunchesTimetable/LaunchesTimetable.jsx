@@ -60,7 +60,7 @@ const LaunchesTimetable = ({ launches }) => {
   // TODO: Repaint or hide popup on launches list changes (when filters were changed as an example)
 
   return (
-    <div>
+    <div className="timetable-wrapper">
       <TimetablePopup ref={launchPopupRef} goToLaunch={goToLaunch}>
         <LaunchDataShort launch={displayedLaunch} />
       </TimetablePopup>

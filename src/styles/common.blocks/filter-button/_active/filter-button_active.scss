@@ -1,0 +1,9 @@
+@import '../../../config';
+
+.filter-button_active {
+  box-shadow: 0 0 0 2px $color-blue;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $color-blue, 0 0 6px $color-blue;
+  }
+}

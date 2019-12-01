@@ -3,27 +3,31 @@ import React from 'react';
 function AboutProject() {
   return (
     <div>
-      <h2>About project</h2>
+      <h1 className="title title_level_1">About project</h1>
 
-      <p>
+      <p className="text">
         The app is based on the
         {' '}
-        <a href="https://docs.spacexdata.com/?version=latest">public API</a>
+        <a className="link" href="https://docs.spacexdata.com/?version=latest">public API</a>
         .
       </p>
-      <p><a href="https://github.com/igvnv/spacex-launches">Source code.</a></p>
+      <p className="text">
+        <a className="link" href="https://github.com/igvnv/spacex-launches">Source code.</a>
+      </p>
 
-      <h3>Goals</h3>
-      <ul>
-        <li>Learning React</li>
-        <li>Learning Redux</li>
-        <li>Learning React Router</li>
+      <h2 className="title title_level_2">Goals</h2>
+
+      <ul className="list">
+        <li className="list__item">Learning React</li>
+        <li className="list__item">Learning Redux</li>
+        <li className="list__item">Learning React Router</li>
       </ul>
 
-      <h3>Secondary goals</h3>
-      <ul>
-        <li>Creating a fancy responsible interface</li>
-        <li>Having fun!</li>
+      <h2 className="title title_level_2">Secondary goals</h2>
+
+      <ul className="list">
+        <li className="list__item">Creating a fancy responsible interface</li>
+        <li className="list__item">Having fun!</li>
       </ul>
     </div>
   );

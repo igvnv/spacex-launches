@@ -1,3 +1,17 @@
+@import '../../../../config';
+
 .main-menu__link_active {
-  background: #ebebeb;
+  color: $color-black;
+  position: relative;
+
+  &::after {
+    background: $color-black;
+    bottom: 0;
+    content: '';
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+  }
 }

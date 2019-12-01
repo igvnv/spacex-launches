@@ -1,0 +1,24 @@
+.loader-rocket__illuminator {
+  background: #fff;
+  border-radius: 50%;
+  height: 8px;
+  left: 50%;
+  margin-left: -4px;
+  position: absolute;
+  top: 15px;
+  width: 8px;
+  z-index: 3;
+
+  &::after {
+    content: '';
+    background: #fff;
+    border-radius: 50%;
+    height: 8px;
+    left: 50%;
+    margin-left: -4px;
+    position: absolute;
+    top: 12px;
+    width: 8px;
+    z-index: 3;
+  }
+}

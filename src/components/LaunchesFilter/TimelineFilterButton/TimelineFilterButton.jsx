@@ -7,20 +7,24 @@ import { setLaunchesTimeline } from '../../../redux/actions';
 export function TimelineFilterButton({
   setFilter, timeline, displayedTimeline, children,
 }) {
-  let className = 'button-group__button';
+  let className = 'secondary-menu__link';
 
   if (displayedTimeline === timeline) {
-    className += ' button-group__button_active';
+    className += ' secondary-menu__link_active';
   }
 
   return (
-    <button
-      type="button"
-      className={className}
-      onClick={() => setFilter(timeline)}
-    >
-      {children}
-    </button>
+    <li className="secondary-menu__item">
+      <span
+        role="button"
+        tabIndex="0"
+        className={className}
+        onClick={() => setFilter(timeline)}
+        onKeyDown={() => setFilter(timeline)}
+      >
+        {children}
+      </span>
+    </li>
   );
 }
 TimelineFilterButton.propTypes = {

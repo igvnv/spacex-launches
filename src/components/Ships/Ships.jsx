@@ -39,11 +39,13 @@ export const Ships = ({ ships }) => {
     <div>
       <MapPoints points={points} />
 
-      {ships.map((ship) => (
-        <div key={ship.ship_id}>
-          <ShipInfoShort shipId={ship.ship_id} />
-        </div>
-      ))}
+      <div className="catalog-list">
+        {ships.map((ship) => (
+          <div className="catalog-list__item" key={ship.ship_id}>
+            <ShipInfoShort shipId={ship.ship_id} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -13,36 +13,36 @@ export const DragonInfo = ({ dragon, dragonId }) => {
 
   return (
     <div>
-      <h2>
-        Full info about
-        {' '}
-        {dragon.name}
-      </h2>
-      <dl>
-        <dt>Active:</dt>
-        <dd>{dragon.active ? 'Yes' : 'No'}</dd>
+      <h1 className="title title_level_1">{dragon.name}</h1>
 
-        <dt>Crew capacity</dt>
-        <dd>{dragon.crew_capacity}</dd>
+      <p className="paragraph">{dragon.description}</p>
 
-        <dt>Dry mass</dt>
-        <dd>{`${mass} tons`}</dd>
+      <h2 className="title title_level_2">General information</h2>
 
-        <dt>Height with trunk:</dt>
-        <dd>{`${dragon.height_w_trunk.meters} m.`}</dd>
+      <dl className="description-list">
+        <dt className="description-list__title">Active:</dt>
+        <dd className="description-list__description">{dragon.active ? 'Yes' : 'No'}</dd>
 
-        <dt>Diameter:</dt>
-        <dd>{`${dragon.diameter.meters} m.`}</dd>
+        <dt className="description-list__title">Crew capacity</dt>
+        <dd className="description-list__description">{dragon.crew_capacity}</dd>
 
-        <dt>First flight:</dt>
-        <dd>{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
+        <dt className="description-list__title">Dry mass</dt>
+        <dd className="description-list__description">{`${mass} tons`}</dd>
+
+        <dt className="description-list__title">Height with trunk:</dt>
+        <dd className="description-list__description">{`${dragon.height_w_trunk.meters} m.`}</dd>
+
+        <dt className="description-list__title">Diameter:</dt>
+        <dd className="description-list__description">{`${dragon.diameter.meters} m.`}</dd>
+
+        <dt className="description-list__title">First flight:</dt>
+        <dd className="description-list__description">{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
       </dl>
 
-      <p>{dragon.description}</p>
-      <p>
+      <p className="paragraph">
         Read more on
         {' '}
-        <a href={dragon.wikipedia}>Wikipedia</a>
+        <a className="link" href={dragon.wikipedia}>Wikipedia</a>
       </p>
     </div>
   );

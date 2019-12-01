@@ -1,0 +1,23 @@
+@import '../../config';
+
+.accent-link {
+  border: 1px solid $color-gray;
+  border-radius: 4px;
+  color: $color-black;
+  font-size: 13px;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color .2s;
+
+  &:hover {
+    border-color: $color-black;
+
+    .accent-link__arrow {
+      transform: translateX(2px) rotate(45deg) translateY(-2px);
+    }
+  }
+}
+
+@import './accent-link__arrow/accent-link__arrow';

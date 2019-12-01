@@ -1,0 +1,9 @@
+@import '../../config';
+
+.catalog-list {
+  border: 1px solid $color-gray;
+  margin: 20px 0;
+}
+
+@import './__item/catalog-list__item';
+@import './__title/catalog-list__title';

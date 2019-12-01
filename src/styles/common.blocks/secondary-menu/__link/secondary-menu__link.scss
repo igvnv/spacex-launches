@@ -1,0 +1,23 @@
+@import '../../../config';
+
+.secondary-menu__link {
+  cursor: pointer;
+  color: $color-dark-gray;
+  display: block;
+  font-size: 13px;
+  margin-left: 15px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .2s;
+
+  &:hover {
+    color: $color-black;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@import './_active/secondary-menu__link_active';
