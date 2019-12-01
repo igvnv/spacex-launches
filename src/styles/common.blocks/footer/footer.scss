@@ -1,0 +1,11 @@
+@import '../../config';
+
+.footer {
+  border-top: 1px solid $color-dark-gray;
+  margin-top: 40px;
+  padding-top: $content-gap;
+}
+
+@import './__git-icon/footer__git-icon.scss';
+@import './__link/footer__link';
+@import './__paragraph/footer__paragraph';
