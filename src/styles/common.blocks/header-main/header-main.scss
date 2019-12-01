@@ -1,0 +1,9 @@
+@import '../../config';
+
+.header-main {
+  align-items: center;
+  border-bottom: 1px solid $color-dark-gray;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: $content-gap;
+}

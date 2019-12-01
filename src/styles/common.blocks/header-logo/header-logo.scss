@@ -1,4 +1,14 @@
+@import './config';
+
 .header-logo {
-  font-size: 16px;
-  margin: 0;
+  color: $color-black;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: 50px;
+  text-align: center;
+  text-decoration: none;
+  width: $image-width;
 }
+
+@import './__image/header-logo__image';
+@import './__subtitle/header-logo__subtitle.scss';
