@@ -3,7 +3,9 @@
 .app-wrapper {
   display: grid;
   grid-template-rows: minmax(min-content, auto) 1fr minmax(min-content, auto);
+  max-width: 100vw;
   min-height: calc(100vh - #{$content-gap * 2});
+  overflow: hidden;
   padding: $content-gap;
   position: relative;
 }
