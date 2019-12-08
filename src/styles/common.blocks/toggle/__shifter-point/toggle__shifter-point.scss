@@ -1,0 +1,12 @@
+.toggle__shifter-point {
+  background: $color-gray;
+  border-radius: 50%;
+  height: 18px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  transition: background .2s, left .2s;
+  width: 18px;
+}
+
+@import './_on/toggle__shifter-point_on';

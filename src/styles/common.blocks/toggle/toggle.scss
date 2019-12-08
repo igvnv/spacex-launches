@@ -1,0 +1,14 @@
+@import '../../config';
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@import './__label/toggle__label';
+@import './__shifter/toggle__shifter';
+@import './__shifter-point/toggle__shifter-point';
