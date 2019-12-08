@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -6,9 +6,17 @@ import withLoader from '../../hoc/withLoader';
 import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
 import LandingPadInfoShort from '../../components/LandingPadInfoShort';
 import MapPoints from '../../components/MapPoints';
+import Toggle from '../../components/Toggle';
 
 export const LandingPads = ({ landingPads }) => {
-  const points = landingPads
+  const [activeOnly, setActiveOnly] = useState(false);
+
+  const filterLandingPads = (landingPadsList) => {
+    if (!activeOnly) return landingPadsList;
+    return landingPadsList.filter((r) => r.status === 'active');
+  };
+
+  const points = (landingPadsList) => landingPadsList
     .filter((landingPad) => landingPad.location
       && landingPad.location.latitude !== null
       && landingPad.location.longitude != null)
@@ -28,10 +36,14 @@ export const LandingPads = ({ landingPads }) => {
 
   return (
     <div>
-      <MapPoints points={points} />
+      <MapPoints points={points(filterLandingPads(landingPads))} />
+
+      <div className="catalog-filter">
+        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+      </div>
 
       <div className="catalog-list">
-        {landingPads.map((landingPad) => (
+        {filterLandingPads(landingPads).map((landingPad) => (
           <div className="catalog-list__item" key={landingPad.id}>
             <LandingPadInfoShort landingPadId={landingPad.id} />
           </div>

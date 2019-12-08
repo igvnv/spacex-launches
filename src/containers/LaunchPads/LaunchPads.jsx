@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -6,9 +6,17 @@ import withLoader from '../../hoc/withLoader';
 import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
 import LaunchPadInfoShort from '../../components/LaunchPadInfoShort';
 import MapPoints from '../../components/MapPoints';
+import Toggle from '../../components/Toggle';
 
 export const LaunchPads = ({ launchPads }) => {
-  const points = launchPads
+  const [activeOnly, setActiveOnly] = useState(false);
+
+  const filterLaunchPads = (launchPadsList) => {
+    if (!activeOnly) return launchPadsList;
+    return launchPadsList.filter((r) => r.status === 'active');
+  };
+
+  const points = (launchPadsList) => launchPadsList
     .filter((launchPad) => launchPad.location
       && launchPad.location.latitude !== null
       && launchPad.location.longitude != null)
@@ -28,10 +36,14 @@ export const LaunchPads = ({ launchPads }) => {
 
   return (
     <div>
-      <MapPoints points={points} />
+      <MapPoints points={points(filterLaunchPads(launchPads))} />
+
+      <div className="catalog-filter">
+        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+      </div>
 
       <div className="catalog-list">
-        {launchPads.map((launchPad) => (
+        {filterLaunchPads(launchPads).map((launchPad) => (
           <div className="catalog-list__item" key={launchPad.id}>
             <LaunchPadInfoShort launchPadId={launchPad.id} />
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Marker, InfoWindow } from '@react-google-maps/api';
 
@@ -6,10 +6,11 @@ import MapWrapper from '../MapWrapper';
 
 const MapPoints = ({ points }) => {
   const [displayInfo, setDisplayInfo] = useState(false);
+  const [map, setMap] = useState(null);
   const [mapMarkers, setMapMarkers] = useState(null);
   const [selectedPoint, setSelectedPoint] = useState(null);
 
-  const fitBounds = (map) => {
+  const fitBounds = () => {
     // Map may have been not loaded yet.
     if (!map) return;
 
@@ -30,8 +31,17 @@ const MapPoints = ({ points }) => {
     setDisplayInfo(true);
   };
 
+  const onMapLoad = (mapElement) => {
+    if (!mapElement) return;
+    setMap(mapElement);
+    fitBounds();
+  };
+
+  // Fits bounds on each props change
+  useEffect(fitBounds);
+
   return (
-    <MapWrapper onLoad={fitBounds}>
+    <MapWrapper onLoad={onMapLoad}>
       <>
         {points && points.map((point) => (
           <Marker

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -7,9 +7,17 @@ import { fetchShipsIfNeeded } from '../../redux/actions/ships';
 import ShipInfoShort from '../../components/ShipInfoShort';
 import ShipCourse from '../../components/ShipCourse';
 import MapPoints from '../../components/MapPoints';
+import Toggle from '../../components/Toggle';
 
 export const Ships = ({ ships }) => {
-  const points = ships
+  const [activeOnly, setActiveOnly] = useState(false);
+
+  const filterShips = (shipsList) => {
+    if (!activeOnly) return shipsList;
+    return shipsList.filter((r) => r.active === true);
+  };
+
+  const points = (shipsList) => shipsList
     .filter((ship) => ship.position
       && ship.position.latitude !== null
       && ship.position.longitude != null)
@@ -37,10 +45,14 @@ export const Ships = ({ ships }) => {
 
   return (
     <div>
-      <MapPoints points={points} />
+      <MapPoints points={points(filterShips(ships))} />
+
+      <div className="catalog-filter">
+        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+      </div>
 
       <div className="catalog-list">
-        {ships.map((ship) => (
+        {filterShips(ships).map((ship) => (
           <div className="catalog-list__item" key={ship.ship_id}>
             <ShipInfoShort shipId={ship.ship_id} />
           </div>
