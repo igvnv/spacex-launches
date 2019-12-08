@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
 import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
-import RocketInfoShort from '../RocketInfoShort';
+import RocketInfoShort from '../../components/RocketInfoShort';
 
 export const Rockets = ({ rockets }) => (
   <div className="catalog-list">

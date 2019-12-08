@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
 import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
-import LaunchPadInfoShort from '../LaunchPadInfoShort';
-import MapPoints from '../MapPoints';
+import LaunchPadInfoShort from '../../components/LaunchPadInfoShort';
+import MapPoints from '../../components/MapPoints';
 
 export const LaunchPads = ({ launchPads }) => {
   const points = launchPads

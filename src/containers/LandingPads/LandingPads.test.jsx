@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { LandingPads } from './LandingPads';
-import LandingPadInfoShort from '../LandingPadInfoShort';
+import LandingPadInfoShort from '../../components/LandingPadInfoShort';
 import landingPadsData from '../../../__tests__/data/landingpads';
 
 Enzyme.configure({ adapter: new Adapter() });

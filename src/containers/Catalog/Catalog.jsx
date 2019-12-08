@@ -7,15 +7,15 @@ import {
 } from 'react-router-dom';
 
 import CatalogNavigation from '../../components/CatalogNavigation';
-import Rockets from '../../components/Rockets';
+import Rockets from '../Rockets';
 import RocketInfo from '../RocketInfo';
-import Dragons from '../../components/Dragons';
+import Dragons from '../Dragons';
 import DragonInfo from '../DragonInfo';
-import Ships from '../../components/Ships';
+import Ships from '../Ships';
 import ShipInfo from '../ShipInfo';
-import LaunchPads from '../../components/LaunchPads';
+import LaunchPads from '../LaunchPads';
 import LaunchPadInfo from '../LaunchPadInfo';
-import LandingPads from '../../components/LandingPads';
+import LandingPads from '../LandingPads';
 import LandingPadInfo from '../LandingPadInfo';
 
 const Catalog = () => {

@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Dragons } from './Dragons';
-import DragonInfoShort from '../DragonInfoShort';
+import DragonInfoShort from '../../components/DragonInfoShort';
 import dragonsData from '../../../__tests__/data/dragons';
 
 Enzyme.configure({ adapter: new Adapter() });

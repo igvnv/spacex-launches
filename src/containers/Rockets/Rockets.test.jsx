@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Rockets } from './Rockets';
-import RocketInfoShort from '../RocketInfoShort';
+import RocketInfoShort from '../../components/RocketInfoShort';
 import rocketsData from '../../../__tests__/data/rockets';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
 import { fetchShipsIfNeeded } from '../../redux/actions/ships';
-import ShipInfoShort from '../ShipInfoShort';
-import ShipCourse from '../ShipCourse';
-import MapPoints from '../MapPoints';
+import ShipInfoShort from '../../components/ShipInfoShort';
+import ShipCourse from '../../components/ShipCourse';
+import MapPoints from '../../components/MapPoints';
 
 export const Ships = ({ ships }) => {
   const points = ships

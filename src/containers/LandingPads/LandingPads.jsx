@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
 import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
-import LandingPadInfoShort from '../LandingPadInfoShort';
-import MapPoints from '../MapPoints';
+import LandingPadInfoShort from '../../components/LandingPadInfoShort';
+import MapPoints from '../../components/MapPoints';
 
 export const LandingPads = ({ landingPads }) => {
   const points = landingPads

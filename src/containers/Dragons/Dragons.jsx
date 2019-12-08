@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
 import { fetchDragonsIfNeeded } from '../../redux/actions/dragons';
-import DragonInfoShort from '../DragonInfoShort';
+import DragonInfoShort from '../../components/DragonInfoShort';
 
 export const Dragons = ({ dragons }) => (
   <div className="catalog-list">
