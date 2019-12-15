@@ -38,7 +38,7 @@ const MapPoints = ({ points }) => {
   };
 
   // Fits bounds on each props change
-  useEffect(fitBounds);
+  useEffect(fitBounds, [points]);
 
   return (
     <MapWrapper onLoad={onMapLoad}>

@@ -8,7 +8,7 @@ export const MainMenu = ({ history }) => {
   // Closes the menu when location has been changed
   useEffect(() => history.listen(() => {
     setDisplayMenu(false);
-  }));
+  }), [history]);
 
   return (
     <nav>
