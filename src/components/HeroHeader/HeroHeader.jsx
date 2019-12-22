@@ -8,18 +8,14 @@ const HeroHeader = ({ type, title, photo }) => {
 
   return (
     <div
-      className={
-        [
-          'hero-header',
-          photo ? 'hero-header_with-background' : '',
-          type ? `hero-header_type-${type}` : '',
-        ].join(' ')
-      }
+      className={[
+        'hero-header',
+        photo ? 'hero-header_with-background' : '',
+        type ? `hero-header_type-${type}` : '',
+      ].join(' ')}
       style={{ backgroundImage: photo ? `url(${photo})` : null }}
     >
-      <h2 className="hero-header__title">
-        {title}
-      </h2>
+      <h2 className="hero-header__title">{title}</h2>
 
       {photo && (
         <button

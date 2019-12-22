@@ -15,23 +15,27 @@ describe('ships reducers', () => {
   });
 
   it('should handle SET_SHIPS_FETCH_STATE', () => {
-    expect(reducer(
-      { state: null },
-      {
-        type: SET_SHIPS_FETCH_STATE,
-        state: LoadingStates.ERROR,
-      },
-    )).toEqual({ state: LoadingStates.ERROR });
+    expect(
+      reducer(
+        { state: null },
+        {
+          type: SET_SHIPS_FETCH_STATE,
+          state: LoadingStates.ERROR,
+        }
+      )
+    ).toEqual({ state: LoadingStates.ERROR });
   });
 
   it('should handle RECEIVE_SHIPS_DATA', () => {
-    expect(reducer(
-      { data: null },
-      {
-        type: RECEIVE_SHIPS_DATA,
-        data: shipsList,
-      },
-    )).toEqual({ data: shipsList });
+    expect(
+      reducer(
+        { data: null },
+        {
+          type: RECEIVE_SHIPS_DATA,
+          data: shipsList,
+        }
+      )
+    ).toEqual({ data: shipsList });
   });
 
   it('filters ship by id', () => {

@@ -3,7 +3,10 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import LaunchDataShort from './LaunchDataShort';
-import { successfulLaunch, unsuccessfulLaunch } from '../../../__tests__/data/launches';
+import {
+  successfulLaunch,
+  unsuccessfulLaunch,
+} from '../../../__tests__/data/launches';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -20,7 +23,12 @@ describe('LaunchDataShort', () => {
 
   it('displays launch mission name as title', () => {
     const wrapper = shallow(<LaunchDataShort launch={successfulLaunch} />);
-    expect(wrapper.find('.launch-data-short__title').first().text()).toBe(successfulLaunch.mission_name);
+    expect(
+      wrapper
+        .find('.launch-data-short__title')
+        .first()
+        .text()
+    ).toBe(successfulLaunch.mission_name);
   });
 
   it('displays failure details for unseccessfully launch', () => {

@@ -33,19 +33,26 @@ export const LaunchPadInfo = ({ launchPad, launchPadId }) => {
         <dd className="description-list__description">{launchPad.status}</dd>
 
         <dt className="description-list__title">Vehicles launched</dt>
-        <dd className="description-list__description">{launchPad.vehicles_launched.join(', ')}</dd>
+        <dd className="description-list__description">
+          {launchPad.vehicles_launched.join(', ')}
+        </dd>
 
         <dt className="description-list__title">Attempted launches</dt>
-        <dd className="description-list__description">{launchPad.attempted_launches}</dd>
+        <dd className="description-list__description">
+          {launchPad.attempted_launches}
+        </dd>
 
         <dt className="description-list__title">Successful launches</dt>
-        <dd className="description-list__description">{launchPad.successful_launches}</dd>
+        <dd className="description-list__description">
+          {launchPad.successful_launches}
+        </dd>
       </dl>
 
       <p className="paragraph">
-        Read more on
-        {' '}
-        <a className="link" href={launchPad.wikipedia}>Wikipedia</a>
+        Read more on{' '}
+        <a className="link" href={launchPad.wikipedia}>
+          Wikipedia
+        </a>
       </p>
     </div>
   );
@@ -60,4 +67,6 @@ const mapStateToProps = (state, ownProps) => ({
   launchPad: launchPadById(state.launchPads.data, ownProps.launchPadId),
 });
 
-export default withLoader(LaunchPadInfo, mapStateToProps, { fetchMethod: fetchLaunchPadsIfNeeded });
+export default withLoader(LaunchPadInfo, mapStateToProps, {
+  fetchMethod: fetchLaunchPadsIfNeeded,
+});

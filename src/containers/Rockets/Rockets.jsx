@@ -17,7 +17,11 @@ export const Rockets = ({ rockets }) => {
   return (
     <div>
       <div className="catalog-filter">
-        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+        <Toggle
+          label="Active only"
+          value={activeOnly}
+          onToggle={setActiveOnly}
+        />
       </div>
 
       <div className="catalog-list">
@@ -39,4 +43,6 @@ const mapStateToProps = (state) => ({
   rockets: state.rockets.data,
 });
 
-export default withLoader(Rockets, mapStateToProps, { fetchMethod: fetchRocketsIfNeeded });
+export default withLoader(Rockets, mapStateToProps, {
+  fetchMethod: fetchRocketsIfNeeded,
+});

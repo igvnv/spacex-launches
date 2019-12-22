@@ -22,10 +22,14 @@ export const RocketInfo = ({ rocket, rocketId }) => {
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{rocket.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {rocket.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Cost per launch</dt>
-        <dd className="description-list__description">{priceFormatter.format(rocket.cost_per_launch)}</dd>
+        <dd className="description-list__description">
+          {priceFormatter.format(rocket.cost_per_launch)}
+        </dd>
 
         <dt className="description-list__title">Height:</dt>
         <dd className="description-list__description">{`${rocket.height.meters} m.`}</dd>
@@ -55,10 +59,14 @@ export const RocketInfo = ({ rocket, rocketId }) => {
         <dd className="description-list__description">
           <dl className="description-list description-list_narrow">
             <dt className="description-list__title">Reusable</dt>
-            <dd className="description-list__description">{rocket.first_stage.reusable ? 'Yes' : 'No'}</dd>
+            <dd className="description-list__description">
+              {rocket.first_stage.reusable ? 'Yes' : 'No'}
+            </dd>
 
             <dt className="description-list__title">Engines</dt>
-            <dd className="description-list__description">{rocket.first_stage.engines}</dd>
+            <dd className="description-list__description">
+              {rocket.first_stage.engines}
+            </dd>
 
             <dt className="description-list__title">Fuel amount</dt>
             <dd className="description-list__description">{`${rocket.first_stage.fuel_amount_tons} tons`}</dd>
@@ -72,7 +80,9 @@ export const RocketInfo = ({ rocket, rocketId }) => {
         <dd className="description-list__description">
           <dl className="description-list description-list_narrow">
             <dt className="description-list__title">Engines</dt>
-            <dd className="description-list__description">{rocket.second_stage.engines}</dd>
+            <dd className="description-list__description">
+              {rocket.second_stage.engines}
+            </dd>
 
             <dt className="description-list__title">Fuel amount</dt>
             <dd className="description-list__description">{`${rocket.second_stage.fuel_amount_tons} tons`}</dd>
@@ -100,9 +110,10 @@ export const RocketInfo = ({ rocket, rocketId }) => {
       </dl>
 
       <p className="paragraph">
-        Read more on
-        {' '}
-        <a className="link" href={rocket.wikipedia}>Wikipedia</a>
+        Read more on{' '}
+        <a className="link" href={rocket.wikipedia}>
+          Wikipedia
+        </a>
       </p>
     </div>
   );
@@ -117,4 +128,6 @@ const mapStateToProps = (state, ownProps) => ({
   rocket: rocketById(state.rockets.data, ownProps.rocketId),
 });
 
-export default withLoader(RocketInfo, mapStateToProps, { fetchMethod: fetchRocketsIfNeeded });
+export default withLoader(RocketInfo, mapStateToProps, {
+  fetchMethod: fetchRocketsIfNeeded,
+});

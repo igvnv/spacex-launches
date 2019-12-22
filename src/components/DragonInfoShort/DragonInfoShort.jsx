@@ -16,10 +16,14 @@ export const DragonInfoShort = ({ dragon, dragonId }) => {
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{dragon.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {dragon.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Crew capacity</dt>
-        <dd className="description-list__description">{dragon.crew_capacity}</dd>
+        <dd className="description-list__description">
+          {dragon.crew_capacity}
+        </dd>
 
         <dt className="description-list__title">Height with trunk:</dt>
         <dd className="description-list__description">{`${dragon.height_w_trunk.meters} m.`}</dd>
@@ -28,7 +32,11 @@ export const DragonInfoShort = ({ dragon, dragonId }) => {
         <dd className="description-list__description">{`${dragon.diameter.meters} m.`}</dd>
 
         <dt className="description-list__title">First flight:</dt>
-        <dd className="description-list__description">{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
+        <dd className="description-list__description">
+          {dragon.first_flight
+            ? shortDateFormatter.format(new Date(dragon.first_flight))
+            : '-'}
+        </dd>
       </dl>
 
       <p>
@@ -50,4 +58,6 @@ const mapStateToProps = (state, ownProps) => ({
   dragon: dragonById(state.dragons.data, ownProps.dragonId),
 });
 
-export default withLoader(DragonInfoShort, mapStateToProps, { fetchMethod: fetchDragonsIfNeeded });
+export default withLoader(DragonInfoShort, mapStateToProps, {
+  fetchMethod: fetchDragonsIfNeeded,
+});

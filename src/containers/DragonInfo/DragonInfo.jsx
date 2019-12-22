@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   dragons: state.dragons.data,
 });
 
-export default withLoader(
-  DragonInfoContainer,
-  mapStateToProps,
-  { fetchMethod: fetchDragonsIfNeeded },
-);
+export default withLoader(DragonInfoContainer, mapStateToProps, {
+  fetchMethod: fetchDragonsIfNeeded,
+});

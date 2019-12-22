@@ -18,7 +18,9 @@ describe('GoToLaunchButton', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<GoToLaunchButton onClick={onClick} />);
 
-    wrapper.find('.launch-data-short__show-full').simulate('keyDown', { keyCode: KEY_SPACE });
+    wrapper
+      .find('.launch-data-short__show-full')
+      .simulate('keyDown', { keyCode: KEY_SPACE });
     expect(onClick.mock.calls.length).toBe(1);
   });
 
@@ -26,13 +28,17 @@ describe('GoToLaunchButton', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<GoToLaunchButton onClick={onClick} />);
 
-    wrapper.find('.launch-data-short__show-full').simulate('keyDown', { keyCode: KEY_ENTER });
+    wrapper
+      .find('.launch-data-short__show-full')
+      .simulate('keyDown', { keyCode: KEY_ENTER });
     expect(onClick.mock.calls.length).toBe(1);
   });
 
   it('adds .launch-data-short__show-full_%direction% class name', () => {
     const onClick = jest.fn();
-    const wrapper = shallow(<GoToLaunchButton direction="left" onClick={onClick} />);
+    const wrapper = shallow(
+      <GoToLaunchButton direction="left" onClick={onClick} />
+    );
     expect(wrapper.find('.launch-data-short__show-full_left').length).toBe(1);
   });
 });

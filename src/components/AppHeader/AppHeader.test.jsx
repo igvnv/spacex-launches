@@ -8,11 +8,11 @@ import MainMenu from '../MainMenu';
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  const wrapper = shallow((<AppHeader />));
+  const wrapper = shallow(<AppHeader />);
   wrapper.unmount();
 });
 
 it('renders <MainMenu/> component', () => {
-  const wrapper = shallow((<AppHeader />));
+  const wrapper = shallow(<AppHeader />);
   expect(wrapper.find(MainMenu).length).toBe(1);
 });

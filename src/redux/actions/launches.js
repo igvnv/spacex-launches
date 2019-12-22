@@ -39,7 +39,8 @@ export function setLaunchesFilterByYear(year) {
   };
 }
 
-export const SET_LAUNCHES_FILTER_BY_ROCKET_ID = 'SET_LAUNCHES_FILTER_BY_ROCKET_ID';
+export const SET_LAUNCHES_FILTER_BY_ROCKET_ID =
+  'SET_LAUNCHES_FILTER_BY_ROCKET_ID';
 export function setLaunchesFilterByRocketId(rocketId) {
   return {
     type: SET_LAUNCHES_FILTER_BY_ROCKET_ID,
@@ -72,7 +73,7 @@ export function fetchLaunches() {
         (error) => {
           console.error(error);
           dispatch(setLaunchesFetchState(LoadingStates.ERROR));
-        },
+        }
       )
       .then((json) => {
         if (json) {

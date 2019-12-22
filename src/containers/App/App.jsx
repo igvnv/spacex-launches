@@ -1,10 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import {
-  Route,
-  Switch,
-  useHistory,
-  useLocation,
-} from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
@@ -17,7 +12,7 @@ const Catalog = lazy(() => import('../Catalog'));
 const Launches = lazy(() => import('../Launches'));
 const RocketInfo = lazy(() => import('../RocketInfo'));
 
-export default function () {
+export default function() {
   const location = useLocation();
   const history = useHistory();
 
@@ -49,7 +44,7 @@ export default function () {
               <Catalog />
             </Suspense>
           </Route>
-          { /* TODO: Add 404 */ }
+          {/* TODO: Add 404 */}
         </Switch>
       </div>
 

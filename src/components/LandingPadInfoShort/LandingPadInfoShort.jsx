@@ -8,21 +8,30 @@ import { landingPadById } from '../../redux/reducers/landingPads';
 
 export const LandingPadInfoShort = ({ landingPad, landingPadId }) => (
   <div>
-    <h2 className="title title_level_2 catalog-list__title">{landingPad.full_name}</h2>
+    <h2 className="title title_level_2 catalog-list__title">
+      {landingPad.full_name}
+    </h2>
 
     <dl className="description-list">
       <dt className="description-list__title">Status:</dt>
       <dd className="description-list__description">{landingPad.status}</dd>
 
       <dt className="description-list__title">Attempted landings</dt>
-      <dd className="description-list__description">{landingPad.attempted_landings}</dd>
+      <dd className="description-list__description">
+        {landingPad.attempted_landings}
+      </dd>
 
       <dt className="description-list__title">Successful landings</dt>
-      <dd className="description-list__description">{landingPad.successful_landings}</dd>
+      <dd className="description-list__description">
+        {landingPad.successful_landings}
+      </dd>
     </dl>
 
     <p>
-      <Link to={`/catalog/landing_pads/${landingPadId}`} className="accent-link">
+      <Link
+        to={`/catalog/landing_pads/${landingPadId}`}
+        className="accent-link"
+      >
         Read more
         <span className="accent-link__arrow" />
       </Link>
@@ -39,8 +48,6 @@ const mapStateToProps = (state, ownProps) => ({
   landingPad: landingPadById(state.landingPads.data, ownProps.landingPadId),
 });
 
-export default withLoader(
-  LandingPadInfoShort,
-  mapStateToProps,
-  { fetchMethod: fetchLandingPadsIfNeeded },
-);
+export default withLoader(LandingPadInfoShort, mapStateToProps, {
+  fetchMethod: fetchLandingPadsIfNeeded,
+});

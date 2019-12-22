@@ -14,9 +14,24 @@ describe('TimelineFilterButton', () => {
   it('contains three timeline buttons (past, all, future)', () => {
     const wrapper = shallow(<LaunchesFilter />);
     expect(wrapper.find(TimelineFilterButton).length).toEqual(3);
-    expect(wrapper.find(TimelineFilterButton).at(0).text()).toEqual('Past launches');
-    expect(wrapper.find(TimelineFilterButton).at(1).text()).toEqual('All launches');
-    expect(wrapper.find(TimelineFilterButton).at(2).text()).toEqual('Future launches');
+    expect(
+      wrapper
+        .find(TimelineFilterButton)
+        .at(0)
+        .text()
+    ).toEqual('Past launches');
+    expect(
+      wrapper
+        .find(TimelineFilterButton)
+        .at(1)
+        .text()
+    ).toEqual('All launches');
+    expect(
+      wrapper
+        .find(TimelineFilterButton)
+        .at(2)
+        .text()
+    ).toEqual('Future launches');
   });
 
   it('displays <FilterByYear />', () => {

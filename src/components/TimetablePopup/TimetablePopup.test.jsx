@@ -10,11 +10,11 @@ Enzyme.configure({ adapter: new Adapter() });
 const ChildrenComponent = () => <p>Children</p>;
 
 const createWrapper = (goToLaunch = jest.fn()) => {
-  const wrapper = shallow((
+  const wrapper = shallow(
     <TimetablePopup goToLaunch={goToLaunch}>
       <ChildrenComponent />
     </TimetablePopup>
-  ));
+  );
 
   return {
     wrapper,

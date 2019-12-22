@@ -12,27 +12,33 @@ export const ShipInfoShort = ({ ship, shipId }) => {
 
   return (
     <div>
-      <h2 className="title title_level_2 catalog-list__title">{ship.ship_name}</h2>
+      <h2 className="title title_level_2 catalog-list__title">
+        {ship.ship_name}
+      </h2>
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{ship.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {ship.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Status:</dt>
         <dd className="description-list__description">
-          {ship.status || 'N/d'}
-          {' '}
-          <ShipCourse ship={ship} />
+          {ship.status || 'N/d'} <ShipCourse ship={ship} />
         </dd>
 
         <dt className="description-list__title">Type</dt>
         <dd className="description-list__description">{ship.ship_type}</dd>
 
         <dt className="description-list__title">Roles</dt>
-        <dd className="description-list__description">{ship.roles.join(', ')}</dd>
+        <dd className="description-list__description">
+          {ship.roles.join(', ')}
+        </dd>
 
         <dt className="description-list__title">Year built</dt>
-        <dd className="description-list__description">{ship.year_built || 'N/d'}</dd>
+        <dd className="description-list__description">
+          {ship.year_built || 'N/d'}
+        </dd>
       </dl>
 
       <p>
@@ -54,4 +60,6 @@ const mapStateToProps = (state, ownProps) => ({
   ship: shipById(state.ships.data, ownProps.shipId),
 });
 
-export default withLoader(ShipInfoShort, mapStateToProps, { fetchMethod: fetchShipsIfNeeded });
+export default withLoader(ShipInfoShort, mapStateToProps, {
+  fetchMethod: fetchShipsIfNeeded,
+});

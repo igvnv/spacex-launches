@@ -9,7 +9,9 @@ import { numberFormatter, shortDateFormatter } from '../../helpers/formatters';
 export const DragonInfo = ({ dragon, dragonId }) => {
   if (!dragonId) throw new Error('Dragon ID is not defined');
 
-  const mass = numberFormatter.format(Math.round(dragon.dry_mass_kg / 10) / 100);
+  const mass = numberFormatter.format(
+    Math.round(dragon.dry_mass_kg / 10) / 100
+  );
 
   return (
     <div>
@@ -21,10 +23,14 @@ export const DragonInfo = ({ dragon, dragonId }) => {
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{dragon.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {dragon.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Crew capacity</dt>
-        <dd className="description-list__description">{dragon.crew_capacity}</dd>
+        <dd className="description-list__description">
+          {dragon.crew_capacity}
+        </dd>
 
         <dt className="description-list__title">Dry mass</dt>
         <dd className="description-list__description">{`${mass} tons`}</dd>
@@ -36,13 +42,18 @@ export const DragonInfo = ({ dragon, dragonId }) => {
         <dd className="description-list__description">{`${dragon.diameter.meters} m.`}</dd>
 
         <dt className="description-list__title">First flight:</dt>
-        <dd className="description-list__description">{dragon.first_flight ? shortDateFormatter.format(new Date(dragon.first_flight)) : '-'}</dd>
+        <dd className="description-list__description">
+          {dragon.first_flight
+            ? shortDateFormatter.format(new Date(dragon.first_flight))
+            : '-'}
+        </dd>
       </dl>
 
       <p className="paragraph">
-        Read more on
-        {' '}
-        <a className="link" href={dragon.wikipedia}>Wikipedia</a>
+        Read more on{' '}
+        <a className="link" href={dragon.wikipedia}>
+          Wikipedia
+        </a>
       </p>
     </div>
   );
@@ -57,4 +68,6 @@ const mapStateToProps = (state, ownProps) => ({
   dragon: dragonById(state.dragons.data, ownProps.dragonId),
 });
 
-export default withLoader(DragonInfo, mapStateToProps, { fetchMethod: fetchDragonsIfNeeded });
+export default withLoader(DragonInfo, mapStateToProps, {
+  fetchMethod: fetchDragonsIfNeeded,
+});

@@ -14,7 +14,9 @@ describe('MapLink', () => {
     const wrapper = shallow(<MapLink position={position}>Link text</MapLink>);
     expect(wrapper.find('a').length).toBe(1);
     expect(wrapper.find('a').text()).toBe('Link text');
-    expect(wrapper.find('a').prop('href')).toBe(`http://www.google.com/maps/place/${position.lat},${position.lng}`);
+    expect(wrapper.find('a').prop('href')).toBe(
+      `http://www.google.com/maps/place/${position.lat},${position.lng}`
+    );
   });
 
   it('does not display modal with map', () => {
@@ -25,14 +27,20 @@ describe('MapLink', () => {
   it('displays modal with map on click on link', () => {
     const wrapper = shallow(<MapLink position={position}>Link text</MapLink>);
     const preventDefault = jest.fn();
-    wrapper.find('a').first().simulate('click', { preventDefault });
+    wrapper
+      .find('a')
+      .first()
+      .simulate('click', { preventDefault });
     expect(wrapper.find(Modal).length).toBe(1);
   });
 
   it('prevents default for link click', () => {
     const wrapper = shallow(<MapLink position={position}>Link text</MapLink>);
     const preventDefault = jest.fn();
-    wrapper.find('a').first().simulate('click', { preventDefault });
+    wrapper
+      .find('a')
+      .first()
+      .simulate('click', { preventDefault });
     expect(preventDefault.mock.calls.length).toBe(1);
   });
 });

@@ -23,16 +23,16 @@ export const ShipInfo = ({ ship, shipId }) => {
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{ship.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {ship.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Home port</dt>
         <dd className="description-list__description">{ship.home_port}</dd>
 
         <dt className="description-list__title">Status:</dt>
         <dd className="description-list__description">
-          {ship.status}
-          {' '}
-          <ShipCourse ship={ship} />
+          {ship.status} <ShipCourse ship={ship} />
         </dd>
 
         {position && (
@@ -48,25 +48,29 @@ export const ShipInfo = ({ ship, shipId }) => {
         <dd className="description-list__description">{ship.ship_type}</dd>
 
         <dt className="description-list__title">Roles</dt>
-        <dd className="description-list__description">{ship.roles.join(', ')}</dd>
+        <dd className="description-list__description">
+          {ship.roles.join(', ')}
+        </dd>
 
         <dt className="description-list__title">Year built</dt>
-        <dd className="description-list__description">{ship.year_built || 'N/d'}</dd>
+        <dd className="description-list__description">
+          {ship.year_built || 'N/d'}
+        </dd>
 
         <dt className="description-list__title">Missions</dt>
         <dd className="description-list__description">
           <ul>
             {ship.missions.map((mission) => (
-              <li key={mission.name}>
-                {mission.name}
-              </li>
+              <li key={mission.name}>{mission.name}</li>
             ))}
           </ul>
         </dd>
       </dl>
 
       <p className="paragraph">
-        <a className="link" href={ship.url}>More info</a>
+        <a className="link" href={ship.url}>
+          More info
+        </a>
       </p>
     </div>
   );
@@ -81,4 +85,6 @@ const mapStateToProps = (state, ownProps) => ({
   ship: shipById(state.ships.data, ownProps.shipId),
 });
 
-export default withLoader(ShipInfo, mapStateToProps, { fetchMethod: fetchShipsIfNeeded });
+export default withLoader(ShipInfo, mapStateToProps, {
+  fetchMethod: fetchShipsIfNeeded,
+});

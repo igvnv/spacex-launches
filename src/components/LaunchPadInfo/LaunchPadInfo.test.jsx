@@ -12,12 +12,12 @@ describe('LaunchPadInfo', () => {
     // Why `id.toString()`? The API is so inconsistent and has string ids
     // everywhere except for launch pads. It is easier to  use it as a string
     // (routes contain string parameters).
-    const wrapper = shallow((
+    const wrapper = shallow(
       <LaunchPadInfo
         launchPadId={launchPadsData[0].id.toString()}
         launchPad={launchPadsData[0]}
       />
-    ));
+    );
     wrapper.unmount();
   });
 });

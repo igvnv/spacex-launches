@@ -35,7 +35,7 @@ export function fetchAboutCompanyData() {
         (error) => {
           console.error(error);
           dispatch(setAboutCompanyFetchState(LoadingStates.ERROR));
-        },
+        }
       )
       .then((json) => {
         if (json) {

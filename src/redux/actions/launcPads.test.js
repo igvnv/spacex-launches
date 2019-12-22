@@ -17,8 +17,9 @@ describe('Launch Pads Actions test', () => {
       state: actions.LoadingStates.LOADING,
     };
 
-    expect(actions.setLaunchPadsFetchState(actions.LoadingStates.LOADING))
-      .toEqual(expectedAction);
+    expect(
+      actions.setLaunchPadsFetchState(actions.LoadingStates.LOADING)
+    ).toEqual(expectedAction);
   });
 
   test('receiveLaunchPadsData action', () => {
@@ -28,8 +29,7 @@ describe('Launch Pads Actions test', () => {
       data,
     };
 
-    expect(actions.receiveLaunchPadsData(data))
-      .toEqual(expectedAction);
+    expect(actions.receiveLaunchPadsData(data)).toEqual(expectedAction);
   });
 
   test('fetchLaunchPads action', async () => {
@@ -39,9 +39,15 @@ describe('Launch Pads Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCH_PADS_DATA, data: launchPadsList },
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ launchPads: { data: [], state: null } });
@@ -54,8 +60,14 @@ describe('Launch Pads Actions test', () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/launchpads', 500);
 
     const expectedActions = [
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.ERROR },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.ERROR,
+      },
     ];
 
     const store = mockStore({ launchPads: { data: [], state: null } });
@@ -64,16 +76,22 @@ describe('Launch Pads Actions test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  test('fetchLaunchPads action fetches data when it wasn\'t fetched', async () => {
+  test("fetchLaunchPads action fetches data when it wasn't fetched", async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/launchpads', {
       body: launchPadsList,
       headers: { 'content-type': 'application/json' },
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCH_PADS_DATA, data: launchPadsList },
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ launchPads: { data: [], state: null } });
@@ -98,12 +116,20 @@ describe('Launch Pads Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCH_PADS_DATA, data: launchPadsList },
-      { type: actions.SET_LAUNCH_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCH_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
-    const store = mockStore({ launchPads: { data: [], state: actions.LoadingStates.ERROR } });
+    const store = mockStore({
+      launchPads: { data: [], state: actions.LoadingStates.ERROR },
+    });
 
     await store.dispatch(actions.fetchLaunchPadsIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);

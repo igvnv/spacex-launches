@@ -17,8 +17,9 @@ describe('Landing Pads Actions test', () => {
       state: actions.LoadingStates.LOADING,
     };
 
-    expect(actions.setLandingPadsFetchState(actions.LoadingStates.LOADING))
-      .toEqual(expectedAction);
+    expect(
+      actions.setLandingPadsFetchState(actions.LoadingStates.LOADING)
+    ).toEqual(expectedAction);
   });
 
   test('receiveLandingPadsData action', () => {
@@ -28,8 +29,7 @@ describe('Landing Pads Actions test', () => {
       data,
     };
 
-    expect(actions.receiveLandingPadsData(data))
-      .toEqual(expectedAction);
+    expect(actions.receiveLandingPadsData(data)).toEqual(expectedAction);
   });
 
   test('fetchLandingPads action', async () => {
@@ -39,9 +39,15 @@ describe('Landing Pads Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LANDING_PADS_DATA, data: landingPadsList },
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ landingPads: { data: [], state: null } });
@@ -54,8 +60,14 @@ describe('Landing Pads Actions test', () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/landpads', 500);
 
     const expectedActions = [
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.ERROR },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.ERROR,
+      },
     ];
 
     const store = mockStore({ landingPads: { data: [], state: null } });
@@ -64,16 +76,22 @@ describe('Landing Pads Actions test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  test('fetchLandingPads action fetches data when it wasn\'t fetched', async () => {
+  test("fetchLandingPads action fetches data when it wasn't fetched", async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/landpads', {
       body: landingPadsList,
       headers: { 'content-type': 'application/json' },
     });
 
     const expectedActions = [
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LANDING_PADS_DATA, data: landingPadsList },
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ landingPads: { data: [], state: null } });
@@ -98,12 +116,20 @@ describe('Landing Pads Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LANDING_PADS_DATA, data: landingPadsList },
-      { type: actions.SET_LANDING_PADS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LANDING_PADS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
-    const store = mockStore({ landingPads: { data: [], state: actions.LoadingStates.ERROR } });
+    const store = mockStore({
+      landingPads: { data: [], state: actions.LoadingStates.ERROR },
+    });
 
     await store.dispatch(actions.fetchLandingPadsIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);

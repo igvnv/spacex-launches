@@ -10,17 +10,24 @@ import './styles/main.scss';
 import App from './containers/App/App';
 import rootReducer from './redux/reducers';
 
-const store = createStore(rootReducer, undefined, applyMiddleware(thunkMiddleware));
+const store = createStore(
+  rootReducer,
+  undefined,
+  applyMiddleware(thunkMiddleware)
+);
 
 // Hot reloading for reducers
 if (process.env.NODE_ENV !== 'production' && module.hot) {
-  module.hot.accept('./redux/reducers', () => store.replaceReducer(rootReducer));
+  module.hot.accept('./redux/reducers', () =>
+    store.replaceReducer(rootReducer)
+  );
 }
 
-ReactDOM.render((
+ReactDOM.render(
   <Router basename="/spacex-launches">
     <Provider store={store}>
       <App />
     </Provider>
-  </Router>
-), document.getElementById('root'));
+  </Router>,
+  document.getElementById('root')
+);

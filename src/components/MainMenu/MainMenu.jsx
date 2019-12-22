@@ -6,9 +6,13 @@ export const MainMenu = ({ history }) => {
   const [displayMenu, setDisplayMenu] = useState(false);
 
   // Closes the menu when location has been changed
-  useEffect(() => history.listen(() => {
-    setDisplayMenu(false);
-  }), [history]);
+  useEffect(
+    () =>
+      history.listen(() => {
+        setDisplayMenu(false);
+      }),
+    [history]
+  );
 
   return (
     <nav>
@@ -22,16 +26,41 @@ export const MainMenu = ({ history }) => {
       </button>
       <ul className={`main-menu ${displayMenu ? 'main-menu_open' : ''}`}>
         <li className="main-menu__item">
-          <NavLink className="main-menu__link" activeClassName="main-menu__link_active" exact to="/">Launches</NavLink>
+          <NavLink
+            className="main-menu__link"
+            activeClassName="main-menu__link_active"
+            exact
+            to="/"
+          >
+            Launches
+          </NavLink>
         </li>
         <li className="main-menu__item">
-          <NavLink className="main-menu__link" activeClassName="main-menu__link_active" to="/catalog/">Catalog</NavLink>
+          <NavLink
+            className="main-menu__link"
+            activeClassName="main-menu__link_active"
+            to="/catalog/"
+          >
+            Catalog
+          </NavLink>
         </li>
         <li className="main-menu__item">
-          <NavLink className="main-menu__link" activeClassName="main-menu__link_active" to="/about/company/">About SpaceX</NavLink>
+          <NavLink
+            className="main-menu__link"
+            activeClassName="main-menu__link_active"
+            to="/about/company/"
+          >
+            About SpaceX
+          </NavLink>
         </li>
         <li className="main-menu__item">
-          <NavLink className="main-menu__link" activeClassName="main-menu__link_active" to="/about/project/">About project</NavLink>
+          <NavLink
+            className="main-menu__link"
+            activeClassName="main-menu__link_active"
+            to="/about/project/"
+          >
+            About project
+          </NavLink>
         </li>
       </ul>
     </nav>

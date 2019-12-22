@@ -12,9 +12,7 @@ const ShipCourse = ({ ship }) => {
           style={{ transform: `rotate(${ship.course_deg}deg)` }}
         />
       </span>
-      <span className="ship-course__speed">
-        {`${ship.speed_kn} kn`}
-      </span>
+      <span className="ship-course__speed">{`${ship.speed_kn} kn`}</span>
     </>
   );
 };

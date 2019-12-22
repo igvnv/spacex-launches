@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   launchPads: state.launchPads.data,
 });
 
-export default withLoader(
-  LaunchPadInfoContainer,
-  mapStateToProps,
-  { fetchMethod: fetchLaunchPadsIfNeeded },
-);
+export default withLoader(LaunchPadInfoContainer, mapStateToProps, {
+  fetchMethod: fetchLaunchPadsIfNeeded,
+});

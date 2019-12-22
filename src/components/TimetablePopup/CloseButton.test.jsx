@@ -18,7 +18,9 @@ describe('CloseButton', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<CloseButton onClick={onClick} />);
 
-    wrapper.find('.launch-data-short__close').simulate('keyDown', { keyCode: KEY_SPACE });
+    wrapper
+      .find('.launch-data-short__close')
+      .simulate('keyDown', { keyCode: KEY_SPACE });
     expect(onClick.mock.calls.length).toBe(1);
   });
 
@@ -26,7 +28,9 @@ describe('CloseButton', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<CloseButton onClick={onClick} />);
 
-    wrapper.find('.launch-data-short__close').simulate('keyDown', { keyCode: KEY_ENTER });
+    wrapper
+      .find('.launch-data-short__close')
+      .simulate('keyDown', { keyCode: KEY_ENTER });
     expect(onClick.mock.calls.length).toBe(1);
   });
 });

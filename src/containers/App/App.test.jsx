@@ -15,16 +15,16 @@ jest.mock('react-router-dom', () => ({
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  const wrapper = shallow((<App />));
+  const wrapper = shallow(<App />);
   wrapper.unmount();
 });
 
 it('renders <AppHeader/> component', () => {
-  const wrapper = shallow((<App />));
+  const wrapper = shallow(<App />);
   expect(wrapper.find(AppHeader).length).toBe(1);
 });
 
 it('renders <AppFooter/> component', () => {
-  const wrapper = shallow((<App />));
+  const wrapper = shallow(<App />);
   expect(wrapper.find(AppFooter).length).toBe(1);
 });

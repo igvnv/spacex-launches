@@ -11,6 +11,8 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('LaunchPads', () => {
   it('displays short info about all launch pads', () => {
     const wrapper = shallow(<LaunchPads launchPads={launchPadsData} />);
-    expect(wrapper.find(LaunchPadInfoShort).length).toEqual(launchPadsData.length);
+    expect(wrapper.find(LaunchPadInfoShort).length).toEqual(
+      launchPadsData.length
+    );
   });
 });

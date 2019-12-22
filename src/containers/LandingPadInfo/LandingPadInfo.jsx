@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   landingPads: state.landingPads.data,
 });
 
-export default withLoader(
-  LandingPadInfoContainer,
-  mapStateToProps,
-  { fetchMethod: fetchLandingPadsIfNeeded },
-);
+export default withLoader(LandingPadInfoContainer, mapStateToProps, {
+  fetchMethod: fetchLandingPadsIfNeeded,
+});

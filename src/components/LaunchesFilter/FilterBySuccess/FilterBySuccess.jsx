@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 
 import { setLaunchesFilterBySuccess } from '../../../redux/actions';
 
-export const FilterBySuccess = ({
-  filterValue,
-  setFilter,
-}) => (
+export const FilterBySuccess = ({ filterValue, setFilter }) => (
   <>
     <span className="launches-filter__title">Success:</span>
 
     <div className="launches-filter__variants">
       <button
         onClick={() => setFilter(true)}
-        className={filterValue === true ? 'filter-button filter-button_active' : 'filter-button'}
+        className={
+          filterValue === true
+            ? 'filter-button filter-button_active'
+            : 'filter-button'
+        }
         aria-label="yes"
         type="button"
       >
@@ -23,7 +24,11 @@ export const FilterBySuccess = ({
 
       <button
         onClick={() => setFilter(false)}
-        className={filterValue === false ? 'filter-button filter-button_active' : 'filter-button'}
+        className={
+          filterValue === false
+            ? 'filter-button filter-button_active'
+            : 'filter-button'
+        }
         aria-label="no"
         type="button"
       >
@@ -57,4 +62,6 @@ const mapStateToProps = (state) => ({
   filterValue: state.launches.filterBySuccess,
 });
 
-export default connect(mapStateToProps, { setFilter: setLaunchesFilterBySuccess })(FilterBySuccess);
+export default connect(mapStateToProps, {
+  setFilter: setLaunchesFilterBySuccess,
+})(FilterBySuccess);

@@ -15,23 +15,27 @@ describe('dragons reducers', () => {
   });
 
   it('should handle SET_DRAGONS_FETCH_STATE', () => {
-    expect(reducer(
-      { state: null },
-      {
-        type: SET_DRAGONS_FETCH_STATE,
-        state: LoadingStates.ERROR,
-      },
-    )).toEqual({ state: LoadingStates.ERROR });
+    expect(
+      reducer(
+        { state: null },
+        {
+          type: SET_DRAGONS_FETCH_STATE,
+          state: LoadingStates.ERROR,
+        }
+      )
+    ).toEqual({ state: LoadingStates.ERROR });
   });
 
   it('should handle RECEIVE_DRAGONS_DATA', () => {
-    expect(reducer(
-      { data: null },
-      {
-        type: RECEIVE_DRAGONS_DATA,
-        data: dragonsList,
-      },
-    )).toEqual({ data: dragonsList });
+    expect(
+      reducer(
+        { data: null },
+        {
+          type: RECEIVE_DRAGONS_DATA,
+          data: dragonsList,
+        }
+      )
+    ).toEqual({ data: dragonsList });
   });
 
   it('filters dragon by id', () => {

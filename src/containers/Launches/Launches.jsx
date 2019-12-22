@@ -27,4 +27,6 @@ const mapStateToProps = (state) => ({
   launches: filterLaunches(state.launches),
 });
 
-export default withLoader(Launches, mapStateToProps, { fetchMethod: fetchLaunchesIfNeeded });
+export default withLoader(Launches, mapStateToProps, {
+  fetchMethod: fetchLaunchesIfNeeded,
+});

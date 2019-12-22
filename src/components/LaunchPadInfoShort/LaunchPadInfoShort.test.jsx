@@ -9,12 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('LaunchPadInfoShort', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
+    const wrapper = shallow(
       <LaunchPadInfoShort
         launchPadId={launchPadsData[0].id}
         launchPad={launchPadsData[0]}
       />
-    ));
+    );
     wrapper.unmount();
   });
 });

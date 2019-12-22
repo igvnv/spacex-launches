@@ -33,16 +33,21 @@ export const LandingPadInfo = ({ landingPad, landingPadId }) => {
         <dd className="description-list__description">{landingPad.status}</dd>
 
         <dt className="description-list__title">Attempted landings</dt>
-        <dd className="description-list__description">{landingPad.attempted_landings}</dd>
+        <dd className="description-list__description">
+          {landingPad.attempted_landings}
+        </dd>
 
         <dt className="description-list__title">Successful landings</dt>
-        <dd className="description-list__description">{landingPad.successful_landings}</dd>
+        <dd className="description-list__description">
+          {landingPad.successful_landings}
+        </dd>
       </dl>
 
       <p className="paragraph">
-        Read more on
-        {' '}
-        <a className="link" href={landingPad.wikipedia}>Wikipedia</a>
+        Read more on{' '}
+        <a className="link" href={landingPad.wikipedia}>
+          Wikipedia
+        </a>
       </p>
     </div>
   );
@@ -57,8 +62,6 @@ const mapStateToProps = (state, ownProps) => ({
   landingPad: landingPadById(state.landingPads.data, ownProps.landingPadId),
 });
 
-export default withLoader(
-  LandingPadInfo,
-  mapStateToProps,
-  { fetchMethod: fetchLandingPadsIfNeeded },
-);
+export default withLoader(LandingPadInfo, mapStateToProps, {
+  fetchMethod: fetchLandingPadsIfNeeded,
+});

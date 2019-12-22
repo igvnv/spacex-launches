@@ -17,8 +17,9 @@ describe('Launches Actions test', () => {
       state: actions.LoadingStates.LOADING,
     };
 
-    expect(actions.setLaunchesFetchState(actions.LoadingStates.LOADING))
-      .toEqual(expectedAction);
+    expect(
+      actions.setLaunchesFetchState(actions.LoadingStates.LOADING)
+    ).toEqual(expectedAction);
   });
 
   test('receiveLaunchesData action', () => {
@@ -28,8 +29,7 @@ describe('Launches Actions test', () => {
       launches: data,
     };
 
-    expect(actions.receiveLaunchesData(data))
-      .toEqual(expectedAction);
+    expect(actions.receiveLaunchesData(data)).toEqual(expectedAction);
   });
 
   test('setLaunchesTimeline action', () => {
@@ -38,8 +38,9 @@ describe('Launches Actions test', () => {
       timeline: actions.LaunchesTimeline.FUTURE,
     };
 
-    expect(actions.setLaunchesTimeline(actions.LaunchesTimeline.FUTURE))
-      .toEqual(expectedAction);
+    expect(
+      actions.setLaunchesTimeline(actions.LaunchesTimeline.FUTURE)
+    ).toEqual(expectedAction);
   });
 
   test('setLaunchesFilterByYear action', () => {
@@ -48,8 +49,7 @@ describe('Launches Actions test', () => {
       year: 2020,
     };
 
-    expect(actions.setLaunchesFilterByYear(2020))
-      .toEqual(expectedAction);
+    expect(actions.setLaunchesFilterByYear(2020)).toEqual(expectedAction);
   });
 
   test('setLaunchesFilterByRocketId action', () => {
@@ -58,8 +58,9 @@ describe('Launches Actions test', () => {
       rocketId: 'falcon1',
     };
 
-    expect(actions.setLaunchesFilterByRocketId('falcon1'))
-      .toEqual(expectedAction);
+    expect(actions.setLaunchesFilterByRocketId('falcon1')).toEqual(
+      expectedAction
+    );
   });
 
   test('setLaunchesFilterBySuccess action', () => {
@@ -68,8 +69,7 @@ describe('Launches Actions test', () => {
       success: true,
     };
 
-    expect(actions.setLaunchesFilterBySuccess(true))
-      .toEqual(expectedAction);
+    expect(actions.setLaunchesFilterBySuccess(true)).toEqual(expectedAction);
   });
 
   test('fetchLaunches action', async () => {
@@ -79,9 +79,15 @@ describe('Launches Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ launches: { data: {}, state: null } });
@@ -94,8 +100,14 @@ describe('Launches Actions test', () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/launches', 500);
 
     const expectedActions = [
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.ERROR },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.ERROR,
+      },
     ];
 
     const store = mockStore({ launches: { data: {}, state: null } });
@@ -105,16 +117,22 @@ describe('Launches Actions test', () => {
     });
   });
 
-  test('fetchLaunches action fetches data when it wasn\'t fetched', async () => {
+  test("fetchLaunches action fetches data when it wasn't fetched", async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/launches', {
       body: launchesList,
       headers: { 'content-type': 'application/json' },
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ launches: { data: {}, state: null } });
@@ -124,7 +142,9 @@ describe('Launches Actions test', () => {
   });
 
   test('fetchLaunches does not fetch data again after successful fetch', async () => {
-    const store = mockStore({ launches: { data: {}, state: actions.LoadingStates.DONE } });
+    const store = mockStore({
+      launches: { data: {}, state: actions.LoadingStates.DONE },
+    });
 
     await store.dispatch(actions.fetchLaunchesIfNeeded());
     expect(store.getActions().length).toEqual(0);
@@ -137,12 +157,20 @@ describe('Launches Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_LAUNCHES_DATA, launches: launchesList },
-      { type: actions.SET_LAUNCHES_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_LAUNCHES_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
-    const store = mockStore({ launches: { data: {}, state: actions.LoadingStates.ERROR } });
+    const store = mockStore({
+      launches: { data: {}, state: actions.LoadingStates.ERROR },
+    });
 
     await store.dispatch(actions.fetchLaunchesIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);

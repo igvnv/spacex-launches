@@ -29,7 +29,7 @@ export const fetchDragons = () => (dispatch) => {
       (error) => {
         console.error(error);
         dispatch(setDragonsFetchState(LoadingStates.ERROR));
-      },
+      }
     )
     .then((json) => {
       if (json) {

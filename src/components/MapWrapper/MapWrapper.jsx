@@ -9,11 +9,7 @@ const googleMapsApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 const defaultCenter = { lat: 33.920689, lng: -118.328278 };
 
 const MapWrapper = (props) => {
-  const {
-    children,
-    className,
-    onLoad,
-  } = props;
+  const { children, className, onLoad } = props;
 
   return (
     <LoadScript

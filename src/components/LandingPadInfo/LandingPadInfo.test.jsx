@@ -9,12 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('LandingPadInfo', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
+    const wrapper = shallow(
       <LandingPadInfo
         landingPadId={landingPadsData[0].id}
         landingPad={landingPadsData[0]}
       />
-    ));
+    );
     wrapper.unmount();
   });
 });

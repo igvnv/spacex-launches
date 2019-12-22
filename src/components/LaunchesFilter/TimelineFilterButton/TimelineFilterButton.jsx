@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { setLaunchesTimeline } from '../../../redux/actions';
 
 export function TimelineFilterButton({
-  setFilter, timeline, displayedTimeline, children,
+  setFilter,
+  timeline,
+  displayedTimeline,
+  children,
 }) {
   let className = 'secondary-menu__link';
 
@@ -40,4 +43,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = { setFilter: setLaunchesTimeline };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimelineFilterButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TimelineFilterButton);

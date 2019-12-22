@@ -20,15 +20,28 @@ describe('HeroHeader', () => {
 
   it('does not set background image when photo is empty', () => {
     const wrapper = shallow(<HeroHeader title="Title" />);
-    expect(wrapper.find('.hero-header').hasClass('hero-header_with-background')).toBe(false);
-    expect(wrapper.find('.hero-header').first().prop('style')).not.toHaveProperty('background-image');
+    expect(
+      wrapper.find('.hero-header').hasClass('hero-header_with-background')
+    ).toBe(false);
+    expect(
+      wrapper
+        .find('.hero-header')
+        .first()
+        .prop('style')
+    ).not.toHaveProperty('background-image');
   });
 
   it('sets background image when photo is not empty', () => {
     const wrapper = shallow(<HeroHeader title="Title" photo="photo.jpg" />);
-    expect(wrapper.find('.hero-header').hasClass('hero-header_with-background')).toBe(true);
-    expect(wrapper.find('.hero-header').first().prop('style'))
-      .toHaveProperty('backgroundImage', 'url(photo.jpg)');
+    expect(
+      wrapper.find('.hero-header').hasClass('hero-header_with-background')
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('.hero-header')
+        .first()
+        .prop('style')
+    ).toHaveProperty('backgroundImage', 'url(photo.jpg)');
   });
 
   it('adds type class name', () => {

@@ -8,7 +8,7 @@ import { TimelineFilterButton } from './TimelineFilterButton';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('TimelineFilterButton', () => {
-  it('displays children as button\'s value', () => {
+  it("displays children as button's value", () => {
     const setFilter = jest.fn();
     const wrapper = shallow(
       <TimelineFilterButton
@@ -17,10 +17,15 @@ describe('TimelineFilterButton', () => {
         displayedTimeline={LaunchesTimeline.ALL}
       >
         Button value
-      </TimelineFilterButton>,
+      </TimelineFilterButton>
     );
 
-    expect(wrapper.find('.secondary-menu__link').first().text()).toEqual('Button value');
+    expect(
+      wrapper
+        .find('.secondary-menu__link')
+        .first()
+        .text()
+    ).toEqual('Button value');
   });
 
   it('has no active class when timeline is displayed', () => {
@@ -32,10 +37,15 @@ describe('TimelineFilterButton', () => {
         displayedTimeline={LaunchesTimeline.ALL}
       >
         Button value
-      </TimelineFilterButton>,
+      </TimelineFilterButton>
     );
 
-    expect(wrapper.find('.secondary-menu__link').first().hasClass('secondary-menu__link_active')).toEqual(false);
+    expect(
+      wrapper
+        .find('.secondary-menu__link')
+        .first()
+        .hasClass('secondary-menu__link_active')
+    ).toEqual(false);
   });
 
   it('has active class when timeline is displayed', () => {
@@ -47,10 +57,15 @@ describe('TimelineFilterButton', () => {
         displayedTimeline={LaunchesTimeline.FUTURE}
       >
         Button value
-      </TimelineFilterButton>,
+      </TimelineFilterButton>
     );
 
-    expect(wrapper.find('.secondary-menu__link').first().hasClass('secondary-menu__link_active')).toEqual(true);
+    expect(
+      wrapper
+        .find('.secondary-menu__link')
+        .first()
+        .hasClass('secondary-menu__link_active')
+    ).toEqual(true);
   });
 
   it('calls setFilter on click', () => {
@@ -62,10 +77,13 @@ describe('TimelineFilterButton', () => {
         displayedTimeline={LaunchesTimeline.ALL}
       >
         Button value
-      </TimelineFilterButton>,
+      </TimelineFilterButton>
     );
 
-    wrapper.find('.secondary-menu__link').first().simulate('click');
+    wrapper
+      .find('.secondary-menu__link')
+      .first()
+      .simulate('click');
 
     expect(setFilter.mock.calls.length).toEqual(1);
     expect(setFilter.mock.calls[0]).toEqual([LaunchesTimeline.FUTURE]);

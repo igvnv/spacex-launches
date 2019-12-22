@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   ships: state.ships.data,
 });
 
-export default withLoader(
-  ShipInfoContainer,
-  mapStateToProps,
-  { fetchMethod: fetchShipsIfNeeded },
-);
+export default withLoader(ShipInfoContainer, mapStateToProps, {
+  fetchMethod: fetchShipsIfNeeded,
+});

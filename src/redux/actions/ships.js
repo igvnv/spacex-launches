@@ -29,7 +29,7 @@ export const fetchShips = () => (dispatch) => {
       (error) => {
         console.error(error);
         dispatch(setShipsFetchState(LoadingStates.ERROR));
-      },
+      }
     )
     .then((json) => {
       if (json) {

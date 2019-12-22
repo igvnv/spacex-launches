@@ -9,12 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('RocketInfoShort', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
+    const wrapper = shallow(
       <RocketInfoShort
         rocketId={rocketsData[0].rocket_id}
         rocket={rocketsData[0]}
       />
-    ));
+    );
     wrapper.unmount();
   });
 });

@@ -78,7 +78,7 @@ class TimetablePopup extends Component {
       const parentBound = parentElement.getBoundingClientRect();
       let nodeBound = this.node.getBoundingClientRect();
 
-      const x = parentBound.left + (parentBound.width / 2) - (nodeBound.width / 2);
+      const x = parentBound.left + parentBound.width / 2 - nodeBound.width / 2;
       const y = parentBound.top - nodeBound.height + window.scrollY;
 
       this.node.style.top = `${y}px`;
@@ -149,19 +149,32 @@ class TimetablePopup extends Component {
 
     return (
       <div
-        ref={(node) => { this.node = node; }}
-        className={`launch-data-short ${visible ? 'launch-data-short_visible' : ''}`}
+        ref={(node) => {
+          this.node = node;
+        }}
+        className={`launch-data-short ${
+          visible ? 'launch-data-short_visible' : ''
+        }`}
         style={style}
       >
         <CloseButton onClick={this.hide} />
         {showBackButtonLeft && (
-          <GoToLaunchButton direction="left" onClick={() => goToLaunch(parentElement)} />
+          <GoToLaunchButton
+            direction="left"
+            onClick={() => goToLaunch(parentElement)}
+          />
         )}
         {showBackButtonRight && (
-          <GoToLaunchButton direction="right" onClick={() => goToLaunch(parentElement)} />
+          <GoToLaunchButton
+            direction="right"
+            onClick={() => goToLaunch(parentElement)}
+          />
         )}
         {children}
-        <span className="launch-data-short__arrow" style={{ marginLeft: `${arrowDiff}px` }} />
+        <span
+          className="launch-data-short__arrow"
+          style={{ marginLeft: `${arrowDiff}px` }}
+        />
       </div>
     );
   }

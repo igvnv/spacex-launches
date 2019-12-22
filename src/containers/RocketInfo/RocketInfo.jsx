@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   rockets: state.rockets.data,
 });
 
-export default withLoader(
-  RocketInfoContainer,
-  mapStateToProps,
-  { fetchMethod: fetchRocketsIfNeeded },
-);
+export default withLoader(RocketInfoContainer, mapStateToProps, {
+  fetchMethod: fetchRocketsIfNeeded,
+});

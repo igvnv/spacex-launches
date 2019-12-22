@@ -12,11 +12,15 @@ export const RocketInfoShort = ({ rocket, rocketId }) => {
 
   return (
     <div>
-      <h2 className="title title_level_2 catalog-list__title">{rocket.rocket_name}</h2>
+      <h2 className="title title_level_2 catalog-list__title">
+        {rocket.rocket_name}
+      </h2>
 
       <dl className="description-list">
         <dt className="description-list__title">Active:</dt>
-        <dd className="description-list__description">{rocket.active ? 'Yes' : 'No'}</dd>
+        <dd className="description-list__description">
+          {rocket.active ? 'Yes' : 'No'}
+        </dd>
 
         <dt className="description-list__title">Height:</dt>
         <dd className="description-list__description">{`${rocket.height.meters} m.`}</dd>
@@ -47,4 +51,6 @@ const mapStateToProps = (state, ownProps) => ({
   rocket: rocketById(state.rockets.data, ownProps.rocketId),
 });
 
-export default withLoader(RocketInfoShort, mapStateToProps, { fetchMethod: fetchRocketsIfNeeded });
+export default withLoader(RocketInfoShort, mapStateToProps, {
+  fetchMethod: fetchRocketsIfNeeded,
+});

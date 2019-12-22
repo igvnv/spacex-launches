@@ -21,7 +21,7 @@ function addRootElement(rootElem) {
   if (!document.body.lastElementChild) return;
   document.body.insertBefore(
     rootElem,
-    document.body.lastElementChild.nextElementSibling,
+    document.body.lastElementChild.nextElementSibling
   );
 }
 

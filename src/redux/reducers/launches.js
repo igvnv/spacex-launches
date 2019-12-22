@@ -23,11 +23,17 @@ export function launchesByCurrentTimeline(state) {
 
   switch (timeline) {
     case LaunchesTimeline.PAST:
-      return state.launches.filter((launch) => launch.launch_year <= now.getFullYear()
-        && new Date(launch.launch_date_utc) < now);
+      return state.launches.filter(
+        (launch) =>
+          launch.launch_year <= now.getFullYear() &&
+          new Date(launch.launch_date_utc) < now
+      );
     case LaunchesTimeline.FUTURE:
-      return state.launches.filter((launch) => launch.launch_year >= now.getFullYear()
-        && new Date(launch.launch_date_utc) > now);
+      return state.launches.filter(
+        (launch) =>
+          launch.launch_year >= now.getFullYear() &&
+          new Date(launch.launch_date_utc) > now
+      );
     default:
       return state.launches;
   }
@@ -37,9 +43,18 @@ export function filterLaunches(state) {
   const { filterByYear, filterByRocketId, filterBySuccess } = state;
 
   return launchesByCurrentTimeline(state)
-    .filter((launch) => filterByYear === null || launch.launch_year === filterByYear)
-    .filter((launch) => filterByRocketId === null || launch.rocket.rocket_id === filterByRocketId)
-    .filter((launch) => filterBySuccess === null || launch.launch_success === filterBySuccess);
+    .filter(
+      (launch) => filterByYear === null || launch.launch_year === filterByYear
+    )
+    .filter(
+      (launch) =>
+        filterByRocketId === null ||
+        launch.rocket.rocket_id === filterByRocketId
+    )
+    .filter(
+      (launch) =>
+        filterBySuccess === null || launch.launch_success === filterBySuccess
+    );
 }
 
 function launches(state = initialState, action) {

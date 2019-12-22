@@ -29,7 +29,7 @@ export const fetchLaunchPads = () => (dispatch) => {
       (error) => {
         console.error(error);
         dispatch(setLaunchPadsFetchState(LoadingStates.ERROR));
-      },
+      }
     )
     .then((json) => {
       if (json) {

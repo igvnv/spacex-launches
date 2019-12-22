@@ -10,7 +10,8 @@ const initialState = {
 
 export function landingPadById(landingPadsList, landingPadId) {
   const landingPad = landingPadsList.filter((lp) => lp.id === landingPadId)[0];
-  if (landingPad === undefined) throw new Error(`Landing pad '${landingPadId}' not found`);
+  if (landingPad === undefined)
+    throw new Error(`Landing pad '${landingPadId}' not found`);
   return landingPad;
 }
 

@@ -17,38 +17,42 @@ export const Ships = ({ ships }) => {
     return shipsList.filter((r) => r.active === true);
   };
 
-  const points = (shipsList) => shipsList
-    .filter((ship) => ship.position
-      && ship.position.latitude !== null
-      && ship.position.longitude != null)
-    .map((ship) => ({
-      id: ship.ship_id,
-      title: ship.ship_name,
-      position: {
-        lat: ship.position.latitude,
-        lng: ship.position.longitude,
-      },
-      description: (
-        <>
-          <p>
-            {ship.status}
-            {' '}
-            <ShipCourse ship={ship} />
-          </p>
+  const points = (shipsList) =>
+    shipsList
+      .filter(
+        (ship) =>
+          ship.position &&
+          ship.position.latitude !== null &&
+          ship.position.longitude != null
+      )
+      .map((ship) => ({
+        id: ship.ship_id,
+        title: ship.ship_name,
+        position: {
+          lat: ship.position.latitude,
+          lng: ship.position.longitude,
+        },
+        description: (
+          <>
+            <p>
+              {ship.status} <ShipCourse ship={ship} />
+            </p>
 
-          <Link to={`/catalog/ships/${ship.ship_id}`}>
-            Read more!
-          </Link>
-        </>
-      ),
-    }));
+            <Link to={`/catalog/ships/${ship.ship_id}`}>Read more!</Link>
+          </>
+        ),
+      }));
 
   return (
     <div>
       <MapPoints points={points(filterShips(ships))} />
 
       <div className="catalog-filter">
-        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+        <Toggle
+          label="Active only"
+          value={activeOnly}
+          onToggle={setActiveOnly}
+        />
       </div>
 
       <div className="catalog-list">
@@ -70,4 +74,6 @@ const mapStateToProps = (state) => ({
   ships: state.ships.data,
 });
 
-export default withLoader(Ships, mapStateToProps, { fetchMethod: fetchShipsIfNeeded });
+export default withLoader(Ships, mapStateToProps, {
+  fetchMethod: fetchShipsIfNeeded,
+});

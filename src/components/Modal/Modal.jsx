@@ -8,23 +8,19 @@ const Modal = ({ children, onClose }) => {
   const target = usePortal('modal');
 
   return createPortal(
-    (
-      <>
-        <div className="modal-background" />
-        <div className="modal">
-          <button
-            className="modal__close-button"
-            type="button"
-            aria-label="Close window"
-            onClick={onClose}
-          />
-          <div className="modal__body">
-            {children}
-          </div>
-        </div>
-      </>
-    ),
-    target,
+    <>
+      <div className="modal-background" />
+      <div className="modal">
+        <button
+          className="modal__close-button"
+          type="button"
+          aria-label="Close window"
+          onClick={onClose}
+        />
+        <div className="modal__body">{children}</div>
+      </div>
+    </>,
+    target
   );
 };
 Modal.propTypes = {

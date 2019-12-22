@@ -8,20 +8,28 @@ import { launchPadById } from '../../redux/reducers/launchPads';
 
 export const LaunchPadInfoShort = ({ launchPad, launchPadId }) => (
   <div>
-    <h2 className="title title_level_2 catalog-list__title">{launchPad.site_name_long}</h2>
+    <h2 className="title title_level_2 catalog-list__title">
+      {launchPad.site_name_long}
+    </h2>
 
     <dl className="description-list">
       <dt className="description-list__title">Status:</dt>
       <dd className="description-list__description">{launchPad.status}</dd>
 
       <dt className="description-list__title">Vehicles launched</dt>
-      <dd className="description-list__description">{launchPad.vehicles_launched.join(', ')}</dd>
+      <dd className="description-list__description">
+        {launchPad.vehicles_launched.join(', ')}
+      </dd>
 
       <dt className="description-list__title">Attempted launches</dt>
-      <dd className="description-list__description">{launchPad.attempted_launches}</dd>
+      <dd className="description-list__description">
+        {launchPad.attempted_launches}
+      </dd>
 
       <dt className="description-list__title">Successful launches</dt>
-      <dd className="description-list__description">{launchPad.successful_launches}</dd>
+      <dd className="description-list__description">
+        {launchPad.successful_launches}
+      </dd>
     </dl>
 
     <p>
@@ -42,8 +50,6 @@ const mapStateToProps = (state, ownProps) => ({
   launchPad: launchPadById(state.launchPads.data, ownProps.launchPadId),
 });
 
-export default withLoader(
-  LaunchPadInfoShort,
-  mapStateToProps,
-  { fetchMethod: fetchLaunchPadsIfNeeded },
-);
+export default withLoader(LaunchPadInfoShort, mapStateToProps, {
+  fetchMethod: fetchLaunchPadsIfNeeded,
+});

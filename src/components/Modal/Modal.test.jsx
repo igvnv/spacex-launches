@@ -11,42 +11,45 @@ const ChildrenComponent = () => <p>Children</p>;
 describe('Modal', () => {
   it('contains children component', () => {
     const onClose = jest.fn();
-    const wrapper = shallow((
+    const wrapper = shallow(
       <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
-    ));
+    );
     expect(wrapper.find(ChildrenComponent).length).toBe(1);
   });
 
   it('has close button', () => {
     const onClose = jest.fn();
-    const wrapper = shallow((
+    const wrapper = shallow(
       <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
-    ));
+    );
     expect(wrapper.find('.modal__close-button').length).toBe(1);
   });
 
   it('calls onClose on close button click', () => {
     const onClose = jest.fn();
-    const wrapper = shallow((
+    const wrapper = shallow(
       <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
-    ));
-    wrapper.find('.modal__close-button').first().simulate('click', { stopPropagation: jest.fn() });
+    );
+    wrapper
+      .find('.modal__close-button')
+      .first()
+      .simulate('click', { stopPropagation: jest.fn() });
     expect(onClose.mock.calls.length).toBe(1);
   });
 
   it('displays modal background', () => {
     const onClose = jest.fn();
-    const wrapper = shallow((
+    const wrapper = shallow(
       <Modal onClose={onClose}>
         <ChildrenComponent />
       </Modal>
-    ));
+    );
     expect(wrapper.find('.modal-background').length).toBe(1);
   });
 });

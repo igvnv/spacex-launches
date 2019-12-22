@@ -8,9 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('AppFooter', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
-      <AppFooter />
-    ));
+    const wrapper = shallow(<AppFooter />);
     wrapper.unmount();
   });
 });

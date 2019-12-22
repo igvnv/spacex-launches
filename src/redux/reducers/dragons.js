@@ -1,7 +1,4 @@
-import {
-  SET_DRAGONS_FETCH_STATE,
-  RECEIVE_DRAGONS_DATA,
-} from '../actions';
+import { SET_DRAGONS_FETCH_STATE, RECEIVE_DRAGONS_DATA } from '../actions';
 
 const initialState = {
   data: [],

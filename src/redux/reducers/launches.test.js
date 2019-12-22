@@ -24,62 +24,74 @@ describe('launches reducers', () => {
   });
 
   it('should handle SET_LAUNCHES_FETCH_STATE', () => {
-    expect(reducer(
-      { state: null },
-      {
-        type: SET_LAUNCHES_FETCH_STATE,
-        state: LoadingStates.ERROR,
-      },
-    )).toEqual({ state: LoadingStates.ERROR });
+    expect(
+      reducer(
+        { state: null },
+        {
+          type: SET_LAUNCHES_FETCH_STATE,
+          state: LoadingStates.ERROR,
+        }
+      )
+    ).toEqual({ state: LoadingStates.ERROR });
   });
 
   it('should handle SET_LAUNCHES_TIMELINE', () => {
-    expect(reducer(
-      { timeline: null },
-      {
-        type: SET_LAUNCHES_TIMELINE,
-        timeline: LaunchesTimeline.FUTURE,
-      },
-    )).toEqual({ timeline: LaunchesTimeline.FUTURE });
+    expect(
+      reducer(
+        { timeline: null },
+        {
+          type: SET_LAUNCHES_TIMELINE,
+          timeline: LaunchesTimeline.FUTURE,
+        }
+      )
+    ).toEqual({ timeline: LaunchesTimeline.FUTURE });
   });
 
   it('should handle SET_LAUNCHES_FILTER_BY_YEAR', () => {
-    expect(reducer(
-      { filterByYear: null },
-      {
-        type: SET_LAUNCHES_FILTER_BY_YEAR,
-        year: 2020,
-      },
-    )).toEqual({ filterByYear: 2020 });
+    expect(
+      reducer(
+        { filterByYear: null },
+        {
+          type: SET_LAUNCHES_FILTER_BY_YEAR,
+          year: 2020,
+        }
+      )
+    ).toEqual({ filterByYear: 2020 });
   });
 
   it('should handle SET_LAUNCHES_FILTER_BY_ROCKET_ID', () => {
-    expect(reducer(
-      { filterByRocketId: null },
-      {
-        type: SET_LAUNCHES_FILTER_BY_ROCKET_ID,
-        rocketId: 'falcon1',
-      },
-    )).toEqual({ filterByRocketId: 'falcon1' });
+    expect(
+      reducer(
+        { filterByRocketId: null },
+        {
+          type: SET_LAUNCHES_FILTER_BY_ROCKET_ID,
+          rocketId: 'falcon1',
+        }
+      )
+    ).toEqual({ filterByRocketId: 'falcon1' });
   });
 
   it('should handle SET_LAUNCHES_FILTER_BY_SUCCESS', () => {
-    expect(reducer(
-      { filterBySuccess: null },
-      {
-        type: SET_LAUNCHES_FILTER_BY_SUCCESS,
-        success: true,
-      },
-    )).toEqual({ filterBySuccess: true });
+    expect(
+      reducer(
+        { filterBySuccess: null },
+        {
+          type: SET_LAUNCHES_FILTER_BY_SUCCESS,
+          success: true,
+        }
+      )
+    ).toEqual({ filterBySuccess: true });
   });
 
   it('should handle RECEIVE_LAUNCHES_DATA', () => {
-    expect(reducer(
-      { launches: null },
-      {
-        type: RECEIVE_LAUNCHES_DATA,
-        launches: launchesList,
-      },
-    )).toEqual({ launches: launchesList });
+    expect(
+      reducer(
+        { launches: null },
+        {
+          type: RECEIVE_LAUNCHES_DATA,
+          launches: launchesList,
+        }
+      )
+    ).toEqual({ launches: launchesList });
   });
 });

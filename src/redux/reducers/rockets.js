@@ -1,7 +1,4 @@
-import {
-  SET_ROCKETS_FETCH_STATE,
-  RECEIVE_ROCKETS_DATA,
-} from '../actions';
+import { SET_ROCKETS_FETCH_STATE, RECEIVE_ROCKETS_DATA } from '../actions';
 
 const initialState = {
   data: [],

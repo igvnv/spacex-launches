@@ -46,10 +46,11 @@ const LaunchesTimetable = ({ launches }) => {
     const launchRect = launchElement.getBoundingClientRect();
     const timetableRect = timetableRef.current.getBoundingClientRect();
 
-    let scrollTo = timetableRef.current.scrollLeft
-      + launchRect.left
-      + (launchRect.width / 2)
-      - (timetableRect.width / 2);
+    let scrollTo =
+      timetableRef.current.scrollLeft +
+      launchRect.left +
+      launchRect.width / 2 -
+      timetableRect.width / 2;
 
     if (scrollTo < 0) scrollTo = 0;
 
@@ -65,7 +66,11 @@ const LaunchesTimetable = ({ launches }) => {
         <LaunchDataShort launch={displayedLaunch} />
       </TimetablePopup>
 
-      <div className="timetable" onScroll={onTimetableScroll} ref={timetableRef}>
+      <div
+        className="timetable"
+        onScroll={onTimetableScroll}
+        ref={timetableRef}
+      >
         {timetableYears(launches).map((year) => (
           <TimetableYear
             key={year}

@@ -16,30 +16,36 @@ export const LandingPads = ({ landingPads }) => {
     return landingPadsList.filter((r) => r.status === 'active');
   };
 
-  const points = (landingPadsList) => landingPadsList
-    .filter((landingPad) => landingPad.location
-      && landingPad.location.latitude !== null
-      && landingPad.location.longitude != null)
-    .map((landingPad) => ({
-      id: landingPad.id,
-      title: landingPad.full_name,
-      position: {
-        lat: landingPad.location.latitude,
-        lng: landingPad.location.longitude,
-      },
-      description: (
-        <Link to={`/catalog/landing_pads/${landingPad.id}`}>
-          Read more!
-        </Link>
-      ),
-    }));
+  const points = (landingPadsList) =>
+    landingPadsList
+      .filter(
+        (landingPad) =>
+          landingPad.location &&
+          landingPad.location.latitude !== null &&
+          landingPad.location.longitude != null
+      )
+      .map((landingPad) => ({
+        id: landingPad.id,
+        title: landingPad.full_name,
+        position: {
+          lat: landingPad.location.latitude,
+          lng: landingPad.location.longitude,
+        },
+        description: (
+          <Link to={`/catalog/landing_pads/${landingPad.id}`}>Read more!</Link>
+        ),
+      }));
 
   return (
     <div>
       <MapPoints points={points(filterLandingPads(landingPads))} />
 
       <div className="catalog-filter">
-        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+        <Toggle
+          label="Active only"
+          value={activeOnly}
+          onToggle={setActiveOnly}
+        />
       </div>
 
       <div className="catalog-list">
@@ -61,4 +67,6 @@ const mapStateToProps = (state) => ({
   landingPads: state.landingPads.data,
 });
 
-export default withLoader(LandingPads, mapStateToProps, { fetchMethod: fetchLandingPadsIfNeeded });
+export default withLoader(LandingPads, mapStateToProps, {
+  fetchMethod: fetchLandingPadsIfNeeded,
+});

@@ -1,7 +1,4 @@
-import {
-  SET_SHIPS_FETCH_STATE,
-  RECEIVE_SHIPS_DATA,
-} from '../actions';
+import { SET_SHIPS_FETCH_STATE, RECEIVE_SHIPS_DATA } from '../actions';
 
 const initialState = {
   data: [],

@@ -9,18 +9,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('ShipCourse', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
-      <ShipCourse ship={shipsData[0]} />
-    ));
+    const wrapper = shallow(<ShipCourse ship={shipsData[0]} />);
     wrapper.unmount();
   });
 
-  it('does not render component when ship\'s speed is not defined', () => {
+  it("does not render component when ship's speed is not defined", () => {
     const ship = { ...shipsData[0] };
 
-    const wrapper = shallow((
-      <ShipCourse ship={ship} />
-    ));
+    const wrapper = shallow(<ShipCourse ship={ship} />);
     expect(wrapper.type()).toBe(null);
   });
 
@@ -29,12 +25,14 @@ describe('ShipCourse', () => {
     ship.speed_kn = 10;
     ship.course_deg = 20;
 
-    const wrapper = shallow((
-      <ShipCourse ship={ship} />
-    ));
+    const wrapper = shallow(<ShipCourse ship={ship} />);
     expect(wrapper.find('.ship-course__direction').length).toBe(1);
-    expect(wrapper.find('.ship-course__direction').first().prop('style'))
-      .toHaveProperty('transform', 'rotate(20deg)');
+    expect(
+      wrapper
+        .find('.ship-course__direction')
+        .first()
+        .prop('style')
+    ).toHaveProperty('transform', 'rotate(20deg)');
   });
 
   it('displays an actual speed', () => {
@@ -42,10 +40,13 @@ describe('ShipCourse', () => {
     ship.speed_kn = 10;
     ship.course_deg = 20;
 
-    const wrapper = shallow((
-      <ShipCourse ship={ship} />
-    ));
+    const wrapper = shallow(<ShipCourse ship={ship} />);
     expect(wrapper.find('.ship-course__speed').length).toBe(1);
-    expect(wrapper.find('.ship-course__speed').first().text()).toBe('10 kn');
+    expect(
+      wrapper
+        .find('.ship-course__speed')
+        .first()
+        .text()
+    ).toBe('10 kn');
   });
 });

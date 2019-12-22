@@ -28,11 +28,13 @@ const Toggle = ({ label, value, onToggle }) => {
       tabIndex="0"
     >
       <span className="toggle__shifter">
-        <span className={`toggle__shifter-point ${toggleValue ? 'toggle__shifter-point_on' : ''}`} />
+        <span
+          className={`toggle__shifter-point ${
+            toggleValue ? 'toggle__shifter-point_on' : ''
+          }`}
+        />
       </span>
-      {label && (
-        <span className="toggle__label">{label}</span>
-      )}
+      {label && <span className="toggle__label">{label}</span>}
     </span>
   );
 };

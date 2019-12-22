@@ -9,12 +9,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('DragonInfoShort', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow((
-      <DragonInfoShort
-        dragonId={dragonsData[0].id}
-        dragon={dragonsData[0]}
-      />
-    ));
+    const wrapper = shallow(
+      <DragonInfoShort dragonId={dragonsData[0].id} dragon={dragonsData[0]} />
+    );
     wrapper.unmount();
   });
 });

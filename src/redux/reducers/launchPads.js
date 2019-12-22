@@ -10,7 +10,8 @@ const initialState = {
 
 export function launchPadById(launchPadsList, launchPadId) {
   const launchPad = launchPadsList.filter((lp) => lp.id === +launchPadId)[0];
-  if (launchPad === undefined) throw new Error(`Launch pad '${launchPadId}' not found`);
+  if (launchPad === undefined)
+    throw new Error(`Launch pad '${launchPadId}' not found`);
   return launchPad;
 }
 

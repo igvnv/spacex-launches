@@ -17,8 +17,9 @@ describe('Dragons Actions test', () => {
       state: actions.LoadingStates.LOADING,
     };
 
-    expect(actions.setDragonsFetchState(actions.LoadingStates.LOADING))
-      .toEqual(expectedAction);
+    expect(actions.setDragonsFetchState(actions.LoadingStates.LOADING)).toEqual(
+      expectedAction
+    );
   });
 
   test('receiveDragonsData action', () => {
@@ -28,8 +29,7 @@ describe('Dragons Actions test', () => {
       data,
     };
 
-    expect(actions.receiveDragonsData(data))
-      .toEqual(expectedAction);
+    expect(actions.receiveDragonsData(data)).toEqual(expectedAction);
   });
 
   test('fetchDragons action', async () => {
@@ -39,9 +39,15 @@ describe('Dragons Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_DRAGONS_DATA, data: dragonsList },
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ dragons: { data: {}, state: null } });
@@ -54,8 +60,14 @@ describe('Dragons Actions test', () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/dragons', 500);
 
     const expectedActions = [
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.ERROR },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.ERROR,
+      },
     ];
 
     const store = mockStore({ dragons: { data: {}, state: null } });
@@ -64,16 +76,22 @@ describe('Dragons Actions test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  test('fetchDragons action fetches data when it wasn\'t fetched', async () => {
+  test("fetchDragons action fetches data when it wasn't fetched", async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/dragons', {
       body: dragonsList,
       headers: { 'content-type': 'application/json' },
     });
 
     const expectedActions = [
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_DRAGONS_DATA, data: dragonsList },
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ dragons: { data: {}, state: null } });
@@ -83,7 +101,9 @@ describe('Dragons Actions test', () => {
   });
 
   test('fetchDragons does not fetch data again after successful fetch', async () => {
-    const store = mockStore({ dragons: { data: {}, state: actions.LoadingStates.DONE } });
+    const store = mockStore({
+      dragons: { data: {}, state: actions.LoadingStates.DONE },
+    });
 
     await store.dispatch(actions.fetchDragonsIfNeeded());
     expect(store.getActions().length).toEqual(0);
@@ -96,12 +116,20 @@ describe('Dragons Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_DRAGONS_DATA, data: dragonsList },
-      { type: actions.SET_DRAGONS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_DRAGONS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
-    const store = mockStore({ dragons: { data: {}, state: actions.LoadingStates.ERROR } });
+    const store = mockStore({
+      dragons: { data: {}, state: actions.LoadingStates.ERROR },
+    });
 
     await store.dispatch(actions.fetchDragonsIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);

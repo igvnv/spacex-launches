@@ -17,8 +17,9 @@ describe('Ships Actions test', () => {
       state: actions.LoadingStates.LOADING,
     };
 
-    expect(actions.setShipsFetchState(actions.LoadingStates.LOADING))
-      .toEqual(expectedAction);
+    expect(actions.setShipsFetchState(actions.LoadingStates.LOADING)).toEqual(
+      expectedAction
+    );
   });
 
   test('receiveShipsData action', () => {
@@ -28,8 +29,7 @@ describe('Ships Actions test', () => {
       data,
     };
 
-    expect(actions.receiveShipsData(data))
-      .toEqual(expectedAction);
+    expect(actions.receiveShipsData(data)).toEqual(expectedAction);
   });
 
   test('fetchShips action', async () => {
@@ -39,9 +39,15 @@ describe('Ships Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_SHIPS_DATA, data: shipsList },
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ ships: { data: {}, state: null } });
@@ -54,8 +60,14 @@ describe('Ships Actions test', () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/ships', 500);
 
     const expectedActions = [
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.LOADING },
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.ERROR },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.ERROR,
+      },
     ];
 
     const store = mockStore({ ships: { data: {}, state: null } });
@@ -64,16 +76,22 @@ describe('Ships Actions test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  test('fetchShips action fetches data when it wasn\'t fetched', async () => {
+  test("fetchShips action fetches data when it wasn't fetched", async () => {
     fetchMock.getOnce('https://api.spacexdata.com/v3/ships', {
       body: shipsList,
       headers: { 'content-type': 'application/json' },
     });
 
     const expectedActions = [
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_SHIPS_DATA, data: shipsList },
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
     const store = mockStore({ ships: { data: {}, state: null } });
@@ -83,7 +101,9 @@ describe('Ships Actions test', () => {
   });
 
   test('fetchShips does not fetch data again after successful fetch', async () => {
-    const store = mockStore({ ships: { data: shipsList, state: actions.LoadingStates.DONE } });
+    const store = mockStore({
+      ships: { data: shipsList, state: actions.LoadingStates.DONE },
+    });
 
     await store.dispatch(actions.fetchShipsIfNeeded());
     expect(store.getActions().length).toEqual(0);
@@ -96,12 +116,20 @@ describe('Ships Actions test', () => {
     });
 
     const expectedActions = [
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.LOADING },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.LOADING,
+      },
       { type: actions.RECEIVE_SHIPS_DATA, data: shipsList },
-      { type: actions.SET_SHIPS_FETCH_STATE, state: actions.LoadingStates.DONE },
+      {
+        type: actions.SET_SHIPS_FETCH_STATE,
+        state: actions.LoadingStates.DONE,
+      },
     ];
 
-    const store = mockStore({ ships: { data: {}, state: actions.LoadingStates.ERROR } });
+    const store = mockStore({
+      ships: { data: {}, state: actions.LoadingStates.ERROR },
+    });
 
     await store.dispatch(actions.fetchShipsIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);

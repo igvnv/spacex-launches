@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Route,
-  Redirect,
-  Switch,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Route, Redirect, Switch, useRouteMatch } from 'react-router-dom';
 
 import CatalogNavigation from '../../components/CatalogNavigation';
 import Rockets from '../Rockets';

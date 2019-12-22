@@ -10,16 +10,17 @@ const MapLink = ({ position, zoom, children }) => {
   return (
     <>
       {showPosition && (
-        <Modal
-          onClose={() => setShowPosition(false)}
-        >
+        <Modal onClose={() => setShowPosition(false)}>
           <MapPoint position={position} zoom={zoom} />
         </Modal>
       )}
 
       <a
         className="link"
-        onClick={(e) => { e.preventDefault(); setShowPosition(true); }}
+        onClick={(e) => {
+          e.preventDefault();
+          setShowPosition(true);
+        }}
         href={`http://www.google.com/maps/place/${position.lat},${position.lng}`}
       >
         {children}

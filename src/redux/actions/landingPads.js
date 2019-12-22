@@ -29,7 +29,7 @@ export const fetchLandingPads = () => (dispatch) => {
       (error) => {
         console.error(error);
         dispatch(setLandingPadsFetchState(LoadingStates.ERROR));
-      },
+      }
     )
     .then((json) => {
       if (json) {

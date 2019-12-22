@@ -5,13 +5,12 @@ import PropTypes from 'prop-types';
 import { setLaunchesFilterByRocketId } from '../../../redux/actions';
 import { launchesByCurrentTimeline } from '../../../redux/reducers/launches';
 
-export const FilterByRocket = ({
-  launches,
-  filterValue,
-  setFilter,
-}) => {
+export const FilterByRocket = ({ launches, filterValue, setFilter }) => {
   const availableRockets = launches
-    .map((launch) => ({ id: launch.rocket.rocket_id, name: launch.rocket.rocket_name }))
+    .map((launch) => ({
+      id: launch.rocket.rocket_id,
+      name: launch.rocket.rocket_name,
+    }))
     .reduce((rockets, rocket) => {
       if (Object.keys(rockets).includes(rocket)) return rockets;
       return { ...rockets, ...{ [rocket.id]: rocket.name } };
@@ -26,7 +25,11 @@ export const FilterByRocket = ({
           <button
             key={rocketId}
             onClick={() => setFilter(rocketId)}
-            className={filterValue === rocketId ? 'filter-button filter-button_active' : 'filter-button'}
+            className={
+              filterValue === rocketId
+                ? 'filter-button filter-button_active'
+                : 'filter-button'
+            }
             type="button"
           >
             {availableRockets[rocketId]}
@@ -62,4 +65,6 @@ const mapStateToProps = (state) => ({
   launches: launchesByCurrentTimeline(state.launches),
 });
 
-export default connect(mapStateToProps, { setFilter: setLaunchesFilterByRocketId })(FilterByRocket);
+export default connect(mapStateToProps, {
+  setFilter: setLaunchesFilterByRocketId,
+})(FilterByRocket);

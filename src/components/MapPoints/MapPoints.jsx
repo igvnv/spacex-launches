@@ -43,14 +43,15 @@ const MapPoints = ({ points }) => {
   return (
     <MapWrapper onLoad={onMapLoad}>
       <>
-        {points && points.map((point) => (
-          <Marker
-            key={point.id}
-            position={point.position}
-            onLoad={(marker) => markerLoadHandler(marker, point)}
-            onClick={() => marketClickHandler(point)}
-          />
-        ))}
+        {points &&
+          points.map((point) => (
+            <Marker
+              key={point.id}
+              position={point.position}
+              onLoad={(marker) => markerLoadHandler(marker, point)}
+              onClick={() => marketClickHandler(point)}
+            />
+          ))}
         {displayInfo && (
           <InfoWindow
             anchor={mapMarkers[selectedPoint.id]}

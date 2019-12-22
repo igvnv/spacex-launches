@@ -5,11 +5,7 @@ import { Marker } from '@react-google-maps/api';
 import MapWrapper from '../MapWrapper';
 
 const MapPoints = ({ position, zoom }) => (
-  <MapWrapper
-    zoom={zoom}
-    center={position}
-    className="map-container_full-page"
-  >
+  <MapWrapper zoom={zoom} center={position} className="map-container_full-page">
     <Marker position={position} />
   </MapWrapper>
 );

@@ -24,7 +24,9 @@ const payloads = {
 describe('RocketInfo - Payloads', () => {
   describe('optionData method', () => {
     it('returns option data by its name', () => {
-      expect(optionData('composite fairing', payloads)).toEqual(payloads.composite_fairing);
+      expect(optionData('composite fairing', payloads)).toEqual(
+        payloads.composite_fairing
+      );
     });
 
     it('returns NULL when option data is not found', () => {
@@ -35,8 +37,14 @@ describe('RocketInfo - Payloads', () => {
   describe('PayloadOption component', () => {
     it('displays payload name', () => {
       const wrapper = shallow(<PayloadOption name="Dragon" />);
-      expect(wrapper.contains(<dt className="description-list__title">Name</dt>)).toEqual(true);
-      expect(wrapper.contains(<dd className="description-list__description">Dragon</dd>)).toEqual(true);
+      expect(
+        wrapper.contains(<dt className="description-list__title">Name</dt>)
+      ).toEqual(true);
+      expect(
+        wrapper.contains(
+          <dd className="description-list__description">Dragon</dd>
+        )
+      ).toEqual(true);
     });
 
     it('does not display payload height when data is empty', () => {
@@ -50,15 +58,31 @@ describe('RocketInfo - Payloads', () => {
     });
 
     it('displays payload height when data is set', () => {
-      const wrapper = shallow(<PayloadOption name="Dragon" data={payloads.composite_fairing} />);
-      expect(wrapper.contains(<dt className="description-list__title">Height</dt>)).toEqual(true);
-      expect(wrapper.contains(<dd className="description-list__description">13.1 meters</dd>)).toEqual(true);
+      const wrapper = shallow(
+        <PayloadOption name="Dragon" data={payloads.composite_fairing} />
+      );
+      expect(
+        wrapper.contains(<dt className="description-list__title">Height</dt>)
+      ).toEqual(true);
+      expect(
+        wrapper.contains(
+          <dd className="description-list__description">13.1 meters</dd>
+        )
+      ).toEqual(true);
     });
 
     it('displays payload diameter when data is set', () => {
-      const wrapper = shallow(<PayloadOption name="Dragon" data={payloads.composite_fairing} />);
-      expect(wrapper.contains(<dt className="description-list__title">Diameter</dt>)).toEqual(true);
-      expect(wrapper.contains(<dd className="description-list__description">5.2 meters</dd>)).toEqual(true);
+      const wrapper = shallow(
+        <PayloadOption name="Dragon" data={payloads.composite_fairing} />
+      );
+      expect(
+        wrapper.contains(<dt className="description-list__title">Diameter</dt>)
+      ).toEqual(true);
+      expect(
+        wrapper.contains(
+          <dd className="description-list__description">5.2 meters</dd>
+        )
+      ).toEqual(true);
     });
   });
 

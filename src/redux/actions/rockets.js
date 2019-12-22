@@ -29,7 +29,7 @@ export const fetchRockets = () => (dispatch) => {
       (error) => {
         console.error(error);
         dispatch(setRocketsFetchState(LoadingStates.ERROR));
-      },
+      }
     )
     .then((json) => {
       if (json) {

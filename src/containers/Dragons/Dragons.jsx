@@ -17,7 +17,11 @@ export const Dragons = ({ dragons }) => {
   return (
     <div>
       <div className="catalog-filter">
-        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+        <Toggle
+          label="Active only"
+          value={activeOnly}
+          onToggle={setActiveOnly}
+        />
       </div>
 
       <div className="catalog-list">
@@ -39,4 +43,6 @@ const mapStateToProps = (state) => ({
   dragons: state.dragons.data,
 });
 
-export default withLoader(Dragons, mapStateToProps, { fetchMethod: fetchDragonsIfNeeded });
+export default withLoader(Dragons, mapStateToProps, {
+  fetchMethod: fetchDragonsIfNeeded,
+});

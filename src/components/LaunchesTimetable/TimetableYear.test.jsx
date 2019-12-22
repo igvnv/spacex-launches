@@ -3,18 +3,25 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import TimetableYear from './TimetableYear';
-import launchesList, { unsuccessfulLaunch, upcomingLaunch } from '../../../__tests__/data/launches';
+import launchesList, {
+  unsuccessfulLaunch,
+  upcomingLaunch,
+} from '../../../__tests__/data/launches';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const createWrapper = ({ year = 2000, displayLaunch = jest.fn(), launches = [] } = {}) => {
-  const wrapper = shallow((
+const createWrapper = ({
+  year = 2000,
+  displayLaunch = jest.fn(),
+  launches = [],
+} = {}) => {
+  const wrapper = shallow(
     <TimetableYear
       year={year}
       displayLaunch={displayLaunch}
       launches={launches}
     />
-  ));
+  );
 
   return {
     wrapper,
@@ -26,7 +33,12 @@ const createWrapper = ({ year = 2000, displayLaunch = jest.fn(), launches = [] }
 describe('TimetableYear', () => {
   it('displays year label', () => {
     const { wrapper } = createWrapper({ year: 2010 });
-    expect(wrapper.find('.timetable-year__label').first().text()).toBe('2010');
+    expect(
+      wrapper
+        .find('.timetable-year__label')
+        .first()
+        .text()
+    ).toBe('2010');
   });
 
   it('adds .timetable-year_odd for odd years', () => {
@@ -47,7 +59,12 @@ describe('TimetableYear', () => {
   it('selects current month for current year', () => {
     const now = new Date();
     const { wrapper } = createWrapper({ year: now.getFullYear() });
-    expect(wrapper.find('.timetable__month').at(now.getMonth()).hasClass('timetable__month_current')).toEqual(true);
+    expect(
+      wrapper
+        .find('.timetable__month')
+        .at(now.getMonth())
+        .hasClass('timetable__month_current')
+    ).toEqual(true);
   });
 
   it('displays launches', () => {
@@ -74,8 +91,14 @@ describe('TimetableYear', () => {
   it('fires displayLaunch when launch button is focused', () => {
     const target = {};
     const mockedEvent = { target };
-    const { wrapper, displayLaunch } = createWrapper({ year: 2006, launches: launchesList });
-    wrapper.find('.timetable__event').first().simulate('focus', mockedEvent);
+    const { wrapper, displayLaunch } = createWrapper({
+      year: 2006,
+      launches: launchesList,
+    });
+    wrapper
+      .find('.timetable__event')
+      .first()
+      .simulate('focus', mockedEvent);
     expect(displayLaunch.mock.calls.length).toBe(1);
     expect(displayLaunch.mock.calls[0]).toEqual([launchesList[0], target]);
   });

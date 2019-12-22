@@ -5,11 +5,7 @@ import PropTypes from 'prop-types';
 import { setLaunchesFilterByYear } from '../../../redux/actions';
 import { launchesByCurrentTimeline } from '../../../redux/reducers/launches';
 
-export const FilterByYear = ({
-  launches,
-  filterValue,
-  setFilter,
-}) => {
+export const FilterByYear = ({ launches, filterValue, setFilter }) => {
   const availableLaunchesYears = launches
     .map((launch) => launch.launch_year)
     .reduce((years, year) => {
@@ -31,7 +27,11 @@ export const FilterByYear = ({
           <button
             key={year}
             onClick={() => setFilter(year)}
-            className={filterValue === year ? 'filter-button filter-button_active' : 'filter-button'}
+            className={
+              filterValue === year
+                ? 'filter-button filter-button_active'
+                : 'filter-button'
+            }
             type="button"
           >
             {year}
@@ -67,4 +67,6 @@ const mapStateToProps = (state) => ({
   launches: launchesByCurrentTimeline(state.launches),
 });
 
-export default connect(mapStateToProps, { setFilter: setLaunchesFilterByYear })(FilterByYear);
+export default connect(mapStateToProps, { setFilter: setLaunchesFilterByYear })(
+  FilterByYear
+);

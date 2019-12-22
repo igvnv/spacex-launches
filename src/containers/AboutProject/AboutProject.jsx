@@ -6,13 +6,16 @@ function AboutProject() {
       <h1 className="title title_level_1">About project</h1>
 
       <p className="text">
-        The app is based on the
-        {' '}
-        <a className="link" href="https://docs.spacexdata.com/?version=latest">public API</a>
+        The app is based on the{' '}
+        <a className="link" href="https://docs.spacexdata.com/?version=latest">
+          public API
+        </a>
         .
       </p>
       <p className="text">
-        <a className="link" href="https://github.com/igvnv/spacex-launches">Source code.</a>
+        <a className="link" href="https://github.com/igvnv/spacex-launches">
+          Source code.
+        </a>
       </p>
 
       <h2 className="title title_level_2">Goals</h2>

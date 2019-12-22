@@ -16,30 +16,36 @@ export const LaunchPads = ({ launchPads }) => {
     return launchPadsList.filter((r) => r.status === 'active');
   };
 
-  const points = (launchPadsList) => launchPadsList
-    .filter((launchPad) => launchPad.location
-      && launchPad.location.latitude !== null
-      && launchPad.location.longitude != null)
-    .map((launchPad) => ({
-      id: launchPad.id,
-      title: launchPad.location.name,
-      position: {
-        lat: launchPad.location.latitude,
-        lng: launchPad.location.longitude,
-      },
-      description: (
-        <Link to={`/catalog/launch_pads/${launchPad.id}`}>
-          Read more!
-        </Link>
-      ),
-    }));
+  const points = (launchPadsList) =>
+    launchPadsList
+      .filter(
+        (launchPad) =>
+          launchPad.location &&
+          launchPad.location.latitude !== null &&
+          launchPad.location.longitude != null
+      )
+      .map((launchPad) => ({
+        id: launchPad.id,
+        title: launchPad.location.name,
+        position: {
+          lat: launchPad.location.latitude,
+          lng: launchPad.location.longitude,
+        },
+        description: (
+          <Link to={`/catalog/launch_pads/${launchPad.id}`}>Read more!</Link>
+        ),
+      }));
 
   return (
     <div>
       <MapPoints points={points(filterLaunchPads(launchPads))} />
 
       <div className="catalog-filter">
-        <Toggle label="Active only" value={activeOnly} onToggle={setActiveOnly} />
+        <Toggle
+          label="Active only"
+          value={activeOnly}
+          onToggle={setActiveOnly}
+        />
       </div>
 
       <div className="catalog-list">
@@ -61,4 +67,6 @@ const mapStateToProps = (state) => ({
   launchPads: state.launchPads.data,
 });
 
-export default withLoader(LaunchPads, mapStateToProps, { fetchMethod: fetchLaunchPadsIfNeeded });
+export default withLoader(LaunchPads, mapStateToProps, {
+  fetchMethod: fetchLaunchPadsIfNeeded,
+});

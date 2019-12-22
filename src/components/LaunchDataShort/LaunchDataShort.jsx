@@ -13,17 +13,17 @@ const LaunchDataShort = ({ launch }) => {
     <div className="launch-data-short__body">
       <h3 className="title launch-data-short__title">{launch.mission_name}</h3>
 
-      {launch.launch_success !== false ? '' : (
+      {launch.launch_success !== false ? (
+        ''
+      ) : (
         <p className="paragraph launch-data-short__paragraph launch-data-short__failure-details">
-          <strong>Failure details:</strong>
-          {' '}
+          <strong>Failure details: </strong>
           {launch.launch_failure_details.reason}
         </p>
       )}
 
       <p className="paragraph launch-data-short__paragraph">
-        Rocket:
-        {' '}
+        Rocket:{' '}
         <Link
           className="link"
           to={{
@@ -39,9 +39,7 @@ const LaunchDataShort = ({ launch }) => {
         {fullDateFormatter.format(new Date(launch.launch_date_utc))}
       </p>
 
-      <p className="paragraph launch-data-short__paragraph">
-        {launch.details}
-      </p>
+      <p className="paragraph launch-data-short__paragraph">{launch.details}</p>
     </div>
   );
 };

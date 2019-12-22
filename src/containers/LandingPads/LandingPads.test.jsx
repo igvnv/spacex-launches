@@ -11,6 +11,8 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('LandingPads', () => {
   it('displays short info about all landing pads', () => {
     const wrapper = shallow(<LandingPads landingPads={landingPadsData} />);
-    expect(wrapper.find(LandingPadInfoShort).length).toEqual(landingPadsData.length);
+    expect(wrapper.find(LandingPadInfoShort).length).toEqual(
+      landingPadsData.length
+    );
   });
 });
