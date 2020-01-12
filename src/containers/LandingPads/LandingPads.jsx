@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
+import { fetchLandingPadsIfNeeded } from '../../store/actions/landingPads';
 import LandingPadInfoShort from '../../components/LandingPadInfoShort';
 import MapPoints from '../../components/MapPoints';
 import Toggle from '../../components/Toggle';

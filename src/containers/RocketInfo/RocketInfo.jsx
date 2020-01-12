@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import RocketInfo from '../../components/RocketInfo';
-import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
+import { fetchRocketsIfNeeded } from '../../store/actions/rockets';
 import withLoader from '../../hoc/withLoader';
 
 export const RocketInfoContainer = () => {

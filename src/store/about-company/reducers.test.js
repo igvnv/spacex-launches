@@ -1,9 +1,9 @@
-import reducer from './aboutCompany';
+import reducer from './reducers.ts';
 import {
   SET_ABOUT_COMPANY_FETCH_STATE,
   RECEIVE_ABOUT_COMPANY_DATA,
-  LoadingStates,
-} from '../actions';
+} from './types.ts';
+import { LOADING_ERROR } from '../types.ts';
 
 describe('aboutCompany reducers', () => {
   it('should return the initial state', () => {
@@ -19,10 +19,10 @@ describe('aboutCompany reducers', () => {
         { state: null },
         {
           type: SET_ABOUT_COMPANY_FETCH_STATE,
-          state: LoadingStates.ERROR,
+          state: LOADING_ERROR,
         }
       )
-    ).toEqual({ state: LoadingStates.ERROR });
+    ).toEqual({ state: LOADING_ERROR });
   });
 
   it('should handle RECEIVE_ABOUT_COMPANY_DATA', () => {

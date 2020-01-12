@@ -1,10 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ElementType } from 'react';
 import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import Loader from '../components/Loader/Loader';
 import LoadingError from '../components/LoadingError/LoadingError';
-import { LoadingStates } from '../redux/actions';
+import { LoadingStates } from '../store/actions';
+import { AppState, AppActions } from '../store/reducers';
+import loadingStates from '../store/types';
+
+export interface WithLoaderStateProps {
+  loadingState: loadingStates | null;
+  [key: string]: any;
+}
+
+export interface WithLoaderDispatchProps {
+  fetchMethod: () => void;
+}
+
+interface OwnProps {}
+
+type Props = WithLoaderStateProps & WithLoaderDispatchProps & OwnProps;
+
+interface WithLoaderState {}
 
 /**
  * HOC for `WrappedComponent` with loader function and loading status.
@@ -22,8 +39,16 @@ import { LoadingStates } from '../redux/actions';
  * @param mapStateToProps
  * @param mapDispatchToProps
  */
-function withLoader(WrappedComponent, mapStateToProps, mapDispatchToProps) {
-  class WithLoader extends React.Component {
+function withLoader(
+  WrappedComponent: ElementType,
+  mapStateToProps: (state: any, ownProps: any) => WithLoaderStateProps,
+  // mapStateToProps: (state: AppState, ownProps: any) => WithLoaderStateProps,
+  mapDispatchToProps: (
+    dispatch: ThunkDispatch<AppState, null, AppActions>,
+    ownProps: any
+  ) => WithLoaderDispatchProps
+) {
+  class WithLoader extends React.Component<Props, WithLoaderState> {
     componentDidMount() {
       const { fetchMethod } = this.props;
       fetchMethod();
@@ -44,15 +69,10 @@ function withLoader(WrappedComponent, mapStateToProps, mapDispatchToProps) {
     }
   }
 
-  WithLoader.defaultProps = {
-    loadingState: null,
-  };
-  WithLoader.propTypes = {
-    fetchMethod: PropTypes.func.isRequired,
-    loadingState: PropTypes.string,
-  };
-
-  return connect(mapStateToProps, mapDispatchToProps)(WithLoader);
+  return connect<WithLoaderStateProps, WithLoaderDispatchProps, OwnProps>(
+    mapStateToProps,
+    mapDispatchToProps
+  )(WithLoader);
 }
 
 export default withLoader;

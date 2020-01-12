@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
-import { rocketById } from '../../redux/reducers/rockets';
+import { fetchRocketsIfNeeded } from '../../store/actions/rockets';
+import { rocketById } from '../../store/reducers/rockets';
 import { numberFormatter, priceFormatter } from '../../helpers/formatters';
 import Payloads from './Payloads';
 

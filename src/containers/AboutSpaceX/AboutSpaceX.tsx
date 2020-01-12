@@ -1,14 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ThunkDispatch } from 'redux-thunk';
+import { bindActionCreators } from 'redux';
 
 import { numberFormatter, priceFormatter } from '../../helpers/formatters';
-import withLoader from '../../hoc/withLoader';
-import { fetchAboutCompanyDataIfNeeded } from '../../redux/actions';
+import withLoader, {
+  WithLoaderDispatchProps,
+  WithLoaderStateProps,
+} from '../../hoc/withLoader';
+import { fetchAboutCompanyDataIfNeeded } from '../../store/actions';
+import AboutCompany from '../../models/about-company';
+import { AppState, AppActions } from '../../store/reducers';
 
-/* eslint camelcase: 0 */
-export function AboutSpaceX({ data }) {
-  if (!data) return null;
+type AboutSpaceXProps = {
+  info: AboutCompany;
+  children: never;
+};
 
+export function AboutSpaceX(props: AboutSpaceXProps) {
   const {
     name,
     founder,
@@ -24,7 +32,7 @@ export function AboutSpaceX({ data }) {
     valuation,
     headquarters,
     summary,
-  } = data;
+  } = props.info;
 
   return (
     <div>
@@ -93,38 +101,20 @@ export function AboutSpaceX({ data }) {
     </div>
   );
 }
-AboutSpaceX.defaultProps = {
-  data: null,
+
+type LinkStateProp = WithLoaderStateProps & {
+  info: AboutCompany | null;
 };
 
-AboutSpaceX.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    founder: PropTypes.string.isRequired,
-    founded: PropTypes.number.isRequired,
-    employees: PropTypes.number.isRequired,
-    vehicles: PropTypes.number.isRequired,
-    launch_sites: PropTypes.number.isRequired,
-    test_sites: PropTypes.number.isRequired,
-    ceo: PropTypes.string.isRequired,
-    cto: PropTypes.string.isRequired,
-    coo: PropTypes.string.isRequired,
-    cto_propulsion: PropTypes.string.isRequired,
-    valuation: PropTypes.number.isRequired,
-    headquarters: PropTypes.shape({
-      address: PropTypes.string.isRequired,
-      city: PropTypes.string.isRequired,
-      state: PropTypes.string.isRequired,
-    }).isRequired,
-    summary: PropTypes.string.isRequired,
-  }),
-};
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppState): LinkStateProp => ({
   loadingState: state.aboutCompany.state,
-  data: state.aboutCompany.data,
+  info: state.aboutCompany.data,
 });
 
-export default withLoader(AboutSpaceX, mapStateToProps, {
-  fetchMethod: fetchAboutCompanyDataIfNeeded,
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<AppState, null, AppActions>
+): WithLoaderDispatchProps => ({
+  fetchMethod: bindActionCreators(fetchAboutCompanyDataIfNeeded, dispatch),
 });
+
+export default withLoader(AboutSpaceX, mapStateToProps, mapDispatchToProps);

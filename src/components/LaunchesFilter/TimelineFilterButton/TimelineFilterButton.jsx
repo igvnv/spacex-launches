@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setLaunchesTimeline } from '../../../redux/actions';
+import { setLaunchesTimeline } from '../../../store/actions';
 
 export function TimelineFilterButton({
   setFilter,

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { setLaunchesFilterBySuccess } from '../../../redux/actions';
+import { setLaunchesFilterBySuccess } from '../../../store/actions';
 
 export const FilterBySuccess = ({ filterValue, setFilter }) => (
   <>

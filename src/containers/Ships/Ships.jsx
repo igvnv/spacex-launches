@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchShipsIfNeeded } from '../../redux/actions/ships';
+import { fetchShipsIfNeeded } from '../../store/actions/ships';
 import ShipInfoShort from '../../components/ShipInfoShort';
 import ShipCourse from '../../components/ShipCourse';
 import MapPoints from '../../components/MapPoints';

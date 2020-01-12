@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import LandingPadInfo from '../../components/LandingPadInfo';
-import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
+import { fetchLandingPadsIfNeeded } from '../../store/actions/landingPads';
 import withLoader from '../../hoc/withLoader';
 
 export const LandingPadInfoContainer = () => {

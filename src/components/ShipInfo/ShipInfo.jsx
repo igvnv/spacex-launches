@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchShipsIfNeeded } from '../../redux/actions/ships';
-import { shipById } from '../../redux/reducers/ships';
+import { fetchShipsIfNeeded } from '../../store/actions/ships';
+import { shipById } from '../../store/reducers/ships';
 import ShipCourse from '../ShipCourse';
 import HeroHeader from '../HeroHeader';
 import MapLink from '../MapLink';

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { setLaunchesFilterByRocketId } from '../../../redux/actions';
-import { launchesByCurrentTimeline } from '../../../redux/reducers/launches';
+import { setLaunchesFilterByRocketId } from '../../../store/actions';
+import { launchesByCurrentTimeline } from '../../../store/reducers/launches';
 
 export const FilterByRocket = ({ launches, filterValue, setFilter }) => {
   const availableRockets = launches

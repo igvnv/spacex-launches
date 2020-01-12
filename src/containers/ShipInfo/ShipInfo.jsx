@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import ShipInfo from '../../components/ShipInfo';
-import { fetchShipsIfNeeded } from '../../redux/actions/ships';
+import { fetchShipsIfNeeded } from '../../store/actions/ships';
 import withLoader from '../../hoc/withLoader';
 
 export const ShipInfoContainer = () => {

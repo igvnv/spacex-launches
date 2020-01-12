@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
+import { fetchLaunchPadsIfNeeded } from '../../store/actions/launchPads';
 import LaunchPadInfoShort from '../../components/LaunchPadInfoShort';
 import MapPoints from '../../components/MapPoints';
 import Toggle from '../../components/Toggle';

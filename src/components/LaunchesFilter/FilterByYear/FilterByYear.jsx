@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { setLaunchesFilterByYear } from '../../../redux/actions';
-import { launchesByCurrentTimeline } from '../../../redux/reducers/launches';
+import { setLaunchesFilterByYear } from '../../../store/actions';
+import { launchesByCurrentTimeline } from '../../../store/reducers/launches';
 
 export const FilterByYear = ({ launches, filterValue, setFilter }) => {
   const availableLaunchesYears = launches

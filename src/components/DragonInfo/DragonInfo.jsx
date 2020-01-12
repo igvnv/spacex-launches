@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchDragonsIfNeeded } from '../../redux/actions/dragons';
-import { dragonById } from '../../redux/reducers/dragons';
+import { fetchDragonsIfNeeded } from '../../store/actions/dragons';
+import { dragonById } from '../../store/reducers/dragons';
 import { numberFormatter, shortDateFormatter } from '../../helpers/formatters';
 
 export const DragonInfo = ({ dragon, dragonId }) => {

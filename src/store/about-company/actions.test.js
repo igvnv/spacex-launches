@@ -1,7 +1,21 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import * as actions from '../actions';
+import {
+  fetchAboutCompanyData,
+  fetchAboutCompanyDataIfNeeded,
+  receiveAboutCompanyData,
+  setAboutCompanyFetchState,
+} from './actions.ts';
+import {
+  RECEIVE_ABOUT_COMPANY_DATA,
+  SET_ABOUT_COMPANY_FETCH_STATE,
+} from './types.ts';
+import {
+  LOADING_ERROR,
+  LOADING_IN_PROCESS,
+  LOADING_IS_DONE,
+} from '../types.ts';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -12,23 +26,23 @@ describe('AboutCompany actions', () => {
 
   test('setAboutCompanyFetchState action', () => {
     const expectedAction = {
-      type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-      state: actions.LoadingStates.LOADING,
+      type: SET_ABOUT_COMPANY_FETCH_STATE,
+      state: LOADING_IN_PROCESS,
     };
 
-    expect(
-      actions.setAboutCompanyFetchState(actions.LoadingStates.LOADING)
-    ).toEqual(expectedAction);
+    expect(setAboutCompanyFetchState(LOADING_IN_PROCESS)).toEqual(
+      expectedAction
+    );
   });
 
   test('receiveAboutCompanyData action', () => {
     const data = { test: 'data' };
     const expectedAction = {
-      type: actions.RECEIVE_ABOUT_COMPANY_DATA,
+      type: RECEIVE_ABOUT_COMPANY_DATA,
       data,
     };
 
-    expect(actions.receiveAboutCompanyData(data)).toEqual(expectedAction);
+    expect(receiveAboutCompanyData(data)).toEqual(expectedAction);
   });
 
   test('fetchAboutCompanyData action', async () => {
@@ -39,22 +53,22 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.LOADING,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IN_PROCESS,
       },
       {
-        type: actions.RECEIVE_ABOUT_COMPANY_DATA,
+        type: RECEIVE_ABOUT_COMPANY_DATA,
         data: { name: 'name', founder: 'founder', founded: 2002 },
       },
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.DONE,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IS_DONE,
       },
     ];
 
     const store = mockStore({ aboutCompany: { data: {}, state: null } });
 
-    await store.dispatch(actions.fetchAboutCompanyData());
+    await store.dispatch(fetchAboutCompanyData());
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -63,18 +77,18 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.LOADING,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IN_PROCESS,
       },
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.ERROR,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_ERROR,
       },
     ];
 
     const store = mockStore({ aboutCompany: { data: {}, state: null } });
 
-    return store.dispatch(actions.fetchAboutCompanyData()).then(() => {
+    return store.dispatch(fetchAboutCompanyData()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -87,31 +101,31 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.LOADING,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IN_PROCESS,
       },
       {
-        type: actions.RECEIVE_ABOUT_COMPANY_DATA,
+        type: RECEIVE_ABOUT_COMPANY_DATA,
         data: { name: 'name', founder: 'founder', founded: 2002 },
       },
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.DONE,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IS_DONE,
       },
     ];
 
     const store = mockStore({ aboutCompany: { data: {}, state: null } });
 
-    await store.dispatch(actions.fetchAboutCompanyDataIfNeeded());
+    await store.dispatch(fetchAboutCompanyDataIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);
   });
 
   test('fetchAboutCompanyDataIfNeeded does not fetch data again after successful fetch', async () => {
     const store = mockStore({
-      aboutCompany: { data: {}, state: actions.LoadingStates.DONE },
+      aboutCompany: { data: {}, state: LOADING_IS_DONE },
     });
 
-    await store.dispatch(actions.fetchAboutCompanyDataIfNeeded());
+    await store.dispatch(fetchAboutCompanyDataIfNeeded());
     expect(store.getActions().length).toEqual(0);
   });
 
@@ -123,24 +137,24 @@ describe('AboutCompany actions', () => {
 
     const expectedActions = [
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.LOADING,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IN_PROCESS,
       },
       {
-        type: actions.RECEIVE_ABOUT_COMPANY_DATA,
+        type: RECEIVE_ABOUT_COMPANY_DATA,
         data: { name: 'name', founder: 'founder', founded: 2002 },
       },
       {
-        type: actions.SET_ABOUT_COMPANY_FETCH_STATE,
-        state: actions.LoadingStates.DONE,
+        type: SET_ABOUT_COMPANY_FETCH_STATE,
+        state: LOADING_IS_DONE,
       },
     ];
 
     const store = mockStore({
-      aboutCompany: { data: {}, state: actions.LoadingStates.ERROR },
+      aboutCompany: { data: {}, state: LOADING_ERROR },
     });
 
-    await store.dispatch(actions.fetchAboutCompanyDataIfNeeded());
+    await store.dispatch(fetchAboutCompanyDataIfNeeded());
     expect(store.getActions()).toEqual(expectedActions);
   });
 });

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
-import { rocketById } from '../../redux/reducers/rockets';
+import { fetchRocketsIfNeeded } from '../../store/actions/rockets';
+import { rocketById } from '../../store/reducers/rockets';
 import { numberFormatter } from '../../helpers/formatters';
 
 export const RocketInfoShort = ({ rocket, rocketId }) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchRocketsIfNeeded } from '../../redux/actions/rockets';
+import { fetchRocketsIfNeeded } from '../../store/actions/rockets';
 import RocketInfoShort from '../../components/RocketInfoShort';
 import Toggle from '../../components/Toggle';
 

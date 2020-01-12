@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
-import { launchPadById } from '../../redux/reducers/launchPads';
+import { fetchLaunchPadsIfNeeded } from '../../store/actions/launchPads';
+import { launchPadById } from '../../store/reducers/launchPads';
 
 export const LaunchPadInfoShort = ({ launchPad, launchPadId }) => (
   <div>

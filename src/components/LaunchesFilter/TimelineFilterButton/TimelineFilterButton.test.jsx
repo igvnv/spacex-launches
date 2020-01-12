@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { LaunchesTimeline } from '../../../redux/actions';
+import { LaunchesTimeline } from '../../../store/actions';
 import { TimelineFilterButton } from './TimelineFilterButton';
 
 Enzyme.configure({ adapter: new Adapter() });

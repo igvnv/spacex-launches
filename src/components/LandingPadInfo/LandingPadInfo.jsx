@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLandingPadsIfNeeded } from '../../redux/actions/landingPads';
-import { landingPadById } from '../../redux/reducers/landingPads';
+import { fetchLandingPadsIfNeeded } from '../../store/actions/landingPads';
+import { landingPadById } from '../../store/reducers/landingPads';
 import MapLink from '../MapLink';
 
 export const LandingPadInfo = ({ landingPad, landingPadId }) => {

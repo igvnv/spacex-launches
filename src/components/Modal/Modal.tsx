@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {
+  KeyboardEvent,
+  MouseEvent,
+  ReactNode,
+  ReactPortal,
+} from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
+import { KEY_ENTER, KEY_SPACE } from 'keycode-js';
 
 import usePortal from '../../hooks/usePortal';
 
-const Modal = ({ children, onClose }) => {
+type ModalProps = {
+  children: ReactNode;
+  onClose: (event: MouseEvent | KeyboardEvent) => void;
+};
+
+const Modal = (props: ModalProps): ReactPortal => {
+  const { children, onClose } = props;
   const target = usePortal('modal');
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if ([KEY_ENTER, KEY_SPACE].includes(e.keyCode)) {
+      onClose(e);
+    }
+  };
 
   return createPortal(
     <>
@@ -16,16 +33,13 @@ const Modal = ({ children, onClose }) => {
           type="button"
           aria-label="Close window"
           onClick={onClose}
+          onKeyDown={onKeyDown}
         />
         <div className="modal__body">{children}</div>
       </div>
     </>,
     target
   );
-};
-Modal.propTypes = {
-  children: PropTypes.element.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
-import { launchPadById } from '../../redux/reducers/launchPads';
+import { fetchLaunchPadsIfNeeded } from '../../store/actions/launchPads';
+import { launchPadById } from '../../store/reducers/launchPads';
 import MapLink from '../MapLink';
 
 export const LaunchPadInfo = ({ launchPad, launchPadId }) => {

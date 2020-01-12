@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import LaunchPadInfo from '../../components/LaunchPadInfo';
-import { fetchLaunchPadsIfNeeded } from '../../redux/actions/launchPads';
+import { fetchLaunchPadsIfNeeded } from '../../store/actions/launchPads';
 import withLoader from '../../hoc/withLoader';
 
 export const LaunchPadInfoContainer = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import DragonInfo from '../../components/DragonInfo';
-import { fetchDragonsIfNeeded } from '../../redux/actions/dragons';
+import { fetchDragonsIfNeeded } from '../../store/actions/dragons';
 import withLoader from '../../hoc/withLoader';
 
 export const DragonInfoContainer = () => {

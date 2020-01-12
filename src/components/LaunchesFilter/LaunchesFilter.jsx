@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LaunchesTimeline } from '../../redux/actions';
+import { LaunchesTimeline } from '../../store/actions';
 import TimelineFilterButton from './TimelineFilterButton';
 import FilterByYear from './FilterByYear';
 import FilterByRocket from './FilterByRocket';

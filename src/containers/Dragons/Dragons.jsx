@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchDragonsIfNeeded } from '../../redux/actions/dragons';
+import { fetchDragonsIfNeeded } from '../../store/actions/dragons';
 import DragonInfoShort from '../../components/DragonInfoShort';
 import Toggle from '../../components/Toggle';
 

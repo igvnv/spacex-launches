@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withLoader from '../../hoc/withLoader';
-import { fetchLaunchesIfNeeded } from '../../redux/actions';
-import { filterLaunches } from '../../redux/reducers/launches';
+import { fetchLaunchesIfNeeded } from '../../store/actions';
+import { filterLaunches } from '../../store/reducers/launches';
 import LaunchesFilter from '../../components/LaunchesFilter';
 import NoLaunchesFound from '../../components/NoLaunchesFound/NoLaunchesFound';
 import LaunchesTimetable from '../../components/LaunchesTimetable';
