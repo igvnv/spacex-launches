@@ -13,7 +13,7 @@
     "babel-eslint": "^10.0.3",
     "cross-fetch": "^3.0.4",
     "keycode-js": "^2.0.3",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
